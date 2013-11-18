@@ -1,0 +1,14 @@
+Source: openmediavault-downloader
+Section: misc
+Priority: optional
+Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
+Build-Depends: debhelper (>= 7 )
+Standards-Version: 3.9.3
+Homepage: http://omv-extras.org/
+
+Package: openmediavault-downloader
+Architecture: all
+Depends: ${misc:Depends}, python, wget, openmediavault (>= 0.5)
+Description: OpenMediaVault downloader plugin
+ Plugin to download files using wget or youtube videos using 
+ youtube-dl.

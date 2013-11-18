@@ -1,0 +1,320 @@
+/**
+ * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * copyright  (c) 2013 OpenMediaVault Plugin Developers
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ */
+// require("js/omv/WorkspaceManager.js")
+// require("js/omv/workspace/grid/Panel.js")
+// require("js/omv/workspace/window/Form.js")
+// require("js/omv/workspace/window/plugin/ConfigObject.js")
+// require("js/omv/util/Format.js")
+// require("js/omv/Rpc.js")
+// require("js/omv/data/Store.js")
+// require("js/omv/data/Model.js")
+// require("js/omv/data/proxy/Rpc.js")
+// require("js/omv/form/field/SharedFolderComboBox.js")
+
+/**
+ * @class OMV.module.admin.service.downloader.Download
+ * @derived OMV.workspace.window.Form
+ */
+Ext.define("OMV.module.admin.service.downloader.Download", {
+    extend   : "OMV.workspace.window.Form",
+    requires : [
+        "OMV.workspace.window.plugin.ConfigObject"
+    ],
+
+    rpcService   : "Downloader",
+    rpcGetMethod : "getDownload",
+    rpcSetMethod : "setDownload",
+    plugins      : [{
+        ptype : "configobject"
+    }],
+
+    getFormItems: function() {
+        var me = this;
+        return [{
+            xtype         : "combo",
+            name          : "dltype",
+            fieldLabel    : _("Download Type"),
+            queryMode     : "local",
+            store         : [
+                [ "wget", _("wget") ],
+                [ "youtube-dl", _("youtube-dl") ]
+            ],
+            editable      : false,
+            triggerAction : "all",
+            value         : ""
+        },{
+            xtype         : "textfield",
+            name          : "filename",
+            fieldLabel    : _("Filename"),
+            allowBlank    : false,
+            plugins       : [{
+                ptype : "fieldinfo",
+                text  : _("Saves download as this filename.")
+            }]
+        },{
+            xtype         : "textfield",
+            name          : "url",
+            fieldLabel    : _("URL"),
+            allowBlank    : false
+        },{
+            xtype         : "sharedfoldercombo",
+            name          : "sharedfolderref",
+            fieldLabel    : _("Shared Folder"),
+            readOnly      : (me.uuid !== OMV.UUID_UNDEFINED),
+            plugins       : [{
+                ptype : "fieldinfo",
+                text  : _("Downloads to this shared folder")
+            }]
+        },{
+            xtype         : "checkbox",
+            name          : "delete",
+            fieldLabel    : _("Delete"),
+            checked       : false,
+            plugins       : [{
+                ptype : "fieldinfo",
+                text  : _("Delete from list of downloads after file is downloaded")
+            }]
+        }];
+    }
+});
+
+/**
+ * @class OMV.module.admin.service.downloader.Downloads
+ * @derived OMV.workspace.grid.Panel
+ */
+Ext.define("OMV.module.admin.service.downloader.Downloads", {
+    extend   : "OMV.workspace.grid.Panel",
+    requires : [
+        "OMV.Rpc",
+        "OMV.data.Store",
+        "OMV.data.Model",
+        "OMV.data.proxy.Rpc",
+        "OMV.util.Format"
+    ],
+    uses     : [
+        "OMV.module.admin.service.downloader.Download"
+    ],
+
+    hidePagingToolbar : false,
+    autoReload        : true,
+    stateful          : true,
+    stateId           : "a982a76d-6804-1632-a31b-8b48c0ea6dde",
+    columns           : [{
+        text        : _("Download Type"),
+        sortable    : true,
+        dataIndex   : "dltype",
+        stateId     : "dltype"
+    },{
+        text        : _("Filename"),
+        sortable    : true,
+        dataIndex   : "filename",
+        stateId     : "filename"
+    },{
+        text        : _("URL"),
+        sortable    : true,
+        dataIndex   : "url",
+        stateId     : "url"
+    },{
+        text        : _("Shared Folder"),
+        sortable    : true,
+        dataIndex   : "sharedfoldername",
+        stateId     : "sharedfoldername"
+    },{
+        text        : _("Delete after Download"),
+        sortable    : true,
+        dataIndex   : "delete",
+        stateId     : "delete",
+        renderer: function (value) {
+            var content;
+            if ( value )
+                content = _("Yes");
+            else
+                content = _("No");
+            return content;
+        }
+    }],
+
+    initComponent: function() {
+        var me = this;
+        Ext.apply(me, {
+            store : Ext.create("OMV.data.Store", {
+                autoLoad : true,
+                model    : OMV.data.Model.createImplicit({
+                    idProperty : "uuid",
+                    fields     : [
+                        { name : "uuid", type: "string" },
+                        { name : "dltype", type: "string" },
+                        { name : "filename", type: "string" },
+                        { name : "url", type: "string" },
+                        { name : "sharedfoldername", type: "string" },
+                        { name : "delete", type: "boolean" },
+                    ]
+                }),
+                proxy    : {
+                    type    : "rpc",
+                    rpcData : {
+                        service : "Downloader",
+                        method  : "getDownloads"
+                    }
+                }
+            })
+        });
+        me.callParent(arguments);
+    },
+
+    getTopToolbarItems: function() {
+        var me = this;
+        var items = me.callParent(arguments);
+
+        Ext.Array.insert(items, 2, [{
+            id       : me.getId() + "-download",
+            xtype    : "button",
+            text     : _("Download"),
+            icon     : "images/download.png",
+            iconCls  : Ext.baseCSSPrefix + "btn-icon-16x16",
+            handler  : Ext.Function.bind(me.onDownloadButton, me, [ me ]),
+            scope    : me,
+            disabled : true
+        },{
+            id       : me.getId() + "-silent",
+            xtype    : "button",
+            text     : _("Silent"),
+            icon     : "images/download.png",
+            iconCls  : Ext.baseCSSPrefix + "btn-icon-16x16",
+            handler  : Ext.Function.bind(me.onSilentButton, me, [ me ]),
+            scope    : me,
+            disabled : true
+        }]);
+        return items;
+    },
+
+    onSelectionChange: function(model, records) {
+        var me = this;
+        me.callParent(arguments);
+
+        var tbarDownloadCtrl = me.queryById(me.getId() + "-download");
+        var tbarSilentCtrl = me.queryById(me.getId() + "-silent");
+        if(records.length <= 0) {
+            tbarDownloadCtrl.disable();
+            tbarSilentCtrl.disable();
+        } else if(records.length == 1) {
+            tbarDownloadCtrl.enable();
+            tbarSilentCtrl.enable();
+        } else {
+            tbarDownloadCtrl.disable();
+            tbarSilentCtrl.disable();
+        }
+    },
+
+    onAddButton: function() {
+        var me = this;
+        Ext.create("OMV.module.admin.service.downloader.Download", {
+            title     : _("Add download"),
+            uuid      : OMV.UUID_UNDEFINED,
+            listeners : {
+                scope  : me,
+                submit : function() {
+                    this.doReload();
+                }
+            }
+        }).show();
+    },
+
+    onEditButton: function() {
+        var me = this;
+        var record = me.getSelected();
+        Ext.create("OMV.module.admin.service.downloader.Download", {
+            title     : _("Edit download"),
+            uuid      : record.get("uuid"),
+            listeners : {
+                scope  : me,
+                submit : function() {
+                    this.doReload();
+                }
+            }
+        }).show();
+    },
+
+    doDeletion: function(record) {
+        var me = this;
+        OMV.Rpc.request({
+            scope    : me,
+            callback : me.onDeletion,
+            rpcData  : {
+                service : "Downloader",
+                method  : "deleteDownload",
+                params  : {
+                    uuid : record.get("uuid")
+                }
+            }
+        });
+    },
+
+    onDownloadButton: function() {
+        var me = this;
+        var record = me.getSelected();
+        Ext.create("OMV.window.Execute", {
+            title      : _("Download file"),
+            rpcService : "Downloader",
+            rpcMethod  : "doDownload",
+            rpcParams  : {
+                uuid : record.get("uuid")
+            },
+            listeners  : {
+                scope     : me,
+                submit : function() {
+                    this.doReload();
+                },
+                exception : function(wnd, error) {
+                    OMV.MessageBox.error(null, error);
+                }
+            }
+        }).show();
+    },
+
+    onSilentButton: function() {
+        var me = this;
+        var record = me.getSelected();
+        OMV.Rpc.request({
+            scope    : me,
+            rpcData  : {
+                service : "Downloader",
+                method  : "doSilent",
+                params  : {
+                    uuid : record.get("uuid")
+                }
+            }
+        });
+    }
+});
+
+OMV.WorkspaceManager.registerNode({
+    id      : "downloader",
+    path    : "/service",
+    text    : _("Downloader"),
+    icon16  : "images/downloader.png",
+    iconSvg : "images/downloader.svg"
+});
+
+OMV.WorkspaceManager.registerPanel({
+    id        : "downloads",
+    path      : "/service/downloader",
+    text      : _("Downloads"),
+    position  : 10,
+    className : "OMV.module.admin.service.downloader.Downloads"
+});
