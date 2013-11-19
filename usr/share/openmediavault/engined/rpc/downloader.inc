@@ -330,18 +330,18 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         switch ($dltype)
         {
             case "curl":
-                $cmd = "/usr/bin/curl -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                $cmd = "/usr/bin/curl -s -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                 break;
 
             case "youtube-dl":
-                $cmd = "/usr/local/bin/youtube-dl --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                $cmd = "/usr/local/bin/youtube-dl -q --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                 break;
 
             default:
                 if ( strlen($filename) > 0 )
-                    $cmd = "/usr/bin/aria2c -d \"$dir/$path/\" -o \"$filename\" \"$url\" 2>&1";
+                    $cmd = "/usr/bin/aria2c -q -d \"$dir/$path/\" -o \"$filename\" \"$url\" 2>&1";
                 else
-                    $cmd = "/usr/bin/aria2c -d \"$dir/$path/\" \"$url\" 2>&1";
+                    $cmd = "/usr/bin/aria2c -q -d \"$dir/$path/\" \"$url\" 2>&1";
         }
 
         if(0 !== $this->exec($cmd, $output)) {
