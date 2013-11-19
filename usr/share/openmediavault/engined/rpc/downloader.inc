@@ -128,7 +128,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             "properties" : {
                 "uuid"            : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].' },
                 "dltype"          : { "type" : "string" },
-                "filename"        : { "type" : "string" },
+                "filename"        : { "type" : "string", "optional" : true },
                 "url"             : { "type" : "string" },
                 "sharedfolderref" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].' },
                 "delete"          : { "type" : "boolean" }
@@ -254,13 +254,17 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
                 case "curl":
                     $cmd = "/usr/bin/curl -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                     break;
-                    
+
                 case "youtube-dl":
                     $cmd = "/usr/local/bin/youtube-dl --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                     break;
 
                 default:
-                    $cmd = "/usr/bin/aria2c -d \"$dir/$path/\" -o \"$filename\" \"$url\" 2>&1";
+                    if ( strlen($filename) > 0 )
+                        $cmd = "/usr/bin/aria2c -d \"$dir/$path/\" -o \"$filename\" \"$url\" 2>&1";
+                    else
+                        $cmd = "/usr/bin/aria2c -d \"$dir/$path/\" \"$url\" 2>&1";
+
             }
 
             $this->exec($cmd, $output, $bgOutputFilename);
@@ -325,12 +329,19 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
 
         switch ($dltype)
         {
+            case "curl":
+                $cmd = "/usr/bin/curl -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                break;
+
             case "youtube-dl":
-                $cmd = "/usr/local/bin/youtube-dl -q -o \"$dir/$path/$filename\" \"$url\" > /dev/null 2>&1";
+                $cmd = "/usr/local/bin/youtube-dl --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                 break;
 
             default:
-                $cmd = "/usr/bin/wget --no-check-certificate -O \"/tmp/wget_output.log\" -o \"$dir/$path/$filename\" \"$url\"";
+                if ( strlen($filename) > 0 )
+                    $cmd = "/usr/bin/aria2c -d \"$dir/$path/\" -o \"$filename\" \"$url\" 2>&1";
+                else
+                    $cmd = "/usr/bin/aria2c -d \"$dir/$path/\" \"$url\" 2>&1";
         }
 
         if(0 !== $this->exec($cmd, $output)) {
