@@ -51,7 +51,8 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
             fieldLabel    : _("Download Type"),
             queryMode     : "local",
             store         : [
-                [ "wget", _("wget") ],
+                [ "aria2", _("aria2") ],
+                [ "curl", _("curl") ],
                 [ "youtube-dl", _("youtube-dl") ]
             ],
             editable      : false,

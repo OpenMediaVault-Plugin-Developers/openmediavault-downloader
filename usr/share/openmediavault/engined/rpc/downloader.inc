@@ -251,12 +251,16 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
 
             switch ($dltype)
             {
+                case "curl":
+                    $cmd = "/usr/bin/curl -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                    break;
+                    
                 case "youtube-dl":
                     $cmd = "/usr/local/bin/youtube-dl --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                     break;
 
                 default:
-                    $cmd = "/usr/bin/wget --no-check-certificate -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                    $cmd = "/usr/bin/aria2c -d \"$dir/$path/\" -o \"$filename\" \"$url\" 2>&1";
             }
 
             $this->exec($cmd, $output, $bgOutputFilename);

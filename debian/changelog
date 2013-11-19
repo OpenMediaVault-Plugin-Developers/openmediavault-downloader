@@ -1,7 +1,14 @@
+openmediavault-downloader (0.5.1) stable; urgency=low
+
+  * Remove wget option
+  * Add curl option
+  * Add aria2 option
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Tue, 19 Nov 2013 07:15:27 -0500
+ 
 openmediavault-downloader (0.5.0) stable; urgency=low
 
   * Initial release
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 18 Nov 2013 12:51:27 -0500
 
- 

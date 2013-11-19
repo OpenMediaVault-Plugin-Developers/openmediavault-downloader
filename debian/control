@@ -8,7 +8,7 @@ Homepage: http://omv-extras.org/
 
 Package: openmediavault-downloader
 Architecture: all
-Depends: ${misc:Depends}, python, wget, openmediavault (>= 0.5)
+Depends: ${misc:Depends}, python, curl, aria2, openmediavault (>= 0.5)
 Description: OpenMediaVault downloader plugin
  Plugin to download files using wget or youtube videos using 
  youtube-dl.
