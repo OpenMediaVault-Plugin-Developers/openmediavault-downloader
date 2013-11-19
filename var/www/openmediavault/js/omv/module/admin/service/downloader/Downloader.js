@@ -36,6 +36,22 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
         "OMV.workspace.window.plugin.ConfigObject"
     ],
 
+    plugins: [{
+        ptype        : "linkedfields",
+        correlations : [{
+            name : [
+                "filename"
+            ],
+            conditions : [{
+                name  : "dltype",
+                value : "aria2"
+            }],
+            properties : [
+                "allowBlank"
+            ]
+        }]
+    }],
+    
     rpcService   : "Downloader",
     rpcGetMethod : "getDownload",
     rpcSetMethod : "setDownload",
