@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-downloader\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-07 12:03-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Add download"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete after Download"
+msgstr ""
+
+msgid "Delete from list of downloads after file is downloaded"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Download Type"
+msgstr ""
+
+msgid "Download file"
+msgstr ""
+
+msgid "Downloader"
+msgstr ""
+
+msgid "Downloads"
+msgstr ""
+
+msgid "Downloads to this shared folder"
+msgstr ""
+
+msgid "Edit download"
+msgstr ""
+
+msgid "Filename"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Saves download as this filename."
+msgstr ""
+
+msgid "Shared Folder"
+msgstr ""
+
+msgid "Silent"
+msgstr ""
+
+msgid "URL"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "aria2"
+msgstr ""
+
+msgid "curl"
+msgstr ""
+
+msgid "n/a"
+msgstr ""
+
+msgid "youtube-dl"
+msgstr ""
