@@ -1,19 +1,19 @@
 /**
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
- * copyright  (c) 2013 OpenMediaVault Plugin Developers
+ * copyright  (c) 2013-2014 OpenMediaVault Plugin Developers
  *
- * OpenMediaVault is free software: you can redistribute it and/or modify
+ * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * any later version.
  *
- * OpenMediaVault is distributed in the hope that it will be useful,
+ * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/grid/Panel.js")
@@ -26,10 +26,6 @@
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/form/field/SharedFolderComboBox.js")
 
-/**
- * @class OMV.module.admin.service.downloader.Download
- * @derived OMV.workspace.window.Form
- */
 Ext.define("OMV.module.admin.service.downloader.Download", {
     extend   : "OMV.workspace.window.Form",
     requires : [
@@ -37,6 +33,8 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
     ],
 
     plugins: [{
+        ptype : "configobject"
+    },{
         ptype        : "linkedfields",
         correlations : [{
             name : [
@@ -51,13 +49,10 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
             ]
         }]
     }],
-    
+
     rpcService   : "Downloader",
     rpcGetMethod : "getDownload",
     rpcSetMethod : "setDownload",
-    plugins      : [{
-        ptype : "configobject"
-    }],
 
     getFormItems: function() {
         var me = this;
@@ -110,10 +105,6 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
     }
 });
 
-/**
- * @class OMV.module.admin.service.downloader.Downloads
- * @derived OMV.workspace.grid.Panel
- */
 Ext.define("OMV.module.admin.service.downloader.Downloads", {
     extend   : "OMV.workspace.grid.Panel",
     requires : [
@@ -179,7 +170,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
                         { name : "filename", type: "string" },
                         { name : "url", type: "string" },
                         { name : "sharedfoldername", type: "string" },
-                        { name : "delete", type: "boolean" },
+                        { name : "delete", type: "boolean" }
                     ]
                 }),
                 proxy    : {

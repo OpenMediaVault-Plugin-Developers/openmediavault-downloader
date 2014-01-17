@@ -1,0 +1,92 @@
+/**
+ * Copyright (C) 2013-2014 OpenMediaVault Plugin Developers
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+// require("js/omv/WorkspaceManager.js")
+// require("js/omv/workspace/form/Panel.js")
+// require("js/omv/workspace/window/Form.js")
+// require("js/omv/data/Store.js")
+// require("js/omv/data/Model.js")
+// require("js/omv/data/proxy/Rpc.js")
+// require("js/omv/workspace/window/plugin/ConfigObject.js")
+// require("js/omv/form/field/SharedFolderComboBox.js")
+
+Ext.define("OMV.module.admin.service.downloader.Upload", {
+    extend : "OMV.workspace.form.Panel",
+    uses   : [
+        "OMV.data.Model",
+        "OMV.data.Store"
+    ],
+
+    rpcService   : "Downloader",
+    rpcGetMethod : "getUpload",
+    rpcSetMethod : "setUpload",
+
+    getFormItems : function() {
+        var me = this;
+        return [{
+            xtype    : "fieldset",
+            title    : _("Settings"),
+            defaults : {
+                labelSeparator : ""
+            },
+            items : [{
+                xtype      : "sharedfoldercombo",
+                name       : "uploadref",
+                fieldLabel : _("Shared Folder"),
+                plugins    : [{
+                    ptype : "fieldinfo",
+                    text  : _("Upload file to this shared folder.")
+                }]
+            },{
+                xtype      : "usercombo",
+                name       : "username",
+                fieldLabel : _("File Owner"),
+                value      : "root"
+            },{
+                xtype   : "button",
+                name    : "upload",
+                text    : _("Upload"),
+                scope   : this,
+                handler : Ext.Function.bind(me.onUploadButton, me, [ me ]),
+                margin  : "0 0 5 0"
+            }]
+        }];
+    },
+
+    onUploadButton : function() {
+        var me = this;
+        Ext.create("OMV.window.Upload", {
+            title     : _("Upload file"),
+            service   : "Downloader",
+            method    : "doUpload",
+            listeners : {
+                scope   : me,
+                success : function(wnd, response) {
+                    me.doReload();
+                }
+            }
+        }).show();
+    }
+});
+
+OMV.WorkspaceManager.registerPanel({
+    id        : "systembackup",
+    path      : "/system/backup",
+    text      : _("System Backup"),
+    position  : 10,
+    className : "OMV.module.admin.system.backup.SystemBackup"
+});

@@ -42,6 +42,9 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         $this->registerMethod("deleteDownload");
         $this->registerMethod("doDownload");
         $this->registerMethod("doSilent");
+        $this->registerMethod("getUpload");
+        $this->registerMethod("setUpload");
+        $this->registerMethod("doUpload");
     }
 
     /**
@@ -353,6 +356,101 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             $xpath = sprintf("//services/downloader/download[uuid='%s']", $params['uuid']);
             $this->deleteConfigObjectByPath($xpath, "org.openmediavault.services.downloader.download");
         }
+    }
+
+    /**
+     * Get download settings
+     */
+    public function getDownload($params, $context) {
+        global $xmlConfig;
+
+        // Validate the RPC caller context.
+        $this->validateMethodContext($context, array("role" => OMV_ROLE_ADMINISTRATOR));
+
+        // Get the configuration object.
+        $xpath = "//services/downloader";
+        $object = $xmlConfig->get($xpath);
+        if(is_null($object))
+            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
+
+        // Remove useless fields from the result object.
+        unset($object['download']);
+        return $object;
+    }
+
+    /**
+     * Set upload settings
+     */
+    public function setUpload($params, $context) {
+        global $xmlConfig;
+
+        // Validate the RPC caller context.
+        $this->validateMethodContext($context, array( "role" => OMV_ROLE_ADMINISTRATOR ));
+
+        // Validate the parameters of the RPC service method.
+        $this->validateMethodParams($params, '{
+            "type"       : "object",
+            "properties" : {
+                "username"  : { "type" : "string" },
+                "uploadref" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].' }
+            }
+        }');
+
+        // Prepare configuration data.
+        $object = array(
+            "username"  => $params['username'],
+            "uploadref" => $params['uploadref'],
+            "download"  => isset($oldObject['download']) ? $oldObject['download'] : array()
+        );
+
+        if(FALSE === $xmlConfig->replace("//services/downloader", $object))
+            throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+
+        // Notify configuration changes.
+        $dispatcher = &OMVNotifyDispatcher::getInstance();
+        $dispatcher->notify(OMV_NOTIFY_MODIFY,
+            "org.openmediavault.services.downloader", $object);
+
+        // Return the configuration object.
+        return $object;
+    }
+
+    function doUpload($params, $context) {
+        // Validate the RPC caller context.
+        $this->validateMethodContext( $context, array( "role" => OMV_ROLE_ADMINISTRATOR ));
+
+        // Validate the parameters of the RPC service method.
+        $this->validateMethodParams($params, '{
+            "type"       : "object",
+            "properties" : {
+                "filename" : { "type" : "string" },
+                "filepath" : { "type" : "string" }
+            }
+        }');
+
+        // Get the configuration object.
+        $xpath = "//services/downloader";
+        $object = $xmlConfig->get($xpath);
+        if(is_null($object))
+            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
+
+        unset($object['download']);
+
+        // Get the absolute shared folder path.
+        $sfPath = OMVRpc::exec("ShareMgmt", "getPath", array("uuid" => $object['uploadref']), $context);
+        $uploadFile = sprintf("%s/%s", $sfPath, $params['filename']);
+
+        if ( file_exists($uploadFile) )
+            throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, "File already exists.");
+
+        // Move file to shared folder selected
+        if( !rename( $params['filepath'], $uploadFile ) ) {
+            throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+                "Failed to move file '%s' to shared folder.", $params['filename']));
+        }
+        // Make script executable
+        if( !chown( $uploadFile, $object['username'] ) )
+            throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, "Failed to change ownership of file");
     }
 }
 
