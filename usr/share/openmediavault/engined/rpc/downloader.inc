@@ -3,6 +3,7 @@
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2013 Volker Theile
+ * @copyright Copyright (c) 2013-2014 OpenMediaVault Plugin Developers
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -361,7 +362,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
     /**
      * Get download settings
      */
-    public function getDownload($params, $context) {
+    public function getUpload($params, $context) {
         global $xmlConfig;
 
         // Validate the RPC caller context.

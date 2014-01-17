@@ -23,6 +23,7 @@
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/workspace/window/plugin/ConfigObject.js")
 // require("js/omv/form/field/SharedFolderComboBox.js")
+// require("js/omv/form/field/UserComboBox.js")
 
 Ext.define("OMV.module.admin.service.downloader.Upload", {
     extend : "OMV.workspace.form.Panel",
@@ -84,9 +85,9 @@ Ext.define("OMV.module.admin.service.downloader.Upload", {
 });
 
 OMV.WorkspaceManager.registerPanel({
-    id        : "systembackup",
-    path      : "/system/backup",
-    text      : _("System Backup"),
-    position  : 10,
-    className : "OMV.module.admin.system.backup.SystemBackup"
+    id        : "upload",
+    path      : "/services/downloader",
+    text      : _("Upload"),
+    position  : 20,
+    className : "OMV.module.admin.service.downloader.Upload"
 });
