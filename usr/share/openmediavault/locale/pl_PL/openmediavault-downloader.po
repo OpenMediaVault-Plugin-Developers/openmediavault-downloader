@@ -1,81 +1,82 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
+# Translators:
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-17 16:18-0600\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2014-01-17 22:18+0000\n"
+"Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault-downloader/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "Add download"
-msgstr ""
+msgstr "Dodaj pobieranie"
 
 msgid "Delete"
-msgstr ""
+msgstr "Usuń"
 
 msgid "Delete after Download"
-msgstr ""
+msgstr "Usuń po pobraniu"
 
 msgid "Delete from list of downloads after file is downloaded"
-msgstr ""
+msgstr "Usuń z listy pobierania po pobraniu pliku"
 
 msgid "Download"
-msgstr ""
+msgstr "Pobierz"
 
 msgid "Download Type"
-msgstr ""
+msgstr "Typ pobierania"
 
 msgid "Download file"
-msgstr ""
+msgstr "Pobierz plik"
 
 msgid "Downloader"
-msgstr ""
+msgstr "Pobieracz"
 
 msgid "Downloads"
-msgstr ""
+msgstr "Pobrane"
 
 msgid "Downloads to this shared folder"
-msgstr ""
+msgstr "Pobierzaj do tego katalogu"
 
 msgid "Edit download"
-msgstr ""
+msgstr "Edytuj pobierane"
 
 msgid "File Owner"
 msgstr ""
 
 msgid "Filename"
-msgstr ""
+msgstr "Nazwa pliku"
 
 msgid "No"
-msgstr ""
+msgstr "Nie"
 
 msgid "Saves download as this filename."
-msgstr ""
+msgstr "Zapisz pobrane jako nazwa pliku."
 
 msgid "Settings"
 msgstr ""
 
 msgid "Shared Folder"
-msgstr ""
+msgstr "Udostępniony katalog"
 
 msgid "Silent"
-msgstr ""
+msgstr "Cichy"
 
 msgid "System Backup"
 msgstr ""
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Upload"
 msgstr ""
@@ -87,16 +88,16 @@ msgid "Upload file to this shared folder."
 msgstr ""
 
 msgid "Yes"
-msgstr ""
+msgstr "Tak"
 
 msgid "aria2"
-msgstr ""
+msgstr "aria2"
 
 msgid "curl"
-msgstr ""
+msgstr "curl"
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 msgid "youtube-dl"
-msgstr ""
+msgstr "youtube-dl"
