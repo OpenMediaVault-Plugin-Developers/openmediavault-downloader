@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-17 16:18-0600\n"
-"PO-Revision-Date: 2014-01-17 22:18+0000\n"
+"POT-Creation-Date: 2014-02-12 07:24-0600\n"
+"PO-Revision-Date: 2014-02-12 13:24+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/openmediavault-downloader/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -18,85 +19,82 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add download"
-msgstr ""
+msgstr "Añadir descarga"
 
 msgid "Delete"
-msgstr ""
+msgstr "Borrar"
 
 msgid "Delete after Download"
-msgstr ""
+msgstr "Borrar despues de descargar"
 
 msgid "Delete from list of downloads after file is downloaded"
-msgstr ""
+msgstr "Borrar de la lista de descargas despues de que sea descargado"
 
 msgid "Download"
-msgstr ""
+msgstr "Descarga"
 
 msgid "Download Type"
-msgstr ""
+msgstr "Tipo de descarga"
 
 msgid "Download file"
-msgstr ""
+msgstr "Descarga de archivos"
 
 msgid "Downloader"
-msgstr ""
+msgstr "Metodo de descarga"
 
 msgid "Downloads"
-msgstr ""
+msgstr "Descargas"
 
 msgid "Downloads to this shared folder"
-msgstr ""
+msgstr "Descargar a esta carpeta compartida"
 
 msgid "Edit download"
-msgstr ""
+msgstr "Editar descargas"
 
 msgid "File Owner"
-msgstr ""
+msgstr "Propietario"
 
 msgid "Filename"
-msgstr ""
+msgstr "Nombre de archivo"
 
 msgid "No"
-msgstr ""
+msgstr "No"
 
 msgid "Saves download as this filename."
-msgstr ""
+msgstr "Salvar descarga con este nombre."
 
 msgid "Settings"
-msgstr ""
+msgstr "Opciones"
 
 msgid "Shared Folder"
-msgstr ""
+msgstr "Carpeta compartida"
 
 msgid "Silent"
-msgstr ""
-
-msgid "System Backup"
-msgstr ""
+msgstr "Silenciosamente"
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Upload"
-msgstr ""
+msgstr "Subir"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Subir un archivo"
 
 msgid "Upload file to this shared folder."
-msgstr ""
+msgstr "Subir a esta carpeta compartida."
 
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 msgid "aria2"
-msgstr ""
+msgstr "aria2"
 
 msgid "curl"
-msgstr ""
+msgstr "curl"
 
 msgid "n/a"
-msgstr ""
+msgstr "n/d"
 
 msgid "youtube-dl"
-msgstr ""
+msgstr "youtube-dl"

@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-17 16:18-0600\n"
-"PO-Revision-Date: 2014-01-17 22:18+0000\n"
+"POT-Creation-Date: 2014-02-12 07:24-0600\n"
+"PO-Revision-Date: 2014-02-12 13:24+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault-downloader/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgid "Edit download"
 msgstr "Edytuj pobierane"
 
 msgid "File Owner"
-msgstr ""
+msgstr "Właściciel pliku"
 
 msgid "Filename"
 msgstr "Nazwa pliku"
@@ -64,7 +64,7 @@ msgid "Saves download as this filename."
 msgstr "Zapisz pobrane jako nazwa pliku."
 
 msgid "Settings"
-msgstr ""
+msgstr "Ustawienia"
 
 msgid "Shared Folder"
 msgstr "Udostępniony katalog"
@@ -72,20 +72,17 @@ msgstr "Udostępniony katalog"
 msgid "Silent"
 msgstr "Cichy"
 
-msgid "System Backup"
-msgstr ""
-
 msgid "URL"
 msgstr "URL"
 
 msgid "Upload"
-msgstr ""
+msgstr "Wczytaj"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Wczytaj plik"
 
 msgid "Upload file to this shared folder."
-msgstr ""
+msgstr "Wczytaj plik do tego katalogu."
 
 msgid "Yes"
 msgstr "Tak"

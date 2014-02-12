@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# polxmod <paolo.velati@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
@@ -11,81 +10,81 @@ msgstr ""
 "POT-Creation-Date: 2014-02-12 07:24-0600\n"
 "PO-Revision-Date: 2014-02-12 13:24+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
-"Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault-downloader/language/it/)\n"
+"Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault-downloader/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ja_JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Add download"
-msgstr "Aggiungi download"
+msgstr "ダウンロードの追加"
 
 msgid "Delete"
-msgstr "Elimina"
+msgstr "削除"
 
 msgid "Delete after Download"
-msgstr "Elimina dopo Scaricamento"
+msgstr "ダウンロード後、削除"
 
 msgid "Delete from list of downloads after file is downloaded"
-msgstr "Elimina dalla lista dei download dopo lo scaricamento"
+msgstr "ファイルのダウンロード後、ダウンロードのリストから削除"
 
 msgid "Download"
-msgstr "Download"
+msgstr "ダウンロード"
 
 msgid "Download Type"
-msgstr "Tipo Download"
+msgstr "ダウンロードタイプ"
 
 msgid "Download file"
-msgstr "Scarica file"
+msgstr "ダウンロードファイル"
 
 msgid "Downloader"
-msgstr "Downloader"
+msgstr "ダウンローダー"
 
 msgid "Downloads"
-msgstr "Download"
+msgstr "ダウンロード"
 
 msgid "Downloads to this shared folder"
-msgstr "I Download in questa cartella condivisa"
+msgstr "この共有フォルダにファイルをダウンロードします。"
 
 msgid "Edit download"
-msgstr "Modifica download"
+msgstr "ダウンロードの編集"
 
 msgid "File Owner"
-msgstr "Proprietario del file"
+msgstr "ファイルオーナー"
 
 msgid "Filename"
-msgstr "Nome file"
+msgstr "ファイル名"
 
 msgid "No"
-msgstr "No"
+msgstr "いいえ"
 
 msgid "Saves download as this filename."
-msgstr "Salva i download con questo nome."
+msgstr "このファイル名でダウンロードを保存します。"
 
 msgid "Settings"
-msgstr "Impostazioni"
+msgstr "設定"
 
 msgid "Shared Folder"
-msgstr "Cartella condivisa"
+msgstr "共有フォルダ"
 
 msgid "Silent"
-msgstr "Silenzioso"
+msgstr "サイレント"
 
 msgid "URL"
 msgstr "URL"
 
 msgid "Upload"
-msgstr "Upload"
+msgstr "アップロード"
 
 msgid "Upload file"
-msgstr "Carica file"
+msgstr "アップロードファイル"
 
 msgid "Upload file to this shared folder."
-msgstr "Carica file in questa cartella condivisa."
+msgstr "この共有フォルダにファイルをアップロードします。"
 
 msgid "Yes"
-msgstr "Sì"
+msgstr "はい"
 
 msgid "aria2"
 msgstr "aria2"
@@ -94,7 +93,7 @@ msgid "curl"
 msgstr "curl"
 
 msgid "n/a"
-msgstr "n/d"
+msgstr "n/a"
 
 msgid "youtube-dl"
 msgstr "youtube-dl"

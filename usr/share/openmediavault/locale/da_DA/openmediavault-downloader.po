@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-17 16:18-0600\n"
-"PO-Revision-Date: 2014-01-17 22:18+0000\n"
+"POT-Creation-Date: 2014-02-12 07:24-0600\n"
+"PO-Revision-Date: 2014-02-12 13:24+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault-downloader/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgid "Edit download"
 msgstr "Rediger download"
 
 msgid "File Owner"
-msgstr ""
+msgstr "Fil Ejer"
 
 msgid "Filename"
 msgstr "Filnavn"
@@ -64,7 +64,7 @@ msgid "Saves download as this filename."
 msgstr "Gemmer download som dette filnavn."
 
 msgid "Settings"
-msgstr ""
+msgstr "Indstilinger"
 
 msgid "Shared Folder"
 msgstr "Delte Mapper"
@@ -72,20 +72,17 @@ msgstr "Delte Mapper"
 msgid "Silent"
 msgstr "Stille"
 
-msgid "System Backup"
-msgstr ""
-
 msgid "URL"
 msgstr "URL"
 
 msgid "Upload"
-msgstr ""
+msgstr "Upload"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Upload fil"
 
 msgid "Upload file to this shared folder."
-msgstr ""
+msgstr "Upload fil til denne delte mappe."
 
 msgid "Yes"
 msgstr "Ja"

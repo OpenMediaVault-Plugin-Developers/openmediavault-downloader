@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-17 16:18-0600\n"
-"PO-Revision-Date: 2014-01-17 22:18+0000\n"
+"POT-Creation-Date: 2014-02-12 07:24-0600\n"
+"PO-Revision-Date: 2014-02-12 13:24+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault-downloader/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgid "Edit download"
 msgstr "编辑下载"
 
 msgid "File Owner"
-msgstr ""
+msgstr "文件所有者"
 
 msgid "Filename"
 msgstr "文件名"
@@ -64,7 +64,7 @@ msgid "Saves download as this filename."
 msgstr "用这个名称命名下载文件"
 
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 msgid "Shared Folder"
 msgstr "共享文件夹"
@@ -72,20 +72,17 @@ msgstr "共享文件夹"
 msgid "Silent"
 msgstr "后台下载"
 
-msgid "System Backup"
-msgstr ""
-
 msgid "URL"
 msgstr "URL"
 
 msgid "Upload"
-msgstr ""
+msgstr "上传"
 
 msgid "Upload file"
-msgstr ""
+msgstr "上传文件"
 
 msgid "Upload file to this shared folder."
-msgstr ""
+msgstr "上传文件到共享文件夹。"
 
 msgid "Yes"
 msgstr "是"
