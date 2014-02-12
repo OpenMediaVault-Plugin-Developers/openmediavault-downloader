@@ -2,14 +2,13 @@ Source: openmediavault-downloader
 Section: misc
 Priority: optional
 Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
-Build-Depends: debhelper (>= 7 )
+Build-Depends: debhelper (>= 9.0.0 )
 Standards-Version: 3.9.3
 Homepage: http://omv-extras.org/
 
 Package: openmediavault-downloader
 Architecture: all
-Depends: ${misc:Depends}, python, curl, aria2,
- openmediavault (>= 0.5), openmediavault (<< 0.6)
+Depends: ${misc:Depends}, python, curl, aria2, openmediavault (>= 0.6)
 Description: OpenMediaVault downloader plugin
  Plugin to download files to a specified share using aria2, curl, or
  youtube-dl.
