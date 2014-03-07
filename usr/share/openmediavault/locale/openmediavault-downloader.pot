@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-12 07:24-0600\n"
+"POT-Creation-Date: 2014-03-07 13:05-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,9 @@ msgid "Delete after Download"
 msgstr ""
 
 msgid "Delete from list of downloads after file is downloaded"
+msgstr ""
+
+msgid "Done..."
 msgstr ""
 
 msgid "Download"
@@ -56,10 +59,16 @@ msgstr ""
 msgid "Filename"
 msgstr ""
 
+msgid "Keep Video"
+msgstr ""
+
+msgid "Keep video file after conversion to audio.  Video will have mp4 extension."
+msgstr ""
+
 msgid "No"
 msgstr ""
 
-msgid "Saves download as this filename."
+msgid "Saves download as this filename. If file extension is aac, m4a, mp3, or wav, audio will be extracted to filename."
 msgstr ""
 
 msgid "Settings"

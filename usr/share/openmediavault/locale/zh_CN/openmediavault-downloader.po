@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-12 07:24-0600\n"
-"PO-Revision-Date: 2014-02-12 13:24+0000\n"
+"POT-Creation-Date: 2014-03-07 13:05-0600\n"
+"PO-Revision-Date: 2014-03-07 19:05+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault-downloader/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,9 @@ msgstr "下载后删除"
 
 msgid "Delete from list of downloads after file is downloaded"
 msgstr "下载完成后从下载列表删除"
+
+msgid "Done..."
+msgstr ""
 
 msgid "Download"
 msgstr "下载"
@@ -57,11 +60,20 @@ msgstr "文件所有者"
 msgid "Filename"
 msgstr "文件名"
 
+msgid "Keep Video"
+msgstr ""
+
+msgid ""
+"Keep video file after conversion to audio.  Video will have mp4 extension."
+msgstr ""
+
 msgid "No"
 msgstr "否"
 
-msgid "Saves download as this filename."
-msgstr "用这个名称命名下载文件"
+msgid ""
+"Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
+" audio will be extracted to filename."
+msgstr ""
 
 msgid "Settings"
 msgstr "设置"

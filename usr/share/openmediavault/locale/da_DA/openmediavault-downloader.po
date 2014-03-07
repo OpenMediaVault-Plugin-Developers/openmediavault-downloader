@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-12 07:24-0600\n"
-"PO-Revision-Date: 2014-02-12 13:24+0000\n"
+"POT-Creation-Date: 2014-03-07 13:05-0600\n"
+"PO-Revision-Date: 2014-03-07 19:05+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault-downloader/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,9 @@ msgstr "Slet efter Download"
 
 msgid "Delete from list of downloads after file is downloaded"
 msgstr "Slet fra liste af downloads efter filen er downloadet"
+
+msgid "Done..."
+msgstr ""
 
 msgid "Download"
 msgstr "Download"
@@ -57,11 +60,20 @@ msgstr "Fil Ejer"
 msgid "Filename"
 msgstr "Filnavn"
 
+msgid "Keep Video"
+msgstr ""
+
+msgid ""
+"Keep video file after conversion to audio.  Video will have mp4 extension."
+msgstr ""
+
 msgid "No"
 msgstr "Nej"
 
-msgid "Saves download as this filename."
-msgstr "Gemmer download som dette filnavn."
+msgid ""
+"Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
+" audio will be extracted to filename."
+msgstr ""
 
 msgid "Settings"
 msgstr "Indstilinger"
