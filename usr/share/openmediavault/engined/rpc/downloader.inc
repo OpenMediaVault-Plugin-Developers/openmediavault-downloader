@@ -53,6 +53,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
      */
     public function getDownloads($params, $context) {
         global $xmlConfig;
+
         // Validate the RPC caller context.
         $this->validateMethodContext($context, array( "role" => OMV_ROLE_ADMINISTRATOR ));
 
@@ -68,11 +69,10 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         }');
 
         // Get configuration data.
-        $xpath = "//services/downloader/download";
+        $xpath = "//services/downloader/downloads/download";
         $objects = $xmlConfig->getList($xpath);
-        if(is_null($objects)) {
+        if(is_null($objects))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
-        }
 
         // Add additional share informations.
         foreach($objects as $objectk => &$objectv) {
@@ -80,9 +80,8 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             // Get the shared folder configuration object.
             $sfObject = $xmlConfig->get("//system/shares/sharedfolder[uuid='{$objectv['sharedfolderref']}']");
 
-            if(!is_null($sfObject) && !empty($sfObject)) {
+            if(!is_null($sfObject) && !empty($sfObject))
                 $objectv['sharedfoldername'] = $sfObject['name'];
-            }
         }
 
         // Filter the result.
@@ -108,11 +107,10 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         }');
 
           // Get the configuration object.
-        $xpath = sprintf("//services/downloader/download[uuid='%s']", $params['uuid']);
+        $xpath = sprintf("//services/downloader/downloads/download[uuid='%s']", $params['uuid']);
         $object = $xmlConfig->get($xpath);
-        if(is_null($object)) {
+        if(is_null($object))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
-        }
 
         return $object;
     }
@@ -153,20 +151,19 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         $success = FALSE;
         if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
             // Append object to configuration.
-            $success = $xmlConfig->set("//services/downloader", array("download" => $object));
+            $success = $xmlConfig->set("//services/downloader/downloads", array("download" => $object));
         } else {
             // Update existing configuration object.
-            $success = $xmlConfig->replace("//services/downloader/download[uuid='{$params['uuid']}']", $object);
+            $success = $xmlConfig->replace("//services/downloader/downloads/download[uuid='{$params['uuid']}']", $object);
         }
-        if(FALSE === $success) {
+        if(FALSE === $success)
             throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-        }
 
         // Notify configuration changes.
         $dispatcher = &OMVNotifyDispatcher::getInstance();
         $dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
             OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-            "org.openmediavault.services.downloader.download", $object);
+            "org.openmediavault.services.downloader.downloads.download", $object);
 
         // Return the configuration object.
         return $object;
@@ -190,10 +187,10 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         }');
 
         // Delete the configuration object.
-        $xpath = sprintf("//services/downloader/download[uuid='%s']", $params['uuid']);
+        $xpath = sprintf("//services/downloader/downloads/download[uuid='%s']", $params['uuid']);
 
         return $this->deleteConfigObjectByPath($xpath,
-            "org.openmediavault.services.downloader.download");
+            "org.openmediavault.services.downloader.downloads.download");
     }
 
     function doDownload($params, $context) {
@@ -211,11 +208,10 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         }');
 
         // Get the configuration object.
-        $xpath = sprintf("//services/downloader/download[uuid='%s']", $params['uuid']);
+        $xpath = sprintf("//services/downloader/downloads/download[uuid='%s']", $params['uuid']);
         $object = $xmlConfig->get($xpath);
-        if(is_null($object)) {
+        if(is_null($object))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
-        }
 
         $dltype = $object['dltype'];
         $filename = $object['filename'];
@@ -225,18 +221,16 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
 
         $xpath = sprintf("//system/shares/sharedfolder[uuid='%s']", $sfref);
         $objectsf = $xmlConfig->get($xpath);
-        if(is_null($objectsf)) {
+        if(is_null($objectsf))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
-        }
 
         $mntentref = $objectsf['mntentref'];
         $path = $objectsf['reldirpath'];
 
         $xpath = sprintf("//system/fstab/mntent[uuid='%s']", $mntentref);
         $objectmt = $xmlConfig->get($xpath);
-        if(is_null($objectsf)) {
+        if(is_null($objectsf))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
-        }
 
         $dir = $objectmt['dir'];
 
@@ -253,8 +247,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             $bgOutputFilename = $this->createBgProcOutput();
             $this->updateBgProcStatus($bgStatusFilename, "outputfilename", $bgOutputFilename);
 
-            switch ($dltype)
-            {
+            switch ($dltype) {
                 case "curl":
                     $cmd = "/usr/bin/curl -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                     break;
@@ -268,7 +261,6 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
                         $cmd = "/usr/bin/aria2c -d \"$dir/$path/\" -o \"$filename\" \"$url\" 2>&1";
                     else
                         $cmd = "/usr/bin/aria2c -d \"$dir/$path/\" \"$url\" 2>&1";
-
             }
 
             $this->exec($cmd, $output, $bgOutputFilename);
@@ -276,9 +268,9 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
 
             if ( $delete ) {
                 // Delete the configuration object.
-                $xpath = sprintf("//services/downloader/download[uuid='%s']", $params['uuid']);
+                $xpath = sprintf("//services/downloader/downloads/download[uuid='%s']", $params['uuid']);
 
-                $this->deleteConfigObjectByPath($xpath, "org.openmediavault.services.downloader.download");
+                $this->deleteConfigObjectByPath($xpath, "org.openmediavault.services.downloader.downloads.download");
             }
             exit(0);
         } catch(Exception $e) {
@@ -302,11 +294,10 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         }');
 
         // Get the configuration object.
-        $xpath = sprintf("//services/downloader/download[uuid='%s']", $params['uuid']);
+        $xpath = sprintf("//services/downloader/downloads/download[uuid='%s']", $params['uuid']);
         $object = $xmlConfig->get($xpath);
-        if(is_null($object)) {
+        if(is_null($object))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
-        }
 
         $dltype = $object['dltype'];
         $filename = $object['filename'];
@@ -316,23 +307,20 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
 
         $xpath = sprintf("//system/shares/sharedfolder[uuid='%s']", $sfref);
         $objectsf = $xmlConfig->get($xpath);
-        if(is_null($objectsf)) {
+        if(is_null($objectsf))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
-        }
 
         $mntentref = $objectsf['mntentref'];
         $path = $objectsf['reldirpath'];
 
         $xpath = sprintf("//system/fstab/mntent[uuid='%s']", $mntentref);
         $objectmt = $xmlConfig->get($xpath);
-        if(is_null($objectsf)) {
+        if(is_null($objectsf))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
-        }
 
         $dir = $objectmt['dir'];
 
-        switch ($dltype)
-        {
+        switch ($dltype) {
             case "curl":
                 $cmd = "/usr/bin/curl -s -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                 break;
@@ -348,19 +336,18 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
                     $cmd = "/usr/bin/aria2c -q -d \"$dir/$path/\" \"$url\" 2>&1";
         }
 
-        if(0 !== $this->exec($cmd, $output)) {
+        if(0 !== $this->exec($cmd, $output))
             throw new OMVException(OMVErrorMsg::E_EXEC_FAILED, $cmd, implode("\n", $output));
-        }
 
         if ( $delete ) {
             // Delete the configuration object.
-            $xpath = sprintf("//services/downloader/download[uuid='%s']", $params['uuid']);
-            $this->deleteConfigObjectByPath($xpath, "org.openmediavault.services.downloader.download");
+            $xpath = sprintf("//services/downloader/downloads/download[uuid='%s']", $params['uuid']);
+            $this->deleteConfigObjectByPath($xpath, "org.openmediavault.services.downloads.downloader.download");
         }
     }
 
     /**
-     * Get download settings
+     * Get upload settings
      */
     public function getUpload($params, $context) {
         global $xmlConfig;
@@ -375,7 +362,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
 
         // Remove useless fields from the result object.
-        unset($object['download']);
+        unset($object['downloads']);
         return $object;
     }
 
@@ -401,7 +388,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         $object = array(
             "username"  => $params['username'],
             "uploadref" => $params['uploadref'],
-            "download"  => isset($oldObject['download']) ? $oldObject['download'] : array()
+            "downloads"  => isset($oldObject['downloads']) ? $oldObject['downloads'] : array()
         );
 
         if(FALSE === $xmlConfig->replace("//services/downloader", $object))

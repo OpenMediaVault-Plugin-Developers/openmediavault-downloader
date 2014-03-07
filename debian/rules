@@ -2,10 +2,11 @@
 
 include ./openmediavault.mk
 
+PLUGIN_NAME=downloader
+
 clean:
 	dh_testdir
 	dh_testroot
-	rm -f build-stamp configure-stamp
 	dh_clean
 
 install:
@@ -14,6 +15,7 @@ install:
 	dh_prep
 	dh_installdirs
 	dh_install
+	chmod +x $(CURDIR)/debian/openmediavault-${PLUGIN_NAME}/usr/local/bin/youtube-dl
 
 binary-indep: install omv_clean_scm
 	dh_testdir
@@ -29,7 +31,7 @@ binary-indep: install omv_clean_scm
 	dh_md5sums
 	dh_builddeb
 
-binary-arch:
+binary-arch: install
 # We have nothing to do by default.
 
 binary: binary-indep binary-arch

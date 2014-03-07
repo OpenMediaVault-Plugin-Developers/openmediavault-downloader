@@ -32,7 +32,8 @@
 Ext.define("OMV.module.admin.service.downloader.Download", {
     extend   : "OMV.workspace.window.Form",
     requires : [
-        "OMV.workspace.window.plugin.ConfigObject"
+        "OMV.workspace.window.plugin.ConfigObject",
+        "OMV.form.plugin.LinkedFields"
     ],
 
     plugins: [{
@@ -40,13 +41,13 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
     },{
         ptype        : "linkedfields",
         correlations : [{
-            name : [
-                "filename"
-            ],
             conditions : [{
                 name  : "dltype",
                 value : "aria2"
             }],
+            name       : [
+                "filename"
+            ],
             properties : [
                 "allowBlank"
             ]
@@ -63,13 +64,14 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
             xtype         : "combo",
             name          : "dltype",
             fieldLabel    : _("Download Type"),
-            queryMode     : "local",
+            allowBlank    : false,
+            editable      : false,
             store         : [
                 [ "aria2", _("aria2") ],
                 [ "curl", _("curl") ],
                 [ "youtube-dl", _("youtube-dl") ]
             ],
-            editable      : false,
+            mode          : "local",
             triggerAction : "all",
             value         : ""
         },{

@@ -1,3 +1,12 @@
+openmediavault-downloader (0.6.1) stable; urgency=low
+
+  * Update youtube-dl to 2014.03.07
+  * Update locales
+  * Update to work on sardaukar and kralizec
+  * Code improvements
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Wed, 07 Mar 2014 09:08:27 -0500
+
 openmediavault-downloader (0.6.0) stable; urgency=low
 
   * Add upload file to shared folder tab
@@ -5,7 +14,7 @@ openmediavault-downloader (0.6.0) stable; urgency=low
   * Update locales
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Wed, 12 Feb 2014 07:17:27 -0500
- 
+
 openmediavault-downloader (0.5.4) stable; urgency=low
 
   * Add upload file to shared folder tab
@@ -13,19 +22,19 @@ openmediavault-downloader (0.5.4) stable; urgency=low
   * Update locales
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Fri, 17 Jan 2014 16:17:27 -0500
- 
+
 openmediavault-downloader (0.5.3) stable; urgency=low
 
   * Update youtube-dl to 2013.12.04
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 07 Dec 2013 12:11:27 -0500
- 
+
 openmediavault-downloader (0.5.2) stable; urgency=low
 
   * Fix silent download
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Tue, 19 Nov 2013 10:41:27 -0500
- 
+
 openmediavault-downloader (0.5.1) stable; urgency=low
 
   * Remove wget option
@@ -33,7 +42,7 @@ openmediavault-downloader (0.5.1) stable; urgency=low
   * Add aria2 option
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Tue, 19 Nov 2013 07:15:27 -0500
- 
+
 openmediavault-downloader (0.5.0) stable; urgency=low
 
   * Initial release
