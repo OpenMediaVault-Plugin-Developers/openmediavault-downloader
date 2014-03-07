@@ -146,7 +146,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             "uuid"            => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ? OMVUtil::uuid() : $params['uuid'],
             "dltype"          => $params['dltype'],
             "filename"        => $params['filename'],
-            "keepvideo"       => array_boolval($params, 'keepvideo')
+            "keepvideo"       => array_boolval($params, 'keepvideo'),
             "url"             => $params['url'],
             "sharedfolderref" => $params['sharedfolderref'],
             "delete"          => array_boolval($params, 'delete')

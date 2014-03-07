@@ -69,7 +69,9 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
     rpcGetMethod : "getDownload",
     rpcSetMethod : "setDownload",
 
-    getFormItems: function() {
+    width        : 600,
+
+    getFormItems : function() {
         var me = this;
         return [{
             xtype         : "combo",
@@ -120,10 +122,7 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
             name          : "delete",
             fieldLabel    : _("Delete"),
             checked       : false,
-            plugins       : [{
-                ptype : "fieldinfo",
-                text  : _("Delete from list of downloads after file is downloaded")
-            }]
+            boxLabel      : _("Delete from list of downloads after file is downloaded")
         }];
     }
 });
@@ -299,23 +298,30 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
     onDownloadButton: function() {
         var me = this;
         var record = me.getSelected();
-        Ext.create("OMV.window.Execute", {
+        var wnd = Ext.create("OMV.window.Execute", {
             title      : _("Download file"),
             rpcService : "Downloader",
             rpcMethod  : "doDownload",
             rpcParams  : {
                 uuid : record.get("uuid")
             },
-            listeners  : {
+            hideStartButton : true,
+            hideStopButton  : true,
+            listeners       : {
                 scope     : me,
-                submit : function() {
-                    this.doReload();
+                finish    : function(wnd, response) {
+                    wnd.appendValue(_("Done..."));
+                    wnd.setButtonDisabled("close", false);
                 },
                 exception : function(wnd, error) {
                     OMV.MessageBox.error(null, error);
+                    wnd.setButtonDisabled("close", false);
                 }
             }
-        }).show();
+        });
+        wnd.setButtonDisabled("close", true);
+        wnd.show();
+        wnd.start();
     },
 
     onSilentButton: function() {
