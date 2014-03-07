@@ -8,7 +8,8 @@ Homepage: http://omv-extras.org/
 
 Package: openmediavault-downloader
 Architecture: all
-Depends: ${misc:Depends}, python, curl, aria2, openmediavault (>= 0.5.38)
+Depends: ${misc:Depends}, python, curl, aria2, openmediavault (>= 0.5.38),
+ ffmpeg, libav-tools
 Description: OpenMediaVault downloader plugin
  Plugin to download files to a specified share using aria2, curl, or
  youtube-dl.

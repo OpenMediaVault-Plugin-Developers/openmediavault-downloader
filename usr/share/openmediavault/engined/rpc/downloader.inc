@@ -233,6 +233,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
 
         $dir = $objectmt['dir'];
+        $ext = lcase(substr($filename, -3));
 
         // Create a background process.
         $bgStatusFilename = $this->createBgProcStatus();
@@ -253,7 +254,10 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
                     break;
 
                 case "youtube-dl":
-                    $cmd = "/usr/local/bin/youtube-dl --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                    if($ext == "mp3" || $ext == "aac" || $ext == "wav" || $ext == "m4a" )
+                        $cmd = "/usr/local/bin/youtube-dl -x --audio-format \"$ext\" --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                    else
+                        $cmd = "/usr/local/bin/youtube-dl --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                     break;
 
                 default:
@@ -319,6 +323,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
 
         $dir = $objectmt['dir'];
+        $ext = lcase(substr($filename, -3));
 
         switch ($dltype) {
             case "curl":
@@ -326,7 +331,10 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
                 break;
 
             case "youtube-dl":
-                $cmd = "/usr/local/bin/youtube-dl -q --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                if($ext == "mp3" || $ext == "aac" || $ext == "wav" || $ext == "m4a" )
+                    $cmd = "/usr/local/bin/youtube-dl -q -x --audio-format \"$ext\" --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                else
+                    $cmd = "/usr/local/bin/youtube-dl -q --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                 break;
 
             default:
@@ -439,9 +447,11 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
                 "Failed to move file '%s' to shared folder.", $params['filename']));
         }
-        // Make script executable
+        // Change ownership of file
         if( !chown( $uploadFile, $object['username'] ) )
             throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, "Failed to change ownership of file");
+        if( !chgrp( $uploadFile, "users" ) )
+            throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, "Failed to change group of file");
     }
 }
 
