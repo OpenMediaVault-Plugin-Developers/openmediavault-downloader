@@ -43,8 +43,7 @@ Ext.define("OMV.module.admin.service.downloader.Upload", {
     rpcGetMethod    : "getUpload",
     rpcSetMethod    : "setUpload",
 
-    hideSaveButton  : true,
-    hideResetButton : true,
+    hideOkButton  : true,
 
     getFormItems    : function() {
         var me = this;
