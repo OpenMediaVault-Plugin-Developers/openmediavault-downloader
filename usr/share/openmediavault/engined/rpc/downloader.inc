@@ -233,7 +233,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
 
         $dir = $objectmt['dir'];
-        $ext = lcase(substr($filename, -3));
+        $ext = strtolower(substr($filename, -3));
 
         // Create a background process.
         $bgStatusFilename = $this->createBgProcStatus();
@@ -323,7 +323,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
 
         $dir = $objectmt['dir'];
-        $ext = lcase(substr($filename, -3));
+        $ext = strtolower(substr($filename, -3));
 
         switch ($dltype) {
             case "curl":
