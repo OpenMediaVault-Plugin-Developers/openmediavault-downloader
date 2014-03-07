@@ -51,6 +51,17 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
             properties : [
                 "allowBlank"
             ]
+        },{
+            conditions : [{
+                name  : "dltype",
+                value : "youtube-dl"
+            }],
+            name       : [
+                "keepvideo"
+            ],
+            properties : [
+                "show"
+            ]
         }]
     }],
 
@@ -81,8 +92,15 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
             allowBlank    : false,
             plugins       : [{
                 ptype : "fieldinfo",
-                text  : _("Saves download as this filename.")
+                text  : _("Saves download as this filename. If file extension is aac, m4a, mp3, or wav, audio will be extracted to filename.")
             }]
+        },{
+            xtype      : "checkbox",
+            name       : "keepvideo",
+            fieldLabel : _("Keep Video"),
+            boxLabel   : _("Keep video file after conversion to audio.  Video will have mp4 extension."),
+            checked    : false,
+            hidden     : true
         },{
             xtype         : "textfield",
             name          : "url",

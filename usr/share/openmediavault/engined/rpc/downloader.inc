@@ -112,6 +112,9 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         if(is_null($object))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
 
+        // Modify the result object.
+        $object['keepvideo']  = boolval($object['keepvideo']);
+        
         return $object;
     }
 
@@ -131,6 +134,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
                 "uuid"            : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].' },
                 "dltype"          : { "type" : "string" },
                 "filename"        : { "type" : "string", "optional" : true },
+                "keepvideo"       : { "type" : "boolean", "optional" : true },
                 "url"             : { "type" : "string" },
                 "sharedfolderref" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].' },
                 "delete"          : { "type" : "boolean" }
@@ -142,6 +146,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             "uuid"            => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ? OMVUtil::uuid() : $params['uuid'],
             "dltype"          => $params['dltype'],
             "filename"        => $params['filename'],
+            "keepvideo"       => array_boolval($params, 'keepvideo')
             "url"             => $params['url'],
             "sharedfolderref" => $params['sharedfolderref'],
             "delete"          => array_boolval($params, 'delete')
@@ -215,6 +220,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
 
         $dltype = $object['dltype'];
         $filename = $object['filename'];
+        $keepvideo = boolval($object['keepvideo']);
         $sfref = $object['sharedfolderref'];
         $url = $object['url'];
         $delete = boolval($object['delete']);
@@ -235,6 +241,10 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         $dir = $objectmt['dir'];
         $ext = strtolower(substr($filename, -3));
 
+        $kv = "";
+        if( $keepvideo == true )
+            $kv = "-k";
+            
         // Create a background process.
         $bgStatusFilename = $this->createBgProcStatus();
         $pid = $this->fork();
@@ -256,7 +266,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
                 case "youtube-dl":
                     if($ext == "mp3" || $ext == "aac" || $ext == "wav" || $ext == "m4a" ) {
                         $filename = substr($filename, 0, strlen($filename) - 3) . "mp4";
-                        $cmd = "/usr/local/bin/youtube-dl -x --audio-format \"$ext\" --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                        $cmd = "/usr/local/bin/youtube-dl -x $kv --audio-format \"$ext\" --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                     } else {
                         $cmd = "/usr/local/bin/youtube-dl --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                     }
@@ -307,6 +317,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
 
         $dltype = $object['dltype'];
         $filename = $object['filename'];
+        $keepvideo = boolval($object['keepvideo']);
         $sfref = $object['sharedfolderref'];
         $url = $object['url'];
         $delete = boolval($object['delete']);
@@ -327,6 +338,10 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         $dir = $objectmt['dir'];
         $ext = strtolower(substr($filename, -3));
 
+        $kv = "";
+        if( $keepvideo == true )
+            $kv = "-k";
+        
         switch ($dltype) {
             case "curl":
                 $cmd = "/usr/bin/curl -s -o \"$dir/$path/$filename\" \"$url\" 2>&1";
@@ -335,7 +350,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             case "youtube-dl":
                 if($ext == "mp3" || $ext == "aac" || $ext == "wav" || $ext == "m4a" ) {
                     $filename = substr($filename, 0, strlen($filename) - 3) . "mp4";
-                    $cmd = "/usr/local/bin/youtube-dl -q -x --audio-format \"$ext\" --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                    $cmd = "/usr/local/bin/youtube-dl -q -x $kv --audio-format \"$ext\" --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                 } else {
                     $cmd = "/usr/local/bin/youtube-dl -q --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                 }
