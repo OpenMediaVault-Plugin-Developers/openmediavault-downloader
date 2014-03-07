@@ -39,11 +39,14 @@ Ext.define("OMV.module.admin.service.downloader.Upload", {
         "OMV.data.proxy.Rpc"
     ],
 
-    rpcService   : "Downloader",
-    rpcGetMethod : "getUpload",
-    rpcSetMethod : "setUpload",
+    rpcService      : "Downloader",
+    rpcGetMethod    : "getUpload",
+    rpcSetMethod    : "setUpload",
 
-    getFormItems : function() {
+    hideSaveButton  : true,
+    hideResetButton : true,
+
+    getFormItems    : function() {
         var me = this;
         return [{
             xtype    : "fieldset",
@@ -77,6 +80,7 @@ Ext.define("OMV.module.admin.service.downloader.Upload", {
 
     onUploadButton : function() {
         var me = this;
+        me.doSubmit();
         Ext.create("OMV.window.Upload", {
             title     : _("Upload file"),
             service   : "Downloader",

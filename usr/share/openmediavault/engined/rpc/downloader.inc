@@ -114,7 +114,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
 
         // Modify the result object.
         $object['keepvideo']  = boolval($object['keepvideo']);
-        
+
         return $object;
     }
 
@@ -244,7 +244,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         $kv = "";
         if( $keepvideo == true )
             $kv = "-k";
-            
+
         // Create a background process.
         $bgStatusFilename = $this->createBgProcStatus();
         $pid = $this->fork();
@@ -341,7 +341,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         $kv = "";
         if( $keepvideo == true )
             $kv = "-k";
-        
+
         switch ($dltype) {
             case "curl":
                 $cmd = "/usr/bin/curl -s -o \"$dir/$path/$filename\" \"$url\" 2>&1";
@@ -412,11 +412,17 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             }
         }');
 
+        // Get the existing configuration object.
+        $xpath = "//services/downloader";
+        $oldObject = $xmlConfig->get($xpath);
+        if(is_null($oldObject))
+            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
+
         // Prepare configuration data.
         $object = array(
             "username"  => $params['username'],
             "uploadref" => $params['uploadref'],
-            "downloads"  => isset($oldObject['downloads']) ? $oldObject['downloads'] : array()
+            "downloads" => isset($oldObject['downloads']) ? $oldObject['downloads'] : array()
         );
 
         if(FALSE === $xmlConfig->replace("//services/downloader", $object))
