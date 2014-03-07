@@ -33,8 +33,10 @@
 Ext.define("OMV.module.admin.service.downloader.Upload", {
     extend : "OMV.workspace.form.Panel",
     uses   : [
+        "OMV.Rpc",
+        "OMV.data.Store",
         "OMV.data.Model",
-        "OMV.data.Store"
+        "OMV.data.proxy.Rpc"
     ],
 
     rpcService   : "Downloader",
@@ -91,7 +93,7 @@ Ext.define("OMV.module.admin.service.downloader.Upload", {
 
 OMV.WorkspaceManager.registerPanel({
     id        : "upload",
-    path      : "/services/downloader",
+    path      : "/service/downloader",
     text      : _("Upload"),
     position  : 20,
     className : "OMV.module.admin.service.downloader.Upload"
