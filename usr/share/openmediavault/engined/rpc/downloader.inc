@@ -363,7 +363,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
 
         // Remove useless fields from the result object.
         unset($object['downloads']);
-        
+
         return $object;
     }
 
@@ -405,6 +405,8 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
     }
 
     function doUpload($params, $context) {
+        global $xmlConfig;
+
         // Validate the RPC caller context.
         $this->validateMethodContext( $context, array( "role" => OMV_ROLE_ADMINISTRATOR ));
 
@@ -423,7 +425,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         if(is_null($object))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
 
-        unset($object['download']);
+        unset($object['downloads']);
 
         // Get the absolute shared folder path.
         $sfPath = OMVRpc::exec("ShareMgmt", "getPath", array("uuid" => $object['uploadref']), $context);
