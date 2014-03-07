@@ -254,10 +254,12 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
                     break;
 
                 case "youtube-dl":
-                    if($ext == "mp3" || $ext == "aac" || $ext == "wav" || $ext == "m4a" )
+                    if($ext == "mp3" || $ext == "aac" || $ext == "wav" || $ext == "m4a" ) {
+                        $filename = substr($filename, 0, strlen($filename) - 3) . "mp4";
                         $cmd = "/usr/local/bin/youtube-dl -x --audio-format \"$ext\" --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
-                    else
+                    } else {
                         $cmd = "/usr/local/bin/youtube-dl --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                    }
                     break;
 
                 default:
@@ -331,10 +333,12 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
                 break;
 
             case "youtube-dl":
-                if($ext == "mp3" || $ext == "aac" || $ext == "wav" || $ext == "m4a" )
+                if($ext == "mp3" || $ext == "aac" || $ext == "wav" || $ext == "m4a" ) {
+                    $filename = substr($filename, 0, strlen($filename) - 3) . "mp4";
                     $cmd = "/usr/local/bin/youtube-dl -q -x --audio-format \"$ext\" --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
-                else
+                } else {
                     $cmd = "/usr/local/bin/youtube-dl -q --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                }
                 break;
 
             default:
