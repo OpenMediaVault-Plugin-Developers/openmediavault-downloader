@@ -32,6 +32,10 @@ case "$1" in
             object="${object}<uploadref></uploadref>"
             omv_config_add_element "/config/services" "downloader" "${object}" true
         fi
+
+        if ! omv_config_exists "/config/services/downloader/downloads"; then
+            omv_config_add_element "/config/services/downloader" "downloads" ""
+        fi
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
