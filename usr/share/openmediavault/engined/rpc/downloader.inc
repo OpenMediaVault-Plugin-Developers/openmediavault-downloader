@@ -363,6 +363,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
 
         // Remove useless fields from the result object.
         unset($object['downloads']);
+        
         return $object;
     }
 

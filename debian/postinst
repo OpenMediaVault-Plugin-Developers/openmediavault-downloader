@@ -31,15 +31,22 @@ case "$1" in
             omv_config_add_element "/config/services" "downloader"
         fi
 
-	;;
+        if ! omv_config_exists "/config/services/omvextrasorg/uploadref"; then
+            omv_config_add_element "/config/services/downloader" "uploadref" ""
+        fi
 
-	abort-upgrade|abort-remove|abort-deconfigure)
-	;;
+        if ! omv_config_exists "/config/services/omvextrasorg/username"; then
+            omv_config_add_element "/config/services/downloader" "username" ""
+        fi
+    ;;
 
-	*)
-		echo "postinst called with unknown argument '$1'" >&2
-		exit 1
-	;;
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument '$1'" >&2
+        exit 1
+    ;;
 esac
 
 exit 0
