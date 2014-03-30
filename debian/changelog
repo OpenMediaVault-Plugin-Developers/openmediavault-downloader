@@ -1,3 +1,11 @@
+openmediavault-downloader (0.6.2) stable; urgency=low
+
+  * Update youtube-dl to 2014.03.30.1
+  * Update locales
+  * Fix linked field bug
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Wed, 30 Mar 2014 13:08:27 -0500
+
 openmediavault-downloader (0.6.1) stable; urgency=low
 
   * Update youtube-dl to 2014.03.07
