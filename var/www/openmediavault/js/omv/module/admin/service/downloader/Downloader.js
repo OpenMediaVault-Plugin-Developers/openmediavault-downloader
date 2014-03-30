@@ -28,6 +28,7 @@
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/form/field/SharedFolderComboBox.js")
+// require("js/omv/form/plugin/LinkedFields.js")
 
 Ext.define("OMV.module.admin.service.downloader.Download", {
     extend   : "OMV.workspace.window.Form",
