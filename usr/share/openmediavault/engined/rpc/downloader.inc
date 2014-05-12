@@ -46,6 +46,11 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
         $this->registerMethod("getUpload");
         $this->registerMethod("setUpload");
         $this->registerMethod("doUpload");
+        $this->registerMethod("doUpdate");
+    }
+
+    private function getYoutubedl() {
+        return "/usr/local/bin/youtube-dl";
     }
 
     /**
@@ -266,9 +271,9 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
                 case "youtube-dl":
                     if($ext == "mp3" || $ext == "aac" || $ext == "wav" || $ext == "m4a" ) {
                         $filename = substr($filename, 0, strlen($filename) - 3) . "mp4";
-                        $cmd = "/usr/local/bin/youtube-dl -x $kv --audio-format \"$ext\" --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                        $cmd = $this->getYoutubedl() . " -x $kv --audio-format \"$ext\" --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                     } else {
-                        $cmd = "/usr/local/bin/youtube-dl --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                        $cmd = $this->getYoutubedl() . " --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                     }
                     break;
 
@@ -350,9 +355,9 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             case "youtube-dl":
                 if($ext == "mp3" || $ext == "aac" || $ext == "wav" || $ext == "m4a" ) {
                     $filename = substr($filename, 0, strlen($filename) - 3) . "mp4";
-                    $cmd = "/usr/local/bin/youtube-dl -q -x $kv --audio-format \"$ext\" --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                    $cmd = $this->getYoutubedl() . " -q -x $kv --audio-format \"$ext\" --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                 } else {
-                    $cmd = "/usr/local/bin/youtube-dl -q --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
+                    $cmd = $this->getYoutubedl() . " -q --newline -o \"$dir/$path/$filename\" \"$url\" 2>&1";
                 }
                 break;
 
@@ -477,6 +482,43 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract {
             throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, "Failed to change ownership of file");
         if( !chgrp( $uploadFile, "users" ) )
             throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, "Failed to change group of file");
+    }
+
+    function doUpdate($params, $context) {
+        global $xmlConfig;
+
+        // Validate the RPC caller context.
+        $this->validateMethodContext($context, array( "role" => OMV_ROLE_ADMINISTRATOR ));
+
+        // Create a background process.
+        $bgStatusFilename = $this->createBgProcStatus();
+        $pid = $this->fork();
+        if($pid > 0) { // Parent process.
+            $this->initializeBgProcStatus($bgStatusFilename, $pid);
+            return $bgStatusFilename;
+        }
+
+        // Child process.
+        try {
+            $bgOutputFilename = $this->createBgProcOutput();
+            $this->updateBgProcStatus($bgStatusFilename, "outputfilename", $bgOutputFilename);
+
+            $cmd = "/usr/bin/curl -L# -o " . $this->getYoutubedl() . " \"https://yt-dl.org/downloads/latest/youtube-dl\" 2>&1";
+            $this->exec($cmd, $output, $bgOutputFilename);
+            $this->finalizeBgProcStatus($bgStatusFilename, $output);
+
+            if( !chmod( $this->getYoutubedl(), 0755 ) )
+                throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, "Failed to make file executable");
+            if( !chown( $this->getYoutubedl(), "root" ) )
+                throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, "Failed to change ownership of file");
+            if( !chgrp( $this->getYoutubedl(), "root" ) )
+                throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, "Failed to change group of file");
+
+            exit(0);
+        } catch(Exception $e) {
+            $this->finalizeBgProcStatus($bgStatusFilename, "", $e);
+            exit(1);
+        }
     }
 }
 

@@ -231,6 +231,17 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
             scope    : me,
             disabled : true
         }]);
+
+        Ext.Array.insert(items, 5, [{
+            id       : me.getId() + "-update",
+            xtype    : "button",
+            text     : _("Update youtube-dl"),
+            icon     : "images/refresh.png",
+            iconCls  : Ext.baseCSSPrefix + "btn-icon-16x16",
+            handler  : Ext.Function.bind(me.onUpdateButton, me, [ me ]),
+            scope    : me
+        }]);
+
         return items;
     },
 
@@ -338,6 +349,31 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
                 }
             }
         });
+    },
+
+    onUpdateButton: function() {
+        var me = this;
+        var wnd = Ext.create("OMV.window.Execute", {
+            title      : _("Update youtube-dl"),
+            rpcService : "Downloader",
+            rpcMethod  : "doUpdate",
+            hideStartButton : true,
+            hideStopButton  : true,
+            listeners       : {
+                scope     : me,
+                finish    : function(wnd, response) {
+                    wnd.appendValue(_("Done..."));
+                    wnd.setButtonDisabled("close", false);
+                },
+                exception : function(wnd, error) {
+                    OMV.MessageBox.error(null, error);
+                    wnd.setButtonDisabled("close", false);
+                }
+            }
+        });
+        wnd.setButtonDisabled("close", true);
+        wnd.show();
+        wnd.start();
     }
 });
 

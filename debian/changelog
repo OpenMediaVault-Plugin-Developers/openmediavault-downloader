@@ -1,3 +1,9 @@
+openmediavault-downloader (0.6.4) UNRELEASED; urgency=low
+
+  * Add button to update youtube-dl
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 12 May 2014 07:16:09 -0500
+
 openmediavault-downloader (0.6.3) stable; urgency=low
 
   * Update youtube-dl to 2014.05.05
