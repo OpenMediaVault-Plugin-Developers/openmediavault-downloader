@@ -1,8 +1,10 @@
 openmediavault-downloader (0.6.4) UNRELEASED; urgency=low
 
   * Add button to update youtube-dl
+  * Change dependencies for OMV 0.5 without backports enabled
+  * Update youtube-dl to 2014.05.19
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 12 May 2014 07:16:09 -0500
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 25 May 2014 10:47:37 -0500
 
 openmediavault-downloader (0.6.3) stable; urgency=low
 
