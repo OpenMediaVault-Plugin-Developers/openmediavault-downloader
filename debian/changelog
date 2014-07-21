@@ -1,3 +1,10 @@
+openmediavault-downloader (1.0) stable; urgency=low
+
+  * Simplify grid toolbar 'selectionchange' event processing. (OMV svn r1327)
+  * Update locales
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 21 Jul 2014 09:49:03 -0500
+
 openmediavault-downloader (0.6.4) stable; urgency=low
 
   * Add button to update youtube-dl

@@ -249,18 +249,21 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         var me = this;
         me.callParent(arguments);
 
-        var tbarDownloadCtrl = me.queryById(me.getId() + "-download");
-        var tbarSilentCtrl = me.queryById(me.getId() + "-silent");
-        if(records.length <= 0) {
-            tbarDownloadCtrl.disable();
-            tbarSilentCtrl.disable();
-        } else if(records.length == 1) {
-            tbarDownloadCtrl.enable();
-            tbarSilentCtrl.enable();
-        } else {
-            tbarDownloadCtrl.disable();
-            tbarSilentCtrl.disable();
+		// Process additional buttons.
+		var tbarBtnDisabled = {
+			"download" : true,
+			"silent"   : true
+		};
+
+        if(records.length == 1) {
+            tbarBtnDisabled["download"] = false;
+            tbarBtnDisabled["silent"]   = false;
         }
+
+		// Update the button controls.
+		Ext.Object.each(tbarBtnDisabled, function(key, value) {
+			this.setToolbarButtonDisabled(key, value);
+		}, me);
     },
 
     onAddButton: function() {
