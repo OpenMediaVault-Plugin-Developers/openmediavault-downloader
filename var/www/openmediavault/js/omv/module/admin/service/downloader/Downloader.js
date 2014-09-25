@@ -266,7 +266,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
 		}, me);
     },
 
-    onAddButton: function() {
+    onAddButton : function() {
         var me = this;
         Ext.create("OMV.module.admin.service.downloader.Download", {
             title     : _("Add download"),
@@ -280,7 +280,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         }).show();
     },
 
-    onEditButton: function() {
+    onEditButton : function() {
         var me = this;
         var record = me.getSelected();
         Ext.create("OMV.module.admin.service.downloader.Download", {
@@ -295,7 +295,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         }).show();
     },
 
-    doDeletion: function(record) {
+    doDeletion : function(record) {
         var me = this;
         OMV.Rpc.request({
             scope    : me,

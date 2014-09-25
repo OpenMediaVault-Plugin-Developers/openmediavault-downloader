@@ -1,3 +1,10 @@
+openmediavault-downloader (1.0.1) stable; urgency=low
+
+  * Add symlink creation tab
+  * Update locales
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Thu, 25 Sep 2014 14:48:40 -0500
+
 openmediavault-downloader (1.0) stable; urgency=low
 
   * Simplify grid toolbar 'selectionchange' event processing. (OMV svn r1327)
