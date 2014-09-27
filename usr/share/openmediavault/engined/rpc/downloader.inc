@@ -462,7 +462,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
         $url       = $object['url'];
         $delete    = boolval($object['delete']);
 
-        $xPath = sprintf("%s[uuid='%s']", $this->getXPathSharedFolder, $sfref);
+        $xPath = sprintf("%s[uuid='%s']", $this->getXPathSharedFolder(), $sfref);
         $objectsf = $xmlConfig->get($xPath);
         if (is_null($objectsf))
         {
