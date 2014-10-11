@@ -1,3 +1,10 @@
+openmediavault-downloader (1.0.3) UNRELEASED; urgency=low
+
+  * Add logging
+  * Add downloading and filesize columns
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 11 Oct 2014 10:00:13 -0500
+
 openmediavault-downloader (1.0.2) stable; urgency=low
 
   * Fix silent download

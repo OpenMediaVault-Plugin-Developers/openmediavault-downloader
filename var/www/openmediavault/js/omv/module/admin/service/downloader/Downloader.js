@@ -29,6 +29,7 @@
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/form/field/SharedFolderComboBox.js")
 // require("js/omv/form/plugin/LinkedFields.js")
+// require("js/omv/module/admin/service/downloader/util/Format.js")
 
 Ext.define("OMV.module.admin.service.downloader.Download", {
     extend   : "OMV.workspace.window.Form",
@@ -166,6 +167,17 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         dataIndex   : "sharedfoldername",
         stateId     : "sharedfoldername"
     },{
+        text        : _("Downloading"),
+        sortable    : true,
+        dataIndex   : "downloading",
+        stateId     : "downloading"
+    },{
+        text      : _("Filesize"),
+        sortable  : true,
+        dataIndex : "filesize",
+        stateId   : "filesize",
+        renderer  : OMV.module.services.downloader.util.Format.fsRenderer
+    },{
         text        : _("Delete after Download"),
         sortable    : true,
         dataIndex   : "delete",
@@ -193,6 +205,8 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
                         { name : "filename", type: "string" },
                         { name : "url", type: "string" },
                         { name : "sharedfoldername", type: "string" },
+                        { name : "downloading", type: "string" },
+                        { name : "filesize", type: "string" },
                         { name : "delete", type: "boolean" }
                     ]
                 }),
@@ -249,21 +263,21 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         var me = this;
         me.callParent(arguments);
 
-		// Process additional buttons.
-		var tbarBtnDisabled = {
-			"download" : true,
-			"silent"   : true
-		};
+        // Process additional buttons.
+        var tbarBtnDisabled = {
+            "download" : true,
+            "silent"   : true
+        };
 
         if(records.length == 1) {
             tbarBtnDisabled["download"] = false;
             tbarBtnDisabled["silent"]   = false;
         }
 
-		// Update the button controls.
-		Ext.Object.each(tbarBtnDisabled, function(key, value) {
-			this.setToolbarButtonDisabled(key, value);
-		}, me);
+        // Update the button controls.
+        Ext.Object.each(tbarBtnDisabled, function(key, value) {
+            this.setToolbarButtonDisabled(key, value);
+        }, me);
     },
 
     onAddButton : function() {

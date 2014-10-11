@@ -110,6 +110,11 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
         return "/var/log/downloader.log";
     }
 
+    private function getPidDir()
+    {
+        return "/var/run/";
+    }
+
     public function initialize()
     {
         $this->registerMethod("getDownloads");
@@ -165,12 +170,46 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
         // Add additional share informations.
         foreach($objects as $objectk => &$objectv)
         {
+            $objectv['downloading'] = "No";
+            $objectv['filesize']    = "0";
+
             $objectv['sharedfoldername'] = gettext("n/a");
             // Get the shared folder configuration object.
             $sfObject = $xmlConfig->get("//system/shares/sharedfolder[uuid='{$objectv['sharedfolderref']}']");
 
             if (!is_null($sfObject) && !empty($sfObject))
                 $objectv['sharedfoldername'] = $sfObject['name'];
+
+            $sfUuid = $objectv["sharedfolderref"];
+            if(empty($sfUuid))
+                continue;
+
+            // Get the shared folder path.
+            $sfPath = OMVRpc::exec("ShareMgmt", "getPath", array("uuid" => $sfUuid), $context);
+            $filename = sprintf("%s/%s", $sfPath, $objectv["filename"]);
+            $filenamepart = sprintf("%s/%s.part", $sfPath, $objectv["filename"]);
+
+            $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir(), $objectv['uuid']);
+
+            if (file_exists($pid))
+            {
+                $objectv['downloading'] = "Yes";
+
+                switch ($objectv['dltype'])
+                {
+                    case "youtube-dl":
+                        $objectv['filesize'] = filesize($filenamepart);
+                        break;
+
+                    default:
+                        $objectv['filesize'] = "0";
+                }
+            }
+            else
+            {
+                if (file_exists($filename))
+                    $objectv['filesize'] = filesize($filename);
+            }
         }
 
         // Filter the result.
@@ -298,6 +337,10 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
             }
         }');
 
+        // Destroy pid file
+        $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir(), $params['uuid']);
+        unlink($pid);
+
         // Delete the configuration object.
         $xPath = sprintf("%s[uuid='%s']", $this->getXPathDownload(), $params['uuid']);
 
@@ -415,6 +458,10 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
                     }
             }
 
+            // Create pid file
+            $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir(), $params['uuid']);
+            touch($pid);
+
             // [2013-10-30 13:30:15] DOWNLOAD: youtube-dl: test.mp4: movies: START: http://domain.com/test.mp4
             $log = sprintf("[%s] DOWNLOAD: %s: %s: %s: START: %s\r\n", date("Y-m-d H:i:s"), $dltype, $filename, $sfname, $url);
             file_put_contents($this->getLogFile(), $log, FILE_APPEND);
@@ -424,6 +471,9 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
 
             $log = sprintf("[%s] DOWNLOAD: %s: %s: %s: FINISH: %s\r\n", date("Y-m-d H:i:s"), $dltype, $filename, $sfname, $url);
             file_put_contents($this->getLogFile(), $log, FILE_APPEND);
+
+            // Destroy pid file
+            unlink($pid);
 
             if ( $delete )
             {
@@ -534,6 +584,10 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
                 }
         }
 
+        // Create pid file
+        $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir(), $params['uuid']);
+        touch($pid);
+
         // [2013-10-30 13:30:15] DOWNLOAD: youtube-dl: test.mp4: movies: START: http://domain.com/test.mp4
         $log = sprintf("[%s] DOWNLOAD: %s: %s: %s: START: %s\r\n", date("Y-m-d H:i:s"), $dltype, $filename, $sfname, $url);
         file_put_contents($this->getLogFile(), $log, FILE_APPEND);
@@ -549,6 +603,9 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
 
         $log = sprintf("[%s] DOWNLOAD: %s: %s: %s: FINISH: %s\r\n", date("Y-m-d H:i:s"), $dltype, $filename, $sfname, $url);
         file_put_contents($this->getLogFile(), $log, FILE_APPEND);
+
+        // Destroy pid file
+        unlink($pid);
 
         if ( $delete )
         {

@@ -74,7 +74,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Downloader", {
         flex      : 1
     }],
     rpcParams : {
-        id : "snapraid"
+        id : "downloader"
     },
     rpcFields : [
         { name : "date", type : "string" },

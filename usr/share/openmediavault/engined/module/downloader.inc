@@ -24,18 +24,6 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/log.inc");
 
-class OMVModuleDownloader extends OMVModuleServiceAbstract implements OMVINotifyListener
-{
-    public function getName()
-    {
-        return "downloader";
-    }
-}
-
-// Register module
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleDownloader());
-
 // Register new logfile type
 OMVLogFile::registerType("downloader", array(
     "filename" => "downloader.log",
