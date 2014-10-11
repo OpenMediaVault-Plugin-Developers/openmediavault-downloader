@@ -105,6 +105,11 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
         return "/usr/bin/curl";
     }
 
+    private function getLogFile()
+    {
+        return "/var/log/downloader.log";
+    }
+
     public function initialize()
     {
         $this->registerMethod("getDownloads");
@@ -350,6 +355,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
 
         $mntentref = $objectsf['mntentref'];
         $path      = $objectsf['reldirpath'];
+        $sfname    = $objectsf['name'];
 
         $xPath = sprintf("%s[uuid='%s']", $this->getXPathMntEnt(), $mntentref);
         $objectmt = $xmlConfig->get($xPath);
@@ -409,8 +415,15 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
                     }
             }
 
+            // [2013-10-30 13:30:15] DOWNLOAD: youtube-dl: test.mp4: movies: START: http://domain.com/test.mp4
+            $log = sprintf("[%s] DOWNLOAD: %s: %s: %s: START: %s\r\n", date("Y-m-d H:i:s"), $dltype, $filename, $sfname, $url);
+            file_put_contents($this->getLogFile(), $log, FILE_APPEND);
+
             $this->exec($cmd, $output, $bgOutputFilename);
             $this->finalizeBgProcStatus($bgStatusFilename, $output);
+
+            $log = sprintf("[%s] DOWNLOAD: %s: %s: %s: FINISH: %s\r\n", date("Y-m-d H:i:s"), $dltype, $filename, $sfname, $url);
+            file_put_contents($this->getLogFile(), $log, FILE_APPEND);
 
             if ( $delete )
             {
@@ -473,6 +486,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
         }
         $mntentref = $objectsf['mntentref'];
         $path      = $objectsf['reldirpath'];
+        $sfname    = $objectsf['name'];
 
         $xPath = sprintf("%s[uuid='%s']", $this->getXPathMntEnt(), $mntentref);
         $objectmt = $xmlConfig->get($xPath);
@@ -520,6 +534,10 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
                 }
         }
 
+        // [2013-10-30 13:30:15] DOWNLOAD: youtube-dl: test.mp4: movies: START: http://domain.com/test.mp4
+        $log = sprintf("[%s] DOWNLOAD: %s: %s: %s: START: %s\r\n", date("Y-m-d H:i:s"), $dltype, $filename, $sfname, $url);
+        file_put_contents($this->getLogFile(), $log, FILE_APPEND);
+
         if (0 !== $this->exec($cmd, $output))
         {
             throw new OMVException(
@@ -528,6 +546,9 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
                 implode("\n", $output)
             );
         }
+
+        $log = sprintf("[%s] DOWNLOAD: %s: %s: %s: FINISH: %s\r\n", date("Y-m-d H:i:s"), $dltype, $filename, $sfname, $url);
+        file_put_contents($this->getLogFile(), $log, FILE_APPEND);
 
         if ( $delete )
         {
