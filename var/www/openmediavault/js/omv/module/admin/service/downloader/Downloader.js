@@ -45,17 +45,6 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
         correlations : [{
             conditions : [{
                 name  : "dltype",
-                value : "aria2"
-            }],
-            name       : [
-                "filename"
-            ],
-            properties : [
-                "allowBlank"
-            ]
-        },{
-            conditions : [{
-                name  : "dltype",
                 value : "youtube-dl"
             }],
             name       : [

@@ -188,6 +188,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
             $sfPath = OMVRpc::exec("ShareMgmt", "getPath", array("uuid" => $sfUuid), $context);
             $filename = sprintf("%s/%s", $sfPath, $objectv["filename"]);
             $filenamepart = sprintf("%s/%s.part", $sfPath, $objectv["filename"]);
+            $filenamearia = sprintf("%s/%s.aria2", $sfPath, $objectv["filename"]);
 
             $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir(), $objectv['uuid']);
 
@@ -197,12 +198,16 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
 
                 switch ($objectv['dltype'])
                 {
+                    case "curl":
+                        $objectv['filesize'] = filesize($filename);
+                        break;
+
                     case "youtube-dl":
                         $objectv['filesize'] = filesize($filenamepart);
                         break;
 
                     default:
-                        $objectv['filesize'] = "0";
+                        $objectv['filesize'] = filesize($filenamearia);
                 }
             }
             else
@@ -448,14 +453,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
                     break;
 
                 default:
-                    if ( strlen($filename) > 0 )
-                    {
-                        $cmd = sprintf("%s -d \"%s/%s/\" -o \"%s\" \"%s\" 2>&1", $this->getAria2(), $dir, $path, $filename, $url);
-                    }
-                    else
-                    {
-                        $cmd = sprintf("%s -d \"%s/%s/\" \"%s\" 2>&1", $this->getAria2(), $dir, $path, $url);
-                    }
+                    $cmd = sprintf("%s -d \"%s/%s/\" -o \"%s\" \"%s\" 2>&1", $this->getAria2(), $dir, $path, $filename, $url);
             }
 
             // Create pid file
@@ -574,14 +572,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
                 break;
 
             default:
-                if ( strlen($filename) > 0 )
-                {
-                    $cmd = sprintf("%s -q -d \"%s/%s/\" -o \"%s\" \"%s\" 2>&1", $this->getAria2(), $dir, $path, $filename, $url);
-                }
-                else
-                {
-                    $cmd = sprintf("%s -q -d \"%s/%s/\" \"%s\" 2>&1", $this->getAria2(), $dir, $path, $url);
-                }
+                $cmd = sprintf("%s -q -d \"%s/%s/\" -o \"%s\" \"%s\" 2>&1", $this->getAria2(), $dir, $path, $filename, $url);
         }
 
         // Create pid file
