@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 14:48-0500\n"
-"PO-Revision-Date: 2014-09-25 19:50+0000\n"
+"POT-Creation-Date: 2014-10-13 10:39-0500\n"
+"PO-Revision-Date: 2014-10-13 15:41+0000\n"
 "Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/openmediavault-downloader/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -22,9 +22,15 @@ msgid "Add download"
 msgstr "Añadir descarga"
 
 msgid "Add symlink"
-msgstr ""
+msgstr "Añadir symlink"
 
 msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Component"
+msgstr ""
+
+msgid "Date & Time"
 msgstr ""
 
 msgid "Delete"
@@ -37,7 +43,7 @@ msgid "Delete from list of downloads after file is downloaded"
 msgstr "Borrar de la lista de descargas despues de que sea descargado"
 
 msgid "Destination"
-msgstr ""
+msgstr "Destino"
 
 msgid "Done..."
 msgstr "Hecho..."
@@ -48,11 +54,11 @@ msgstr "Descarga"
 msgid "Download Type"
 msgstr "Tipo de descarga"
 
-msgid "Download file"
-msgstr "Descarga de archivos"
-
 msgid "Downloader"
 msgstr "Metodo de descarga"
+
+msgid "Downloading"
+msgstr ""
 
 msgid "Downloads"
 msgstr "Descargas"
@@ -64,19 +70,22 @@ msgid "Edit download"
 msgstr "Editar descargas"
 
 msgid "Edit symlink"
-msgstr ""
+msgstr "Editar symlink"
 
 msgid "Enable"
-msgstr ""
+msgstr "Habilitar"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Habilitado"
 
 msgid "File Owner"
 msgstr "Propietario"
 
 msgid "Filename"
 msgstr "Nombre de archivo"
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Keep Video"
 msgstr "Mantener el Video"
@@ -85,11 +94,14 @@ msgid ""
 "Keep video file after conversion to audio.  Video will have mp4 extension."
 msgstr "Mantener el archivo de Video despues de la conversión a Audio. El Video tendrá la extensión .mp4."
 
+msgid "Message"
+msgstr ""
+
 msgid "No"
 msgstr "No"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid ""
 "Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
@@ -97,7 +109,7 @@ msgid ""
 msgstr "Salvar la descarga con este nombre. Si la extensión es aac, m4a, mp3, o wav, el Audio será descomprimido con este nombre."
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Seleccione un directorio"
 
 msgid "Settings"
 msgstr "Opciones"
@@ -105,23 +117,23 @@ msgstr "Opciones"
 msgid "Shared Folder"
 msgstr "Carpeta compartida"
 
-msgid "Silent"
-msgstr "Silenciosamente"
-
 msgid "Source"
-msgstr ""
+msgstr "Origen"
 
 msgid "Symlinks"
-msgstr ""
+msgstr "Symlinks"
 
 msgid "This destination is already in use."
+msgstr "Este destino ya está en uso."
+
+msgid "Type"
 msgstr ""
 
 msgid "URL"
 msgstr "URL"
 
 msgid "Update youtube-dl"
-msgstr ""
+msgstr "Actualizar YouTube-dl"
 
 msgid "Upload"
 msgstr "Subir"

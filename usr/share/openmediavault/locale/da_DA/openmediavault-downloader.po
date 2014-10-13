@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 14:48-0500\n"
-"PO-Revision-Date: 2014-09-25 19:50+0000\n"
+"POT-Creation-Date: 2014-10-13 10:39-0500\n"
+"PO-Revision-Date: 2014-10-13 15:41+0000\n"
 "Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault-downloader/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -22,9 +22,15 @@ msgid "Add download"
 msgstr "Tilføj download"
 
 msgid "Add symlink"
-msgstr ""
+msgstr "Tilføj symlink"
 
 msgid "Cancel"
+msgstr "Annuller"
+
+msgid "Component"
+msgstr ""
+
+msgid "Date & Time"
 msgstr ""
 
 msgid "Delete"
@@ -37,7 +43,7 @@ msgid "Delete from list of downloads after file is downloaded"
 msgstr "Slet fra liste af downloads efter filen er downloadet"
 
 msgid "Destination"
-msgstr ""
+msgstr "Destination"
 
 msgid "Done..."
 msgstr "Færdig..."
@@ -48,11 +54,11 @@ msgstr "Download"
 msgid "Download Type"
 msgstr "Download Type"
 
-msgid "Download file"
-msgstr "Download fil"
-
 msgid "Downloader"
 msgstr "Downloader"
+
+msgid "Downloading"
+msgstr ""
 
 msgid "Downloads"
 msgstr "Downloads"
@@ -64,19 +70,22 @@ msgid "Edit download"
 msgstr "Rediger download"
 
 msgid "Edit symlink"
-msgstr ""
+msgstr "Rediger symlink"
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktiver"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiveret"
 
 msgid "File Owner"
 msgstr "Fil Ejer"
 
 msgid "Filename"
 msgstr "Filnavn"
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Keep Video"
 msgstr "Behold Video"
@@ -85,11 +94,14 @@ msgid ""
 "Keep video file after conversion to audio.  Video will have mp4 extension."
 msgstr "Behold video efter konvertering til lyd. Video vil have mp4 endelse."
 
+msgid "Message"
+msgstr ""
+
 msgid "No"
 msgstr "Nej"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid ""
 "Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
@@ -97,7 +109,7 @@ msgid ""
 msgstr "Gemmer download som dette filnavn. Hvis fil endelsen er acc, m4a, mp3 eller wav vil lyd blive udhentet til filnavn."
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Vælg et bibliotek"
 
 msgid "Settings"
 msgstr "Indstilinger"
@@ -105,23 +117,23 @@ msgstr "Indstilinger"
 msgid "Shared Folder"
 msgstr "Delte Mapper"
 
-msgid "Silent"
-msgstr "Stille"
-
 msgid "Source"
-msgstr ""
+msgstr "Kilde"
 
 msgid "Symlinks"
-msgstr ""
+msgstr "Symlinks"
 
 msgid "This destination is already in use."
+msgstr "Destinationen er allerede i brug."
+
+msgid "Type"
 msgstr ""
 
 msgid "URL"
 msgstr "URL"
 
 msgid "Update youtube-dl"
-msgstr ""
+msgstr "Opdater youtube-dl"
 
 msgid "Upload"
 msgstr "Upload"

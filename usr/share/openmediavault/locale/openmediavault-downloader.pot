@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 14:48-0500\n"
+"POT-Creation-Date: 2014-10-13 10:39-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,6 +24,12 @@ msgid "Add symlink"
 msgstr ""
 
 msgid "Cancel"
+msgstr ""
+
+msgid "Component"
+msgstr ""
+
+msgid "Date & Time"
 msgstr ""
 
 msgid "Delete"
@@ -47,10 +53,10 @@ msgstr ""
 msgid "Download Type"
 msgstr ""
 
-msgid "Download file"
+msgid "Downloader"
 msgstr ""
 
-msgid "Downloader"
+msgid "Downloading"
 msgstr ""
 
 msgid "Downloads"
@@ -77,10 +83,16 @@ msgstr ""
 msgid "Filename"
 msgstr ""
 
+msgid "Filesize"
+msgstr ""
+
 msgid "Keep Video"
 msgstr ""
 
 msgid "Keep video file after conversion to audio.  Video will have mp4 extension."
+msgstr ""
+
+msgid "Message"
 msgstr ""
 
 msgid "No"
@@ -101,9 +113,6 @@ msgstr ""
 msgid "Shared Folder"
 msgstr ""
 
-msgid "Silent"
-msgstr ""
-
 msgid "Source"
 msgstr ""
 
@@ -111,6 +120,9 @@ msgid "Symlinks"
 msgstr ""
 
 msgid "This destination is already in use."
+msgstr ""
+
+msgid "Type"
 msgstr ""
 
 msgid "URL"

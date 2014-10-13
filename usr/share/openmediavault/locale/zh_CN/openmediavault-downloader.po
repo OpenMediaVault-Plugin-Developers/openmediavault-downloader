@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 14:48-0500\n"
-"PO-Revision-Date: 2014-09-25 19:50+0000\n"
+"POT-Creation-Date: 2014-10-13 10:39-0500\n"
+"PO-Revision-Date: 2014-10-13 15:41+0000\n"
 "Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault-downloader/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -22,9 +22,15 @@ msgid "Add download"
 msgstr "添加下载"
 
 msgid "Add symlink"
-msgstr ""
+msgstr "添加symlink"
 
 msgid "Cancel"
+msgstr "取消"
+
+msgid "Component"
+msgstr ""
+
+msgid "Date & Time"
 msgstr ""
 
 msgid "Delete"
@@ -37,7 +43,7 @@ msgid "Delete from list of downloads after file is downloaded"
 msgstr "下载完成后从下载列表删除"
 
 msgid "Destination"
-msgstr ""
+msgstr "目的地"
 
 msgid "Done..."
 msgstr "完成 ..."
@@ -48,11 +54,11 @@ msgstr "下载"
 msgid "Download Type"
 msgstr "下载类型"
 
-msgid "Download file"
-msgstr "下载文件"
-
 msgid "Downloader"
 msgstr "Downloader"
+
+msgid "Downloading"
+msgstr ""
 
 msgid "Downloads"
 msgstr "下载"
@@ -64,19 +70,22 @@ msgid "Edit download"
 msgstr "编辑下载"
 
 msgid "Edit symlink"
-msgstr ""
+msgstr "编辑symlink"
 
 msgid "Enable"
-msgstr ""
+msgstr "启用"
 
 msgid "Enabled"
-msgstr ""
+msgstr "已启用"
 
 msgid "File Owner"
 msgstr "文件所有者"
 
 msgid "Filename"
 msgstr "文件名"
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Keep Video"
 msgstr "保存视频"
@@ -85,11 +94,14 @@ msgid ""
 "Keep video file after conversion to audio.  Video will have mp4 extension."
 msgstr "转换音频后以mp4扩展名保存视频文件。"
 
+msgid "Message"
+msgstr ""
+
 msgid "No"
 msgstr "否"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid ""
 "Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
@@ -97,7 +109,7 @@ msgid ""
 msgstr ""
 
 msgid "Select a directory"
-msgstr ""
+msgstr "选择目录"
 
 msgid "Settings"
 msgstr "设置"
@@ -105,16 +117,16 @@ msgstr "设置"
 msgid "Shared Folder"
 msgstr "共享文件夹"
 
-msgid "Silent"
-msgstr "后台下载"
-
 msgid "Source"
-msgstr ""
+msgstr "资源"
 
 msgid "Symlinks"
-msgstr ""
+msgstr "Symlinks"
 
 msgid "This destination is already in use."
+msgstr "该目的地已经被使用。"
+
+msgid "Type"
 msgstr ""
 
 msgid "URL"

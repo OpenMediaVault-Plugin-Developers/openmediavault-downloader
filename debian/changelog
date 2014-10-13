@@ -1,9 +1,11 @@
-openmediavault-downloader (1.0.3) UNRELEASED; urgency=low
+openmediavault-downloader (1.0.3) stable; urgency=low
 
   * Add logging
   * Add downloading and filesize columns
+  * Update to youtube-dl 2014.10.13
+  * Update locales
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 11 Oct 2014 10:00:13 -0500
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 13 Oct 2014 10:34:17 -0500
 
 openmediavault-downloader (1.0.2) stable; urgency=low
 

@@ -224,18 +224,9 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
             handler  : Ext.Function.bind(me.onDownloadButton, me, [ me ]),
             scope    : me,
             disabled : true
-        },{
-            id       : me.getId() + "-silent",
-            xtype    : "button",
-            text     : _("Silent"),
-            icon     : "images/download.png",
-            iconCls  : Ext.baseCSSPrefix + "btn-icon-16x16",
-            handler  : Ext.Function.bind(me.onSilentButton, me, [ me ]),
-            scope    : me,
-            disabled : true
         }]);
 
-        Ext.Array.insert(items, 5, [{
+        Ext.Array.insert(items, 4, [{
             id       : me.getId() + "-update",
             xtype    : "button",
             text     : _("Update youtube-dl"),
@@ -250,23 +241,15 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
 
     onSelectionChange: function(model, records) {
         var me = this;
+        var download = true;
         me.callParent(arguments);
-
-        // Process additional buttons.
-        var tbarBtnDisabled = {
-            "download" : true,
-            "silent"   : true
-        };
-
         if(records.length == 1) {
-            tbarBtnDisabled["download"] = false;
-            tbarBtnDisabled["silent"]   = false;
+            var record = me.getSelected();
+            if(record.get("downloading") == _("No")) {
+                download = false;
+            }
         }
-
-        // Update the button controls.
-        Ext.Object.each(tbarBtnDisabled, function(key, value) {
-            this.setToolbarButtonDisabled(key, value);
-        }, me);
+        me.setToolbarButtonDisabled("download", download);
     },
 
     onAddButton : function() {
@@ -316,45 +299,18 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
     onDownloadButton: function() {
         var me = this;
         var record = me.getSelected();
-        var wnd = Ext.create("OMV.window.Execute", {
-            title      : _("Download file"),
-            rpcService : "Downloader",
-            rpcMethod  : "doDownload",
-            rpcParams  : {
-                uuid : record.get("uuid")
-            },
-            hideStartButton : true,
-            hideStopButton  : true,
-            listeners       : {
-                scope     : me,
-                finish    : function(wnd, response) {
-                    wnd.appendValue(_("Done..."));
-                    wnd.setButtonDisabled("close", false);
-                },
-                exception : function(wnd, error) {
-                    OMV.MessageBox.error(null, error);
-                    wnd.setButtonDisabled("close", false);
-                }
-            }
-        });
-        wnd.setButtonDisabled("close", true);
-        wnd.show();
-        wnd.start();
-    },
-
-    onSilentButton: function() {
-        var me = this;
-        var record = me.getSelected();
         OMV.Rpc.request({
             scope    : me,
             rpcData  : {
                 service : "Downloader",
-                method  : "doSilent",
+                method  : "doDownload",
                 params  : {
                     uuid : record.get("uuid")
                 }
             }
         });
+        me.doReload();
+        me.setToolbarButtonDisabled("download", true);
     },
 
     onUpdateButton: function() {

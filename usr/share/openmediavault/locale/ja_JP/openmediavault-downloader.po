@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 14:48-0500\n"
-"PO-Revision-Date: 2014-09-25 19:50+0000\n"
+"POT-Creation-Date: 2014-10-13 10:39-0500\n"
+"PO-Revision-Date: 2014-10-13 15:41+0000\n"
 "Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault-downloader/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -22,9 +22,15 @@ msgid "Add download"
 msgstr "ダウンロードの追加"
 
 msgid "Add symlink"
-msgstr ""
+msgstr "シンポリックリンクの追加"
 
 msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Component"
+msgstr ""
+
+msgid "Date & Time"
 msgstr ""
 
 msgid "Delete"
@@ -37,7 +43,7 @@ msgid "Delete from list of downloads after file is downloaded"
 msgstr "ファイルのダウンロード後、ダウンロードのリストから削除"
 
 msgid "Destination"
-msgstr ""
+msgstr "宛先"
 
 msgid "Done..."
 msgstr "完了..."
@@ -48,11 +54,11 @@ msgstr "ダウンロード"
 msgid "Download Type"
 msgstr "ダウンロードタイプ"
 
-msgid "Download file"
-msgstr "ダウンロードファイル"
-
 msgid "Downloader"
 msgstr "ダウンローダー"
+
+msgid "Downloading"
+msgstr ""
 
 msgid "Downloads"
 msgstr "ダウンロード"
@@ -64,19 +70,22 @@ msgid "Edit download"
 msgstr "ダウンロードの編集"
 
 msgid "Edit symlink"
-msgstr ""
+msgstr "シンボリックリンクの編集"
 
 msgid "Enable"
-msgstr ""
+msgstr "有効化"
 
 msgid "Enabled"
-msgstr ""
+msgstr "有効化済み"
 
 msgid "File Owner"
 msgstr "ファイルオーナー"
 
 msgid "Filename"
 msgstr "ファイル名"
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Keep Video"
 msgstr "動画を保持"
@@ -85,11 +94,14 @@ msgid ""
 "Keep video file after conversion to audio.  Video will have mp4 extension."
 msgstr "オーディオへの変換後の動画ファイルを保持してください。動画はMP4の拡張子を持つことになります。"
 
+msgid "Message"
+msgstr ""
+
 msgid "No"
 msgstr "いいえ"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid ""
 "Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
@@ -97,7 +109,7 @@ msgid ""
 msgstr "このファイル名としてダウンロードを保存します。ファイルの拡張子は、AAC、M4A、MP3、またはWAVの場合、オーディオファイル名に展開されます。"
 
 msgid "Select a directory"
-msgstr ""
+msgstr "ディレクトリの選択"
 
 msgid "Settings"
 msgstr "設定"
@@ -105,23 +117,23 @@ msgstr "設定"
 msgid "Shared Folder"
 msgstr "共有フォルダ"
 
-msgid "Silent"
-msgstr "サイレント"
-
 msgid "Source"
-msgstr ""
+msgstr "ソース"
 
 msgid "Symlinks"
-msgstr ""
+msgstr "シンボリックリンク"
 
 msgid "This destination is already in use."
+msgstr "この宛先は既に使用されています。"
+
+msgid "Type"
 msgstr ""
 
 msgid "URL"
 msgstr "URL"
 
 msgid "Update youtube-dl"
-msgstr ""
+msgstr "youtube-dlのアップデート"
 
 msgid "Upload"
 msgstr "アップロード"

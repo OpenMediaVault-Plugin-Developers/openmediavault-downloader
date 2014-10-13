@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 14:48-0500\n"
-"PO-Revision-Date: 2014-09-25 19:50+0000\n"
+"POT-Creation-Date: 2014-10-13 10:39-0500\n"
+"PO-Revision-Date: 2014-10-13 15:41+0000\n"
 "Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault-downloader/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,12 @@ msgid "Add symlink"
 msgstr ""
 
 msgid "Cancel"
+msgstr ""
+
+msgid "Component"
+msgstr ""
+
+msgid "Date & Time"
 msgstr ""
 
 msgid "Delete"
@@ -48,11 +54,11 @@ msgstr "Завантажити"
 msgid "Download Type"
 msgstr "Тип завантаження"
 
-msgid "Download file"
-msgstr "Завантажити файл"
-
 msgid "Downloader"
 msgstr "Завантажувач"
+
+msgid "Downloading"
+msgstr ""
 
 msgid "Downloads"
 msgstr "Завантажування"
@@ -78,11 +84,17 @@ msgstr ""
 msgid "Filename"
 msgstr "Назва файлу"
 
+msgid "Filesize"
+msgstr ""
+
 msgid "Keep Video"
 msgstr ""
 
 msgid ""
 "Keep video file after conversion to audio.  Video will have mp4 extension."
+msgstr ""
+
+msgid "Message"
 msgstr ""
 
 msgid "No"
@@ -105,9 +117,6 @@ msgstr ""
 msgid "Shared Folder"
 msgstr "Спільна тека"
 
-msgid "Silent"
-msgstr "Тихе"
-
 msgid "Source"
 msgstr ""
 
@@ -115,6 +124,9 @@ msgid "Symlinks"
 msgstr ""
 
 msgid "This destination is already in use."
+msgstr ""
+
+msgid "Type"
 msgstr ""
 
 msgid "URL"

@@ -122,7 +122,6 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
         $this->registerMethod("setDownload");
         $this->registerMethod("deleteDownload");
         $this->registerMethod("doDownload");
-        $this->registerMethod("doSilent");
 
         $this->registerMethod("getUpload");
         $this->registerMethod("setUpload");
@@ -400,7 +399,6 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
                 $xPath
             );
         }
-
         $mntentref = $objectsf['mntentref'];
         $path      = $objectsf['reldirpath'];
         $sfname    = $objectsf['name'];
@@ -414,138 +412,6 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
                 $xPath
             );
         }
-        $dir = $objectmt['dir'];
-        $ext = strtolower(substr($filename, -3));
-
-        $kv = "";
-        if ( $keepvideo == true )
-            $kv = "-k";
-
-        // Create a background process.
-        $bgStatusFilename = $this->createBgProcStatus();
-        $pid = $this->fork();
-        if ($pid > 0) { // Parent process.
-            $this->initializeBgProcStatus($bgStatusFilename, $pid);
-            return $bgStatusFilename;
-        }
-
-        // Child process.
-        try {
-            $bgOutputFilename = $this->createBgProcOutput();
-            $this->updateBgProcStatus($bgStatusFilename, "outputfilename", $bgOutputFilename);
-
-            switch ($dltype)
-            {
-                case "curl":
-                    $cmd = sprintf("%s -o \"%s/%s/%s\" \"%s\" 2>&1", $this->getCurl(), $dir, $path, $filename, $url );
-                    break;
-
-                case "youtube-dl":
-                    if ($ext == "mp3" || $ext == "aac" || $ext == "wav" || $ext == "m4a" )
-                    {
-                        $filename = substr($filename, 0, strlen($filename) - 3) . "mp4";
-                        $cmd = sprintf("%s -x %s --audio-format \"%s\" --newline -o \"%s/%s/%s\" \"%s\" 2>&1", $this->getYoutubedl(), $kv, $ext, $dir, $path, $filename, $url );
-                    }
-                    else
-                    {
-                        $cmd = sprintf("%s --newline -o \"%s/%s/%s\" \"%s\" 2>&1", $this->getYoutubedl(), $dir, $path, $filename, $url );
-                    }
-                    break;
-
-                default:
-                    $cmd = sprintf("%s -d \"%s/%s/\" -o \"%s\" \"%s\" 2>&1", $this->getAria2(), $dir, $path, $filename, $url);
-            }
-
-            // Create pid file
-            $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir(), $params['uuid']);
-            touch($pid);
-
-            // [2013-10-30 13:30:15] DOWNLOAD: youtube-dl: test.mp4: movies: START: http://domain.com/test.mp4
-            $log = sprintf("[%s] DOWNLOAD: %s: %s: %s: START: %s\r\n", date("Y-m-d H:i:s"), $dltype, $filename, $sfname, $url);
-            file_put_contents($this->getLogFile(), $log, FILE_APPEND);
-
-            $this->exec($cmd, $output, $bgOutputFilename);
-            $this->finalizeBgProcStatus($bgStatusFilename, $output);
-
-            $log = sprintf("[%s] DOWNLOAD: %s: %s: %s: FINISH: %s\r\n", date("Y-m-d H:i:s"), $dltype, $filename, $sfname, $url);
-            file_put_contents($this->getLogFile(), $log, FILE_APPEND);
-
-            // Destroy pid file
-            unlink($pid);
-
-            if ( $delete )
-            {
-                // Delete the configuration object.
-                $xPath = sprintf("%s[uuid='%s']", $this->getXPathDownload(), $params['uuid']);
-
-                $this->deleteConfigObjectByPath( $xPath, $this->getEventMessagePathDownload() );
-            }
-            exit(0);
-        } catch(Exception $e) {
-            $this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-            exit(1);
-        }
-    }
-
-    public function doSilent($params, $context)
-    {
-        global $xmlConfig;
-
-        // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
-        );
-
-        // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type":"object",
-            "properties":{
-                "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-            }
-        }');
-
-        // Get the configuration object.
-        $xPath = sprintf("%s[uuid='%s']", $this->getXPathDownload(), $params['uuid']);
-        $object = $xmlConfig->get($xPath);
-        if (is_null($object))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $xPath
-            );
-        }
-
-        $dltype    = $object['dltype'];
-        $filename  = $object['filename'];
-        $keepvideo = boolval($object['keepvideo']);
-        $sfref     = $object['sharedfolderref'];
-        $url       = $object['url'];
-        $delete    = boolval($object['delete']);
-
-        $xPath = sprintf("%s[uuid='%s']", $this->getXPathSharedFolder(), $sfref);
-        $objectsf = $xmlConfig->get($xPath);
-        if (is_null($objectsf))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $xPath
-            );
-        }
-        $mntentref = $objectsf['mntentref'];
-        $path      = $objectsf['reldirpath'];
-        $sfname    = $objectsf['name'];
-
-        $xPath = sprintf("%s[uuid='%s']", $this->getXPathMntEnt(), $mntentref);
-        $objectmt = $xmlConfig->get($xPath);
-        if (is_null($objectsf))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $xPath
-            );
-        }
-
         $dir = $objectmt['dir'];
         $ext = strtolower(substr($filename, -3));
 
