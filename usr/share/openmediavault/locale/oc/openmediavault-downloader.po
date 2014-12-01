@@ -3,158 +3,157 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-13 10:39-0500\n"
-"PO-Revision-Date: 2014-11-14 19:48+0000\n"
-"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
-"Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault-downloader/language/da/)\n"
+"PO-Revision-Date: 2013-12-07 18:07+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Occitan (post 1500) (http://www.transifex.com/projects/p/openmediavault-downloader/language/oc/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: oc\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Add download"
-msgstr "Tilføj download"
+msgstr ""
 
 msgid "Add symlink"
-msgstr "Tilføj symlink"
+msgstr ""
 
 msgid "Cancel"
-msgstr "Annuller"
+msgstr ""
 
 msgid "Component"
-msgstr "Komponent"
+msgstr ""
 
 msgid "Date & Time"
-msgstr "Dato & Tid"
+msgstr ""
 
 msgid "Delete"
-msgstr "Slet"
+msgstr ""
 
 msgid "Delete after Download"
-msgstr "Slet efter Download"
+msgstr ""
 
 msgid "Delete from list of downloads after file is downloaded"
-msgstr "Slet fra liste af downloads efter filen er downloadet"
+msgstr ""
 
 msgid "Destination"
-msgstr "Destination"
+msgstr ""
 
 msgid "Done..."
-msgstr "Færdig..."
+msgstr ""
 
 msgid "Download"
-msgstr "Download"
+msgstr ""
 
 msgid "Download Type"
-msgstr "Download Type"
+msgstr ""
 
 msgid "Downloader"
-msgstr "Downloader"
+msgstr ""
 
 msgid "Downloading"
-msgstr "Downloader"
+msgstr ""
 
 msgid "Downloads"
-msgstr "Downloads"
+msgstr ""
 
 msgid "Downloads to this shared folder"
-msgstr "Downloader til denne delte mappe"
+msgstr ""
 
 msgid "Edit download"
-msgstr "Rediger download"
+msgstr ""
 
 msgid "Edit symlink"
-msgstr "Rediger symlink"
+msgstr ""
 
 msgid "Enable"
-msgstr "Aktiver"
+msgstr ""
 
 msgid "Enabled"
-msgstr "Aktiveret"
+msgstr ""
 
 msgid "File Owner"
-msgstr "Fil Ejer"
+msgstr ""
 
 msgid "Filename"
-msgstr "Filnavn"
+msgstr ""
 
 msgid "Filesize"
-msgstr "Filstørrelse"
+msgstr ""
 
 msgid "Keep Video"
-msgstr "Behold Video"
+msgstr ""
 
 msgid ""
 "Keep video file after conversion to audio.  Video will have mp4 extension."
-msgstr "Behold video efter konvertering til lyd. Video vil have mp4 endelse."
+msgstr ""
 
 msgid "Message"
-msgstr "Besked"
+msgstr ""
 
 msgid "No"
-msgstr "Nej"
+msgstr ""
 
 msgid "OK"
-msgstr "OK"
+msgstr ""
 
 msgid ""
 "Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
 " audio will be extracted to filename."
-msgstr "Gemmer download som dette filnavn. Hvis fil endelsen er acc, m4a, mp3 eller wav vil lyd blive udhentet til filnavn."
+msgstr ""
 
 msgid "Select a directory"
-msgstr "Vælg et bibliotek"
+msgstr ""
 
 msgid "Settings"
-msgstr "Indstilinger"
+msgstr ""
 
 msgid "Shared Folder"
-msgstr "Delte Mapper"
+msgstr ""
 
 msgid "Source"
-msgstr "Kilde"
+msgstr ""
 
 msgid "Symlinks"
-msgstr "Symlinks"
+msgstr ""
 
 msgid "This destination is already in use."
-msgstr "Destinationen er allerede i brug."
+msgstr ""
 
 msgid "Type"
-msgstr "Type"
+msgstr ""
 
 msgid "URL"
-msgstr "URL"
+msgstr ""
 
 msgid "Update youtube-dl"
-msgstr "Opdater youtube-dl"
+msgstr ""
 
 msgid "Upload"
-msgstr "Upload"
+msgstr ""
 
 msgid "Upload file"
-msgstr "Upload fil"
+msgstr ""
 
 msgid "Upload file to this shared folder."
-msgstr "Upload fil til denne delte mappe."
+msgstr ""
 
 msgid "Yes"
-msgstr "Ja"
+msgstr ""
 
 msgid "aria2"
-msgstr "aria2"
+msgstr ""
 
 msgid "curl"
-msgstr "curl"
+msgstr ""
 
 msgid "n/a"
-msgstr "n/a"
+msgstr ""
 
 msgid "youtube-dl"
-msgstr "youtube-dl"
+msgstr ""

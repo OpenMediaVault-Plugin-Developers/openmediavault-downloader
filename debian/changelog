@@ -1,9 +1,10 @@
-openmediavault-downloader (1.0.4) UNRELEASED; urgency=low
+openmediavault-downloader (1.0.4) stable; urgency=low
 
   * Fix download button translation bug
   * Update youtube-dl to 2014.12.01
+  * Update locales
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 01 Dec 2014 10:51:19 -0600
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 01 Dec 2014 10:56:40 -0600
 
 openmediavault-downloader (1.0.3) stable; urgency=low
 

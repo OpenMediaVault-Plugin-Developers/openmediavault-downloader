@@ -3,102 +3,102 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2014
+# kochin <kochinc@outlook.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-13 10:39-0500\n"
-"PO-Revision-Date: 2014-11-14 19:48+0000\n"
-"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
-"Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault-downloader/language/da/)\n"
+"PO-Revision-Date: 2014-11-21 14:59+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault-downloader/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Add download"
-msgstr "Tilføj download"
+msgstr "新增下載"
 
 msgid "Add symlink"
-msgstr "Tilføj symlink"
+msgstr "新增 symlink"
 
 msgid "Cancel"
-msgstr "Annuller"
+msgstr "取消"
 
 msgid "Component"
-msgstr "Komponent"
+msgstr "元件"
 
 msgid "Date & Time"
-msgstr "Dato & Tid"
+msgstr "日期與時間"
 
 msgid "Delete"
-msgstr "Slet"
+msgstr "刪除"
 
 msgid "Delete after Download"
-msgstr "Slet efter Download"
+msgstr "下載後刪除"
 
 msgid "Delete from list of downloads after file is downloaded"
-msgstr "Slet fra liste af downloads efter filen er downloadet"
+msgstr "檔案下載之後，將它從下載清單中刪除。"
 
 msgid "Destination"
-msgstr "Destination"
+msgstr "目的地"
 
 msgid "Done..."
-msgstr "Færdig..."
+msgstr "完成 ..."
 
 msgid "Download"
-msgstr "Download"
+msgstr "下載"
 
 msgid "Download Type"
-msgstr "Download Type"
+msgstr "下載型式"
 
 msgid "Downloader"
 msgstr "Downloader"
 
 msgid "Downloading"
-msgstr "Downloader"
+msgstr "下載中"
 
 msgid "Downloads"
-msgstr "Downloads"
+msgstr "下載"
 
 msgid "Downloads to this shared folder"
-msgstr "Downloader til denne delte mappe"
+msgstr "下載到這個共享檔案夾"
 
 msgid "Edit download"
-msgstr "Rediger download"
+msgstr "編輯下載"
 
 msgid "Edit symlink"
-msgstr "Rediger symlink"
+msgstr "編輯 symlink"
 
 msgid "Enable"
-msgstr "Aktiver"
+msgstr "啟用"
 
 msgid "Enabled"
-msgstr "Aktiveret"
+msgstr "已啟用"
 
 msgid "File Owner"
-msgstr "Fil Ejer"
+msgstr "檔案所有者"
 
 msgid "Filename"
-msgstr "Filnavn"
+msgstr "檔案名稱"
 
 msgid "Filesize"
-msgstr "Filstørrelse"
+msgstr "檔案大小"
 
 msgid "Keep Video"
-msgstr "Behold Video"
+msgstr "保留視訊"
 
 msgid ""
 "Keep video file after conversion to audio.  Video will have mp4 extension."
-msgstr "Behold video efter konvertering til lyd. Video vil have mp4 endelse."
+msgstr "轉換成音訊之後，保留視訊檔案。視訊將有 mp4 延伸檔名。"
 
 msgid "Message"
-msgstr "Besked"
+msgstr "訊息"
 
 msgid "No"
-msgstr "Nej"
+msgstr "否"
 
 msgid "OK"
 msgstr "OK"
@@ -106,46 +106,46 @@ msgstr "OK"
 msgid ""
 "Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
 " audio will be extracted to filename."
-msgstr "Gemmer download som dette filnavn. Hvis fil endelsen er acc, m4a, mp3 eller wav vil lyd blive udhentet til filnavn."
+msgstr "以這個檔案名稱來儲存下載。如果延伸檔名是 aac、m4a、mp3 或 wav，音訊將會被擷取出來放到該檔案名稱的檔案。"
 
 msgid "Select a directory"
-msgstr "Vælg et bibliotek"
+msgstr "選擇一個目錄"
 
 msgid "Settings"
-msgstr "Indstilinger"
+msgstr "設定"
 
 msgid "Shared Folder"
-msgstr "Delte Mapper"
+msgstr "共享檔案夾"
 
 msgid "Source"
-msgstr "Kilde"
+msgstr "來源"
 
 msgid "Symlinks"
 msgstr "Symlinks"
 
 msgid "This destination is already in use."
-msgstr "Destinationen er allerede i brug."
+msgstr "此目的地已被使用。"
 
 msgid "Type"
-msgstr "Type"
+msgstr "型式"
 
 msgid "URL"
 msgstr "URL"
 
 msgid "Update youtube-dl"
-msgstr "Opdater youtube-dl"
+msgstr "更新 youtube-dl"
 
 msgid "Upload"
-msgstr "Upload"
+msgstr "上傳"
 
 msgid "Upload file"
-msgstr "Upload fil"
+msgstr "上傳檔案"
 
 msgid "Upload file to this shared folder."
-msgstr "Upload fil til denne delte mappe."
+msgstr "上傳至這個共享檔案夾。"
 
 msgid "Yes"
-msgstr "Ja"
+msgstr "是"
 
 msgid "aria2"
 msgstr "aria2"

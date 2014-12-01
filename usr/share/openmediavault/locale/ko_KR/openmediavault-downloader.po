@@ -3,102 +3,102 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2014
+# Hyeonkyu Chu <hyeonkyu@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-13 10:39-0500\n"
-"PO-Revision-Date: 2014-11-14 19:48+0000\n"
-"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
-"Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault-downloader/language/da/)\n"
+"PO-Revision-Date: 2014-11-22 13:21+0000\n"
+"Last-Translator: Hyeonkyu Chu <hyeonkyu@gmail.com>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault-downloader/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Add download"
-msgstr "Tilføj download"
+msgstr "내려받기 추가"
 
 msgid "Add symlink"
-msgstr "Tilføj symlink"
+msgstr "기호연결 추가"
 
 msgid "Cancel"
-msgstr "Annuller"
+msgstr "취소"
 
 msgid "Component"
-msgstr "Komponent"
+msgstr "구성 요소"
 
 msgid "Date & Time"
-msgstr "Dato & Tid"
+msgstr "날짜 & 시간"
 
 msgid "Delete"
-msgstr "Slet"
+msgstr "지우기"
 
 msgid "Delete after Download"
-msgstr "Slet efter Download"
+msgstr "내려받은 후 지우기"
 
 msgid "Delete from list of downloads after file is downloaded"
-msgstr "Slet fra liste af downloads efter filen er downloadet"
+msgstr "파일 내려받기가 완료되면 내려받기 목록에서 지우기 "
 
 msgid "Destination"
-msgstr "Destination"
+msgstr "대상"
 
 msgid "Done..."
-msgstr "Færdig..."
+msgstr "완료..."
 
 msgid "Download"
-msgstr "Download"
+msgstr "내려받기"
 
 msgid "Download Type"
-msgstr "Download Type"
+msgstr "내려받기 유형"
 
 msgid "Downloader"
 msgstr "Downloader"
 
 msgid "Downloading"
-msgstr "Downloader"
+msgstr "내려받는 중"
 
 msgid "Downloads"
-msgstr "Downloads"
+msgstr "내려받기"
 
 msgid "Downloads to this shared folder"
-msgstr "Downloader til denne delte mappe"
+msgstr "이 공유 폴더에 내려받습니다"
 
 msgid "Edit download"
-msgstr "Rediger download"
+msgstr "내려받기 편집"
 
 msgid "Edit symlink"
-msgstr "Rediger symlink"
+msgstr "기호연결 편집"
 
 msgid "Enable"
-msgstr "Aktiver"
+msgstr "활성화"
 
 msgid "Enabled"
-msgstr "Aktiveret"
+msgstr "활성화됨"
 
 msgid "File Owner"
-msgstr "Fil Ejer"
+msgstr "파일 소유자"
 
 msgid "Filename"
-msgstr "Filnavn"
+msgstr "파일 이름"
 
 msgid "Filesize"
-msgstr "Filstørrelse"
+msgstr "파일 크기"
 
 msgid "Keep Video"
-msgstr "Behold Video"
+msgstr "동영상 유지"
 
 msgid ""
 "Keep video file after conversion to audio.  Video will have mp4 extension."
-msgstr "Behold video efter konvertering til lyd. Video vil have mp4 endelse."
+msgstr "음향으로 변환 후 동영상 파일을 유지합니다. 동영상은 mp4 확장자를 가집니다."
 
 msgid "Message"
-msgstr "Besked"
+msgstr "메시지"
 
 msgid "No"
-msgstr "Nej"
+msgstr "아니오"
 
 msgid "OK"
 msgstr "OK"
@@ -106,46 +106,46 @@ msgstr "OK"
 msgid ""
 "Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
 " audio will be extracted to filename."
-msgstr "Gemmer download som dette filnavn. Hvis fil endelsen er acc, m4a, mp3 eller wav vil lyd blive udhentet til filnavn."
+msgstr "이 파일 이름으로 내려받기를 저장합니다.<br/>파일 확장자가 aac, m4a, mp3 또는 wav 인 경우, 음향은 파일 이름에 추출합니다."
 
 msgid "Select a directory"
-msgstr "Vælg et bibliotek"
+msgstr "디렉터리 선택"
 
 msgid "Settings"
-msgstr "Indstilinger"
+msgstr "설정"
 
 msgid "Shared Folder"
-msgstr "Delte Mapper"
+msgstr "공유 폴더"
 
 msgid "Source"
-msgstr "Kilde"
+msgstr "원본"
 
 msgid "Symlinks"
-msgstr "Symlinks"
+msgstr "기호연결"
 
 msgid "This destination is already in use."
-msgstr "Destinationen er allerede i brug."
+msgstr "이 대상은 이미 사용 중입니다."
 
 msgid "Type"
-msgstr "Type"
+msgstr "유형"
 
 msgid "URL"
 msgstr "URL"
 
 msgid "Update youtube-dl"
-msgstr "Opdater youtube-dl"
+msgstr "youtube-dl 갱신"
 
 msgid "Upload"
-msgstr "Upload"
+msgstr "올려주기"
 
 msgid "Upload file"
-msgstr "Upload fil"
+msgstr "올려주기 파일"
 
 msgid "Upload file to this shared folder."
-msgstr "Upload fil til denne delte mappe."
+msgstr "이 공유 폴더로 파일을 올립니다."
 
 msgid "Yes"
-msgstr "Ja"
+msgstr "예"
 
 msgid "aria2"
 msgstr "aria2"

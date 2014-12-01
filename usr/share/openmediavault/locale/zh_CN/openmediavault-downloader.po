@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-13 10:39-0500\n"
-"PO-Revision-Date: 2014-10-13 15:41+0000\n"
+"PO-Revision-Date: 2014-11-14 19:48+0000\n"
 "Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault-downloader/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -28,10 +28,10 @@ msgid "Cancel"
 msgstr "取消"
 
 msgid "Component"
-msgstr ""
+msgstr "组件"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "日期和时间"
 
 msgid "Delete"
 msgstr "删除"
@@ -58,7 +58,7 @@ msgid "Downloader"
 msgstr "Downloader"
 
 msgid "Downloading"
-msgstr ""
+msgstr "下载中"
 
 msgid "Downloads"
 msgstr "下载"
@@ -85,7 +85,7 @@ msgid "Filename"
 msgstr "文件名"
 
 msgid "Filesize"
-msgstr ""
+msgstr "文件大小"
 
 msgid "Keep Video"
 msgstr "保存视频"
@@ -95,7 +95,7 @@ msgid ""
 msgstr "转换音频后以mp4扩展名保存视频文件。"
 
 msgid "Message"
-msgstr ""
+msgstr "消息"
 
 msgid "No"
 msgstr "否"
@@ -127,7 +127,7 @@ msgid "This destination is already in use."
 msgstr "该目的地已经被使用。"
 
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 msgid "URL"
 msgstr "URL"

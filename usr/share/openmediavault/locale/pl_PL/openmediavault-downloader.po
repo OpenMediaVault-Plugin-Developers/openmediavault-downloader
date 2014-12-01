@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-13 10:39-0500\n"
-"PO-Revision-Date: 2014-10-13 15:41+0000\n"
+"PO-Revision-Date: 2014-11-14 19:48+0000\n"
 "Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault-downloader/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -22,16 +22,16 @@ msgid "Add download"
 msgstr "Dodaj pobieranie"
 
 msgid "Add symlink"
-msgstr ""
+msgstr "Dodaj dowiązanie"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 msgid "Component"
-msgstr ""
+msgstr "Komponent"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Data i czas"
 
 msgid "Delete"
 msgstr "Usuń"
@@ -43,7 +43,7 @@ msgid "Delete from list of downloads after file is downloaded"
 msgstr "Usuń z listy pobierania po pobraniu pliku"
 
 msgid "Destination"
-msgstr ""
+msgstr "Cel"
 
 msgid "Done..."
 msgstr "Skończone..."
@@ -58,7 +58,7 @@ msgid "Downloader"
 msgstr "Pobieracz"
 
 msgid "Downloading"
-msgstr ""
+msgstr "Pobieranie"
 
 msgid "Downloads"
 msgstr "Pobrane"
@@ -70,13 +70,13 @@ msgid "Edit download"
 msgstr "Edytuj pobierane"
 
 msgid "Edit symlink"
-msgstr ""
+msgstr "Edytuj dowiązanie"
 
 msgid "Enable"
-msgstr ""
+msgstr "Włącz"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Włączony"
 
 msgid "File Owner"
 msgstr "Właściciel pliku"
@@ -85,7 +85,7 @@ msgid "Filename"
 msgstr "Nazwa pliku"
 
 msgid "Filesize"
-msgstr ""
+msgstr "Rozmiar pliku"
 
 msgid "Keep Video"
 msgstr "Zachowaj wideo"
@@ -95,13 +95,13 @@ msgid ""
 msgstr "Zostawia plik wideo po konwersji na audio. Wideo będzie zapisane w rozszerzeniu mp4."
 
 msgid "Message"
-msgstr ""
+msgstr "Wiadomość"
 
 msgid "No"
 msgstr "Nie"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid ""
 "Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
@@ -109,7 +109,7 @@ msgid ""
 msgstr "Zapisuje do pobrania jako ta nazwa pliku. Jeśli rozszerzeniem pliku jest aac, m4a, mp3 lub wav, audio zostaną wyodrębnione do nazwy pliku."
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Wybierz katalog"
 
 msgid "Settings"
 msgstr "Ustawienia"
@@ -118,22 +118,22 @@ msgid "Shared Folder"
 msgstr "Udostępniony katalog"
 
 msgid "Source"
-msgstr ""
+msgstr "Źródło"
 
 msgid "Symlinks"
-msgstr ""
+msgstr "Dowiązania"
 
 msgid "This destination is already in use."
-msgstr ""
+msgstr "Ten katalog jest już używany."
 
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 msgid "URL"
 msgstr "URL"
 
 msgid "Update youtube-dl"
-msgstr ""
+msgstr "Uaktualnij youtube-dl"
 
 msgid "Upload"
 msgstr "Wczytaj"
