@@ -159,7 +159,15 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         text        : _("Downloading"),
         sortable    : true,
         dataIndex   : "downloading",
-        stateId     : "downloading"
+        stateId     : "downloading",
+        renderer    : function (value) {
+            var content;
+            if ( value )
+                content = _("No");
+            else
+                content = _("Yes");
+            return content;
+        }
     },{
         text      : _("Filesize"),
         sortable  : true,
@@ -171,7 +179,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         sortable    : true,
         dataIndex   : "delete",
         stateId     : "delete",
-        renderer: function (value) {
+        renderer    : function (value) {
             var content;
             if ( value )
                 content = _("Yes");
@@ -245,7 +253,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         me.callParent(arguments);
         if(records.length == 1) {
             var record = me.getSelected();
-            if(record.get("downloading") == _("No")) {
+            if(record.get("downloading") == "No") {
                 download = false;
             }
         }
