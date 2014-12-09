@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-downloader\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-13 10:39-0500\n"
+"PO-Revision-Date: 2013-12-07 18:07+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault-downloader/language/gl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: gl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add download"
+msgstr ""
+
+msgid "Add symlink"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Component"
+msgstr ""
+
+msgid "Date & Time"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete after Download"
+msgstr ""
+
+msgid "Delete from list of downloads after file is downloaded"
+msgstr ""
+
+msgid "Destination"
+msgstr ""
+
+msgid "Done..."
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Download Type"
+msgstr ""
+
+msgid "Downloader"
+msgstr ""
+
+msgid "Downloading"
+msgstr ""
+
+msgid "Downloads"
+msgstr ""
+
+msgid "Downloads to this shared folder"
+msgstr ""
+
+msgid "Edit download"
+msgstr ""
+
+msgid "Edit symlink"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "File Owner"
+msgstr ""
+
+msgid "Filename"
+msgstr ""
+
+msgid "Filesize"
+msgstr ""
+
+msgid "Keep Video"
+msgstr ""
+
+msgid ""
+"Keep video file after conversion to audio.  Video will have mp4 extension."
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid ""
+"Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
+" audio will be extracted to filename."
+msgstr ""
+
+msgid "Select a directory"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Shared Folder"
+msgstr ""
+
+msgid "Source"
+msgstr ""
+
+msgid "Symlinks"
+msgstr ""
+
+msgid "This destination is already in use."
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "URL"
+msgstr ""
+
+msgid "Update youtube-dl"
+msgstr ""
+
+msgid "Upload"
+msgstr ""
+
+msgid "Upload file"
+msgstr ""
+
+msgid "Upload file to this shared folder."
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "aria2"
+msgstr ""
+
+msgid "curl"
+msgstr ""
+
+msgid "n/a"
+msgstr ""
+
+msgid "youtube-dl"
+msgstr ""
