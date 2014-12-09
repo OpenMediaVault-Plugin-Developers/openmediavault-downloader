@@ -163,9 +163,9 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         renderer    : function (value) {
             var content;
             if ( value )
-                content = _("No");
-            else
                 content = _("Yes");
+            else
+                content = _("No");
             return content;
         }
     },{
@@ -202,7 +202,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
                         { name : "filename", type: "string" },
                         { name : "url", type: "string" },
                         { name : "sharedfoldername", type: "string" },
-                        { name : "downloading", type: "string" },
+                        { name : "downloading", type: "boolean" },
                         { name : "filesize", type: "string" },
                         { name : "delete", type: "boolean" }
                     ]
@@ -253,7 +253,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         me.callParent(arguments);
         if(records.length == 1) {
             var record = me.getSelected();
-            if(record.get("downloading") == "No") {
+            if(record.get("downloading") == false) {
                 download = false;
             }
         }

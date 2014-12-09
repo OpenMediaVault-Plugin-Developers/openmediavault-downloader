@@ -169,7 +169,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
         // Add additional share informations.
         foreach($objects as $objectk => &$objectv)
         {
-            $objectv['downloading'] = "No";
+            $objectv['downloading'] = false;
             $objectv['filesize']    = "0";
 
             $objectv['sharedfoldername'] = gettext("n/a");
@@ -193,7 +193,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
 
             if (file_exists($pid))
             {
-                $objectv['downloading'] = "Yes";
+                $objectv['downloading'] = true;
 
                 switch ($objectv['dltype'])
                 {
