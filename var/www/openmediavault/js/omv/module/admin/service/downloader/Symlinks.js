@@ -34,6 +34,11 @@ Ext.define("OMV.module.admin.service.downloader.Symlink", {
     requires : [
         "OMV.workspace.window.plugin.ConfigObject"
     ],
+    uses: [
+        "OMV.data.Model",
+        "OMV.data.Store",
+        "OMV.window.RootFolderBrowser"
+    ],
 
     rpcService   : "Downloader",
     rpcGetMethod : "getSymlink",
@@ -52,11 +57,16 @@ Ext.define("OMV.module.admin.service.downloader.Symlink", {
             fieldLabel : _("Enable"),
             checked    : true
         },{
-            xtype          : "trigger",
+            xtype          : "textfield",
             name           : "source",
             fieldLabel     : _("Source"),
             allowBlank     : false,
-            triggerCls     : "x-form-folder-trigger",
+            triggers       : {
+                folder : {
+                    cls     : Ext.baseCSSPrefix + "form-folder-trigger",
+                    handler : "onTriggerClick"
+                }
+            },
             onTriggerClick : function() {
                 Ext.create("OMV.window.RootFolderBrowser", {
                     listeners : {
@@ -69,11 +79,16 @@ Ext.define("OMV.module.admin.service.downloader.Symlink", {
                 }).show();
             }
         },{
-            xtype          : "trigger",
+            xtype          : "textfield",
             name           : "destination",
             fieldLabel     : _("Destination"),
             allowBlank     : false,
-            triggerCls     : "x-form-folder-trigger",
+            triggers       : {
+                folder : {
+                    cls     : Ext.baseCSSPrefix + "form-folder-trigger",
+                    handler : "onTriggerClick"
+                }
+            },
             onTriggerClick : function() {
                 Ext.create("OMV.window.RootFolderBrowser", {
                     listeners : {

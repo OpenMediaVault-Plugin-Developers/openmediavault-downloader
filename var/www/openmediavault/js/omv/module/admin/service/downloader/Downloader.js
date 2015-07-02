@@ -118,6 +118,62 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
     }
 });
 
+Ext.define("OMV.module.admin.service.downloader.Playlist", {
+    extend   : "OMV.workspace.window.Form",
+    requires : [
+        "OMV.workspace.window.plugin.ConfigObject"
+    ],
+
+    plugins: [{
+        ptype : "configobject"
+    }],
+
+    rpcService   : "Downloader",
+    rpcGetMethod : "getDownload",
+    rpcSetMethod : "setDownload",
+
+    width        : 600,
+
+    getFormItems : function() {
+        var me = this;
+        return [{
+            xtype         : "textfield",
+            name          : "url",
+            fieldLabel    : _("URL"),
+            allowBlank    : false
+        },{
+            xtype      : "checkbox",
+            name       : "keepvideo",
+            fieldLabel : _("Keep Video"),
+            boxLabel   : _("Keep video file after conversion to audio.  Video will have mp4 extension."),
+            checked    : false
+        },{
+            xtype         : "sharedfoldercombo",
+            name          : "sharedfolderref",
+            fieldLabel    : _("Shared Folder"),
+            readOnly      : (me.uuid !== OMV.UUID_UNDEFINED),
+            plugins       : [{
+                ptype : "fieldinfo",
+                text  : _("Downloads to this shared folder")
+            }]
+        },{
+            xtype         : "checkbox",
+            name          : "delete",
+            fieldLabel    : _("Delete"),
+            checked       : false,
+            boxLabel      : _("Delete from list of downloads after file is downloaded")
+        },{
+            xtype : "hiddenfield",
+            name  : "filename",
+            value : "--"
+        },{
+            xtype : "hiddenfield",
+            name  : "dltype",
+            value : "playlist"
+        }];
+    }
+});
+
 Ext.define("OMV.module.admin.service.downloader.Downloads", {
     extend   : "OMV.workspace.grid.Panel",
     requires : [
@@ -128,7 +184,8 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         "OMV.util.Format"
     ],
     uses     : [
-        "OMV.module.admin.service.downloader.Download"
+        "OMV.module.admin.service.downloader.Download",
+        "OMV.module.admin.service.downloader.Playlist"
     ],
 
     hidePagingToolbar : false,
@@ -223,7 +280,17 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         var me = this;
         var items = me.callParent(arguments);
 
-        Ext.Array.insert(items, 2, [{
+        Ext.Array.insert(items, 1, [{
+            id       : me.getId() + "-playlist",
+            xtype    : "button",
+            text     : _("Add Playlist"),
+            icon     : "images/add.png",
+            iconCls  : Ext.baseCSSPrefix + "btn-icon-16x16",
+            handler  : Ext.Function.bind(me.onPlaylistButton, me, [ me ]),
+            scope    : me
+        }]);
+
+        Ext.Array.insert(items, 3, [{
             id       : me.getId() + "-download",
             xtype    : "button",
             text     : _("Download"),
@@ -234,7 +301,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
             disabled : true
         }]);
 
-        Ext.Array.insert(items, 4, [{
+        Ext.Array.insert(items, 5, [{
             id       : me.getId() + "-update",
             xtype    : "button",
             text     : _("Update youtube-dl"),
@@ -274,11 +341,34 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         }).show();
     },
 
+    onPlaylistButton : function() {
+        var me = this;
+        Ext.create("OMV.module.admin.service.downloader.Playlist", {
+            title     : _("Add playlist"),
+            uuid      : OMV.UUID_UNDEFINED,
+            listeners : {
+                scope  : me,
+                submit : function() {
+                    this.doReload();
+                }
+            }
+        }).show();
+    },
+
     onEditButton : function() {
         var me = this;
         var record = me.getSelected();
-        Ext.create("OMV.module.admin.service.downloader.Download", {
-            title     : _("Edit download"),
+        var type = record.get("dltype");
+        var windowName = "OMV.module.admin.service.downloader.Download";
+        var title = "Edit download";
+
+        if (type == "playlist") {
+            windowName = "OMV.module.admin.service.downloader.Playlist";
+            title = "Edit playlist";
+        }
+
+        Ext.create(windowName, {
+            title     : _(title),
             uuid      : record.get("uuid"),
             listeners : {
                 scope  : me,

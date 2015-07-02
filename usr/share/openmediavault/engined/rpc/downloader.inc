@@ -92,7 +92,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
 
     private function getYoutubedl()
     {
-        return "/usr/local/bin/youtube-dl";
+        return "/usr/sbin/youtube-dl";
     }
 
     private function getAria2()
@@ -205,14 +205,25 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
                         $objectv['filesize'] = filesize($filenamepart);
                         break;
 
+                    case "playlist":
+                        $objectv['filesize'] = "0";
+                        break;
+
                     default:
                         $objectv['filesize'] = filesize($filenamearia);
                 }
             }
             else
             {
-                if (file_exists($filename))
-                    $objectv['filesize'] = filesize($filename);
+                if ($objectv['dltype'] == "playlist")
+                {
+                    $objectv['filesize'] = "0";
+                }
+                else
+                {
+                    if (file_exists($filename))
+                        $objectv['filesize'] = filesize($filename);
+                }
             }
         }
 
@@ -416,8 +427,6 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
         $ext = strtolower(substr($filename, -3));
 
         $kv = "";
-        if( $keepvideo == true )
-            $kv = "-k";
 
         switch ($dltype)
         {
@@ -426,16 +435,33 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
                 break;
 
             case "youtube-dl":
+                if( $keepvideo == true )
+                    $kv = "-k ";
+
                 if ($ext == "mp3" || $ext == "aac" || $ext == "wav" || $ext == "m4a" )
                 {
                     $filename = substr($filename, 0, strlen($filename) - 3) . "mp4";
-                    $cmd = sprintf("%s -q -x %s --audio-format \"%s\" --newline -o \"%s/%s/%s\" \"%s\" 2>&1", $this->getYoutubedl(), $kv, $ext, $dir, $path, $filename, $url );
+                    $cmd = sprintf(
+                        "%s -q -x %s--audio-format \"%s\" --newline --no-warnings -o \"%s/%s/%s\" \"%s\" 2>&1",
+                        $this->getYoutubedl(), $kv, $ext, $dir, $path, $filename, $url
+                    );
                 }
                 else
                 {
-                    $cmd = sprintf("%s -q --newline -o \"%s/%s/%s\" \"%s\" 2>&1", $this->getYoutubedl(), $dir, $path, $filename, $url );
+                    $cmd = sprintf("%s -q --newline --no-warnings -o \"%s/%s/%s\" \"%s\" 2>&1", $this->getYoutubedl(), $dir, $path, $filename, $url );
                 }
                 break;
+
+            case "playlist":
+                if( $keepvideo == true )
+                    $kv = "-k --format \"mp4\" ";
+
+                $cmd = sprintf(
+                    "%s -q -x %s--audio-format \"mp3\" --newline --no-warnings -o \"%s/%s/%%(autonumber)s-%%(title)s.%%(ext)s\" \"%s\" 2>&1 > /tmp/output2",
+                    $this->getYoutubedl(), $kv, $dir, $path, $url
+                );
+
+                file_put_contents("/tmp/output", $cmd);
 
             default:
                 $cmd = sprintf("%s -q -d \"%s/%s/\" -o \"%s\" \"%s\" 2>&1", $this->getAria2(), $dir, $path, $filename, $url);

@@ -1,3 +1,10 @@
+openmediavault-downloader (2.0) UNRELEASED; urgency=low
+
+  * Add support for downloading playlists
+  * Update to youtube-dl 2015.06.25
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Wed, 01 Jul 2015 09:16:01 -0500
+
 openmediavault-downloader (1.0.5) stable; urgency=low
 
   * Fix bug in downloading status
