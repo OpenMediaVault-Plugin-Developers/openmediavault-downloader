@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Pavel Borecki <pavel.borecki@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 10:39-0500\n"
-"PO-Revision-Date: 2014-11-14 19:48+0000\n"
+"POT-Creation-Date: 2015-08-30 08:51-0500\n"
+"PO-Revision-Date: 2015-08-30 13:51+0000\n"
 "Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
-"Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault-downloader/language/cs_CZ/)\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,133 +19,124 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 msgid "Add download"
+msgstr "Přidat stahování"
+
+msgid "Add playlist"
 msgstr ""
 
 msgid "Add symlink"
-msgstr ""
-
-msgid "Cancel"
-msgstr ""
+msgstr "Přidat symbolický odkaz"
 
 msgid "Component"
-msgstr ""
+msgstr "Součást"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Datum a čas"
 
 msgid "Delete"
-msgstr ""
+msgstr "Smazat"
 
 msgid "Delete after Download"
-msgstr ""
+msgstr "Po stažení odebrat ze seznamu"
 
 msgid "Delete from list of downloads after file is downloaded"
-msgstr ""
+msgstr "Po stažení souboru ho odebrat ze seznamu stahování"
 
 msgid "Destination"
-msgstr ""
+msgstr "Cíl"
 
 msgid "Done..."
-msgstr ""
+msgstr "Hotovo…"
 
 msgid "Download"
-msgstr ""
+msgstr "Stáhnout"
 
 msgid "Download Type"
-msgstr ""
+msgstr "Typ stahování"
 
 msgid "Downloader"
-msgstr ""
+msgstr "Nástroj pro stahování"
 
 msgid "Downloading"
-msgstr ""
+msgstr "Stahování"
 
 msgid "Downloads"
-msgstr ""
+msgstr "Stahování"
 
 msgid "Downloads to this shared folder"
-msgstr ""
-
-msgid "Edit download"
-msgstr ""
+msgstr "Stahuje do této sdílené složky"
 
 msgid "Edit symlink"
-msgstr ""
+msgstr "Upravit symbolický odkaz"
 
 msgid "Enable"
-msgstr ""
+msgstr "Zapnout"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Zapnuto"
 
 msgid "File Owner"
-msgstr ""
+msgstr "Vlastník souboru"
 
 msgid "Filename"
-msgstr ""
+msgstr "Název souboru"
 
 msgid "Filesize"
-msgstr ""
+msgstr "Velikost souboru"
 
 msgid "Keep Video"
-msgstr ""
+msgstr "Ponechat video"
 
 msgid ""
 "Keep video file after conversion to audio.  Video will have mp4 extension."
-msgstr ""
+msgstr "Po vytažení zvuku ponechat soubor s videem. Soubor bude mít příponu mp4."
 
 msgid "Message"
-msgstr ""
+msgstr "Zpráva"
 
 msgid "No"
-msgstr ""
-
-msgid "OK"
-msgstr ""
+msgstr "Ne"
 
 msgid ""
 "Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
 " audio will be extracted to filename."
-msgstr ""
-
-msgid "Select a directory"
-msgstr ""
+msgstr "Uloží stahovaná data jako takto nazvaný soubor. V případě, že je přípona aac, m4a, mp3, nebo wav, bude do souboru extrahován zvuk."
 
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 msgid "Shared Folder"
-msgstr ""
+msgstr "Sdílená složka"
 
 msgid "Source"
-msgstr ""
+msgstr "Zdroj"
 
 msgid "Symlinks"
-msgstr ""
+msgstr "Symbolické odkazy"
 
 msgid "This destination is already in use."
-msgstr ""
+msgstr "Cíl je již v používání."
 
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 msgid "URL"
 msgstr ""
 
 msgid "Update youtube-dl"
-msgstr ""
+msgstr "Zaktualizovat nástroj youtube-dl"
 
 msgid "Upload"
-msgstr ""
+msgstr "Nahrát"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Nahrát soubor"
 
 msgid "Upload file to this shared folder."
-msgstr ""
+msgstr "Nahrát soubor do této sdílené složky."
 
 msgid "Yes"
-msgstr ""
+msgstr "Ano"
 
 msgid "aria2"
 msgstr ""

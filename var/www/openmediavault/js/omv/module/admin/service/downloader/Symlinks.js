@@ -27,7 +27,7 @@
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
-// require("js/omv/module/admin/service/downloader/RootFolderBrowser.js")
+// require("js/omv/window/RootFolderBrowser.js")
 
 Ext.define("OMV.module.admin.service.downloader.Symlink", {
     extend   : "OMV.workspace.window.Form",

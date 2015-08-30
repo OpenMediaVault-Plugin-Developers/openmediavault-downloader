@@ -280,6 +280,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         var me = this;
         var items = me.callParent(arguments);
 
+        /*  playlist not ready
         Ext.Array.insert(items, 1, [{
             id       : me.getId() + "-playlist",
             xtype    : "button",
@@ -289,6 +290,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
             handler  : Ext.Function.bind(me.onPlaylistButton, me, [ me ]),
             scope    : me
         }]);
+        */
 
         Ext.Array.insert(items, 3, [{
             id       : me.getId() + "-download",

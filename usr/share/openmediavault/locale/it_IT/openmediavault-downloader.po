@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Paolo Velati <paolo.velati@gmail.com>, 2014
+# Paolo Velati <paolo.velati@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 10:39-0500\n"
-"PO-Revision-Date: 2014-11-14 19:48+0000\n"
+"POT-Creation-Date: 2015-08-30 08:51-0500\n"
+"PO-Revision-Date: 2015-08-30 13:51+0000\n"
 "Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
-"Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault-downloader/language/it/)\n"
+"Language-Team: Italian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,17 +21,17 @@ msgstr ""
 msgid "Add download"
 msgstr "Aggiungi download"
 
-msgid "Add symlink"
+msgid "Add playlist"
 msgstr ""
 
-msgid "Cancel"
-msgstr ""
+msgid "Add symlink"
+msgstr "Aggiungi link simbolico"
 
 msgid "Component"
-msgstr ""
+msgstr "Componente"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Data & Orario"
 
 msgid "Delete"
 msgstr "Elimina"
@@ -43,7 +43,7 @@ msgid "Delete from list of downloads after file is downloaded"
 msgstr "Elimina dalla lista dei download dopo lo scaricamento"
 
 msgid "Destination"
-msgstr ""
+msgstr "Destinazione"
 
 msgid "Done..."
 msgstr "Fatto..."
@@ -58,7 +58,7 @@ msgid "Downloader"
 msgstr "Downloader"
 
 msgid "Downloading"
-msgstr ""
+msgstr "Download in corso"
 
 msgid "Downloads"
 msgstr "Download"
@@ -66,17 +66,14 @@ msgstr "Download"
 msgid "Downloads to this shared folder"
 msgstr "I Download in questa cartella condivisa"
 
-msgid "Edit download"
-msgstr "Modifica download"
-
 msgid "Edit symlink"
-msgstr ""
+msgstr "Modifica link simbolico"
 
 msgid "Enable"
-msgstr ""
+msgstr "Abilita"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Abilitato"
 
 msgid "File Owner"
 msgstr "Proprietario del file"
@@ -85,7 +82,7 @@ msgid "Filename"
 msgstr "Nome file"
 
 msgid "Filesize"
-msgstr ""
+msgstr "Dimensione File"
 
 msgid "Keep Video"
 msgstr "Mantieni Video"
@@ -95,21 +92,15 @@ msgid ""
 msgstr "Mantieni il file video dopo la conversione in file audio. Il video avrà estensione mp4."
 
 msgid "Message"
-msgstr ""
+msgstr "Messaggio"
 
 msgid "No"
 msgstr "No"
-
-msgid "OK"
-msgstr ""
 
 msgid ""
 "Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
 " audio will be extracted to filename."
 msgstr "Salva il download con questo nome. Se l'estensione del file è aac, m4a, mp3 oppure wav, l'audio verrà estratto."
-
-msgid "Select a directory"
-msgstr ""
 
 msgid "Settings"
 msgstr "Impostazioni"
@@ -118,22 +109,22 @@ msgid "Shared Folder"
 msgstr "Cartella condivisa"
 
 msgid "Source"
-msgstr ""
+msgstr "Sorgente"
 
 msgid "Symlinks"
-msgstr ""
+msgstr "Link simbolico"
 
 msgid "This destination is already in use."
-msgstr ""
+msgstr "Questa destinazione è già in uso."
 
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 msgid "URL"
 msgstr "URL"
 
 msgid "Update youtube-dl"
-msgstr ""
+msgstr "Aggiorna youtube-dl"
 
 msgid "Upload"
 msgstr "Upload"

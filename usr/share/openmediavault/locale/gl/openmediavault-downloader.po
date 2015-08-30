@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 10:39-0500\n"
-"PO-Revision-Date: 2013-12-07 18:07+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault-downloader/language/gl/)\n"
+"POT-Creation-Date: 2015-08-30 08:51-0500\n"
+"PO-Revision-Date: 2015-08-30 13:51+0000\n"
+"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
+"Language-Team: Galician (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,142 +19,133 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add download"
+msgstr "Engadir descarga"
+
+msgid "Add playlist"
 msgstr ""
 
 msgid "Add symlink"
-msgstr ""
-
-msgid "Cancel"
-msgstr ""
+msgstr "Engadir ligazón simbólica"
 
 msgid "Component"
-msgstr ""
+msgstr "Compoñente"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Data e hora"
 
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 msgid "Delete after Download"
-msgstr ""
+msgstr "Eliminar trala descarga"
 
 msgid "Delete from list of downloads after file is downloaded"
-msgstr ""
+msgstr "Eliminar da lista de descarga após o ficheiro sexa descargado"
 
 msgid "Destination"
-msgstr ""
+msgstr "Destino"
 
 msgid "Done..."
-msgstr ""
+msgstr "Feito..."
 
 msgid "Download"
-msgstr ""
+msgstr "Descarga"
 
 msgid "Download Type"
-msgstr ""
+msgstr "Tipo de descarga"
 
 msgid "Downloader"
-msgstr ""
+msgstr "Descargador"
 
 msgid "Downloading"
-msgstr ""
+msgstr "Descargando"
 
 msgid "Downloads"
-msgstr ""
+msgstr "Descargas"
 
 msgid "Downloads to this shared folder"
-msgstr ""
-
-msgid "Edit download"
-msgstr ""
+msgstr "Descargar neste cartafol compartido"
 
 msgid "Edit symlink"
-msgstr ""
+msgstr "Editar a ligazón simbólica"
 
 msgid "Enable"
-msgstr ""
+msgstr "Activar"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Activada"
 
 msgid "File Owner"
-msgstr ""
+msgstr "Propietario do ficheiro"
 
 msgid "Filename"
-msgstr ""
+msgstr "Nome do ficheiro"
 
 msgid "Filesize"
-msgstr ""
+msgstr "Tamaño do ficheiro"
 
 msgid "Keep Video"
-msgstr ""
+msgstr "Manter o vídeo"
 
 msgid ""
 "Keep video file after conversion to audio.  Video will have mp4 extension."
-msgstr ""
+msgstr "Manter o ficheiro de vídeo após a conversión a son. O vídeo terá a extensión .mp4."
 
 msgid "Message"
-msgstr ""
+msgstr "Mensaxe"
 
 msgid "No"
-msgstr ""
-
-msgid "OK"
-msgstr ""
+msgstr "Non"
 
 msgid ""
 "Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
 " audio will be extracted to filename."
-msgstr ""
-
-msgid "Select a directory"
-msgstr ""
+msgstr "Gardar a descarga con este nome. Se a extensión é aac, m4a, mp3, ou wav, o son será extraído con este nome."
 
 msgid "Settings"
-msgstr ""
+msgstr "Axustes"
 
 msgid "Shared Folder"
-msgstr ""
+msgstr "Cartafol compartido"
 
 msgid "Source"
-msgstr ""
+msgstr "Orixe"
 
 msgid "Symlinks"
-msgstr ""
+msgstr "Ligazóns simbólicas"
 
 msgid "This destination is already in use."
-msgstr ""
+msgstr "O destino xa está a ser usado"
 
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Update youtube-dl"
-msgstr ""
+msgstr "Actualizar youtube-dl"
 
 msgid "Upload"
-msgstr ""
+msgstr "Enviar"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Enviar un ficheiro"
 
 msgid "Upload file to this shared folder."
-msgstr ""
+msgstr "Enviar un ficheiro a este cartafol compartido"
 
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 msgid "aria2"
-msgstr ""
+msgstr "aria2"
 
 msgid "curl"
-msgstr ""
+msgstr "curl"
 
 msgid "n/a"
-msgstr ""
+msgstr "n/d"
 
 msgid "youtube-dl"
-msgstr ""
+msgstr "youtube-dl"

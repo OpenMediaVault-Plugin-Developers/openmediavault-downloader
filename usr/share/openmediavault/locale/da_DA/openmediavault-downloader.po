@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 10:39-0500\n"
-"PO-Revision-Date: 2014-11-14 19:48+0000\n"
+"POT-Creation-Date: 2015-08-30 08:51-0500\n"
+"PO-Revision-Date: 2015-08-30 13:51+0000\n"
 "Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
-"Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault-downloader/language/da/)\n"
+"Language-Team: Danish (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "Add download"
 msgstr "Tilføj download"
 
+msgid "Add playlist"
+msgstr ""
+
 msgid "Add symlink"
 msgstr "Tilføj symlink"
-
-msgid "Cancel"
-msgstr "Annuller"
 
 msgid "Component"
 msgstr "Komponent"
@@ -66,9 +66,6 @@ msgstr "Downloads"
 msgid "Downloads to this shared folder"
 msgstr "Downloader til denne delte mappe"
 
-msgid "Edit download"
-msgstr "Rediger download"
-
 msgid "Edit symlink"
 msgstr "Rediger symlink"
 
@@ -100,16 +97,10 @@ msgstr "Besked"
 msgid "No"
 msgstr "Nej"
 
-msgid "OK"
-msgstr "OK"
-
 msgid ""
 "Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
 " audio will be extracted to filename."
 msgstr "Gemmer download som dette filnavn. Hvis fil endelsen er acc, m4a, mp3 eller wav vil lyd blive udhentet til filnavn."
-
-msgid "Select a directory"
-msgstr "Vælg et bibliotek"
 
 msgid "Settings"
 msgstr "Indstilinger"
