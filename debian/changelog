@@ -1,3 +1,9 @@
+openmediavault-downloader (2.1) UNRELEASED; urgency=low
+
+  * Remove unneeded function
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 31 Aug 2015 06:59:24 -0500
+
 openmediavault-downloader (2.0) stable; urgency=low
 
   * Add support for downloading playlists
