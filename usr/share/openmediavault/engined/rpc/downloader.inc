@@ -132,7 +132,6 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
         $this->registerMethod("getSymlink");
         $this->registerMethod("setSymlink");
         $this->registerMethod("deleteSymlink");
-        $this->registerMethod("getRootFolders");
     }
 
     public function getDownloads($params, $context)
@@ -928,34 +927,6 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
             $this->getEventMessagePathSymlink()
         );
     }
-
-    public function getRootFolders($params, $context)
-    {
-        global $xmlConfig;
-
-        // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
-        );
-
-        // List the directory contents.
-        $result = array();
-        $path = sprintf("/%s", rtrim($params['path'], "/"));
-        if ( strlen($path) == 0 )
-            $path = "/";
-
-        foreach (new DirectoryIterator($path) as $item)
-        {
-            if ($item->isDot())
-                continue;
-            if (!$item->isDir())
-                continue;
-            $result[] = $item->getFilename();
-        }
-        return $result;
-    }
-
 }
 
 // Register the RPC service.
