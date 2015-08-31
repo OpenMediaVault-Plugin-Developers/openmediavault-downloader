@@ -1,8 +1,9 @@
-openmediavault-downloader (2.1) UNRELEASED; urgency=low
+openmediavault-downloader (2.1) stable; urgency=low
 
   * Remove unneeded function
+  * Update locales
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 31 Aug 2015 06:59:24 -0500
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 31 Aug 2015 07:00:14 -0500
 
 openmediavault-downloader (2.0) stable; urgency=low
 
