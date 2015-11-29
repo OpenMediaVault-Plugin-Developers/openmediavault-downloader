@@ -430,7 +430,7 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
         switch ($dltype)
         {
             case "curl":
-                $cmd = sprintf("%s -s -o \"%s/%s/%s\" \"%s\" 2>&1", $this->getCurl(), $dir, $path, $filename, $url );
+                $cmd = sprintf("%s -L -s -o \"%s/%s/%s\" \"%s\" 2>&1", $this->getCurl(), $dir, $path, $filename, $url );
                 break;
 
             case "youtube-dl":
