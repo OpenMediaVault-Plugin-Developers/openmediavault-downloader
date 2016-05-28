@@ -1,0 +1,73 @@
+[{
+	"type": "rpc",
+	"id": "rpc.downloader.doupload",
+	"params": {
+		"type": "object",
+		"properties": {
+			"filename": {
+			    "type": "string",
+		        "required": true
+			},
+			"filepath": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.downloader.setupload",
+	"params": {
+		"type": "object",
+		"properties": {
+			"username": {
+			    "type": "string",
+		        "required": true
+			},
+			"uploadref": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.downloader.setdownload",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"dltype": {
+				"type": "string",
+			    "enum":[ "aria2", "curl", "playlist", "youtube-dl" ],
+				"required": true
+			},
+			"filename": {
+				"type": "string",
+				"required": false
+			},
+			"url": {
+				"type": "string",
+				"required": true
+			},
+			"keepvideo": {
+				"type": "boolean",
+				"required": false
+			},
+			"sharedfolderref": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"delete": {
+			    "type": "boolean",
+				"required": true
+			}
+		}
+	}
+}]

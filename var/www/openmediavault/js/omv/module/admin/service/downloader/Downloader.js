@@ -3,7 +3,7 @@
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
  * @copyright Copyright (c) 2009-2013 Volker Theile
- * @copyright Copyright (c) 2013-2014 OpenMediaVault Plugin Developers
+ * @copyright Copyright (c) 2013-2016 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -268,7 +268,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
                     type    : "rpc",
                     rpcData : {
                         service : "Downloader",
-                        method  : "getDownloads"
+                        method  : "getDownloadList"
                     }
                 }
             })
@@ -280,7 +280,6 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         var me = this;
         var items = me.callParent(arguments);
 
-        /*  playlist not ready
         Ext.Array.insert(items, 1, [{
             id       : me.getId() + "-playlist",
             xtype    : "button",
@@ -290,7 +289,6 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
             handler  : Ext.Function.bind(me.onPlaylistButton, me, [ me ]),
             scope    : me
         }]);
-        */
 
         Ext.Array.insert(items, 3, [{
             id       : me.getId() + "-download",

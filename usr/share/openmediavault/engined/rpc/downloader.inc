@@ -3,7 +3,7 @@
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2013 Volker Theile
- * @copyright Copyright (c) 2013-2014 OpenMediaVault Plugin Developers
+ * @copyright Copyright (c) 2013-2016 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,106 +18,25 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
-require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/notify.inc");
+require_once("openmediavault/globals.inc");
+require_once("openmediavault/functions.inc");
 
-class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
+class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
 {
-    const DOWNLOAD = 'download';
-    const SYMLINK = 'symlink';
+    private $getAria2     = "/usr/bin/aria2c";
+    private $getCurl      = "/usr/bin/curl";
+    private $getLogFile   = "/var/log/downloader.log";
+    private $getPidDir    = "/var/run/";
+    private $getYoutubedl = "/usr/sbin/youtube-dl";
 
     public function getName()
     {
         return "Downloader";
     }
 
-    private function getPluginName()
-    {
-        return strtolower( $this->getName() );
-    }
-
-    private function getXPath()
-    {
-        return sprintf( "//services/%s", $this->getPluginName() );
-    }
-
-    private function getXPathDownloads()
-    {
-        return sprintf( "%s/%ss", $this->getXPath(), self::DOWNLOAD );
-    }
-
-    private function getXPathDownload()
-    {
-        return sprintf( "%s/%s", $this->getXPathDownloads(), self::DOWNLOAD );
-    }
-
-    private function getXPathSymlinks()
-    {
-        return sprintf( "%s/%ss", $this->getXPath(), self::SYMLINK );
-    }
-
-    private function getXPathSymlink()
-    {
-        return sprintf( "%s/%s", $this->getXPathSymlinks(), self::SYMLINK );
-    }
-
-    private function getXPathSharedFolder()
-    {
-        return "//system/shares/sharedfolder";
-    }
-
-    private function getXPathMntEnt()
-    {
-        return "//system/fstab/mntent";
-    }
-
-    private function getEventMessagePath()
-    {
-        return sprintf( "org.openmediavault.services.%s", $this->getPluginName() );
-    }
-
-    private function getEventMessagePathDownload()
-    {
-        return sprintf( "%s.%ss.%s", $this->getEventMessagePath(), self::DOWNLOAD, self::DOWNLOAD );
-    }
-
-    private function getEventMessagePathSymlink()
-    {
-        return sprintf( "%s.%ss.%s", $this->getEventMessagePath(), self::SYMLINK, self::SYMLINK );
-    }
-
-    private function getYoutubedl()
-    {
-        return "/usr/sbin/youtube-dl";
-    }
-
-    private function getAria2()
-    {
-        return "/usr/bin/aria2c";
-    }
-
-    private function getCurl()
-    {
-        return "/usr/bin/curl";
-    }
-
-    private function getLogFile()
-    {
-        return "/var/log/downloader.log";
-    }
-
-    private function getPidDir()
-    {
-        return "/var/run/";
-    }
-
     public function initialize()
     {
-        $this->registerMethod("getDownloads");
+        $this->registerMethod("getDownloadList");
         $this->registerMethod("getDownload");
         $this->registerMethod("setDownload");
         $this->registerMethod("deleteDownload");
@@ -127,808 +46,326 @@ class OMVRpcServiceDownloader extends OMVRpcServiceAbstract
         $this->registerMethod("setUpload");
         $this->registerMethod("doUpload");
         $this->registerMethod("doUpdate");
-
-        $this->registerMethod("getSymlinks");
-        $this->registerMethod("getSymlink");
-        $this->registerMethod("setSymlink");
-        $this->registerMethod("deleteSymlink");
     }
 
-    public function getDownloads($params, $context)
+    public function getDownloadList($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "start"     : { "type" : "integer" },
-                "limit"     : { '.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].' },
-                "sortfield" : { '.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].' },
-                "sortdir"   : { '.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].' }
-            }
-        }');
-
-        // Get configuration data.
-        $objects = $xmlConfig->getList( $this->getXPathDownload() );
-        if (is_null($objects))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPathDownload()
-            );
-        }
-
+        $this->validateMethodParams($params, "rpc.common.getlist");
+        // Get the configuration object.
+        $db = \OMV\Config\Database::getInstance();
+        $objects = $db->get("conf.service.downloader.download");
         // Add additional share informations.
-        foreach($objects as $objectk => &$objectv)
-        {
-            $objectv['downloading'] = false;
-            $objectv['filesize']    = "0";
+        $objectsAssoc = [];
 
-            $objectv['sharedfoldername'] = gettext("n/a");
-            // Get the shared folder configuration object.
-            $sfObject = $xmlConfig->get("//system/shares/sharedfolder[uuid='{$objectv['sharedfolderref']}']");
+        foreach ($objects as $objectk => &$objectv) {
+            // Add new properties
+            $objectv->add('downloading', 'boolean', false);
+            $objectv->add('filesize', 'integer', 0);
+            $objectv->add("sharedfoldername", "string", gettext("n/a"));
 
-            if (!is_null($sfObject) && !empty($sfObject))
-                $objectv['sharedfoldername'] = $sfObject['name'];
-
-            $sfUuid = $objectv["sharedfolderref"];
-            if(empty($sfUuid))
+            // Get the shared folder configuration object and build path
+            if (!empty($objectv->get("sharedfolderref"))) {
+                $sfObject = $db->get("conf.system.sharedfolder", $objectv->get("sharedfolderref"));
+                $objectv->set('sharedfoldername', $sfObject->get("name"));
+                // Get the mount point configuration object to build the absolute shared folder path.
+                $meObject = $db->get("conf.system.filesystem.mountpoint", $sfObject->get("mntentref"));
+                // Return the absolute shared folder path.
+                $sfPath = build_path(DIRECTORY_SEPARATOR, $meObject->get("dir"), $sfObject->get("reldirpath"));
+            } else {
                 continue;
+            }
+            $filename = sprintf("%s/%s", $sfPath, $objectv->get("filename"));
+            $filenamepart = sprintf("%s/%s.part", $sfPath, $objectv->get("filename"));
+            $filenamearia = sprintf("%s/%s.aria2", $sfPath, $objectv->get("filename"));
+            $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir, $objectv->get('uuid'));
 
-            // Get the shared folder path.
-            $sfPath = OMVRpc::exec("ShareMgmt", "getPath", array("uuid" => $sfUuid), $context);
-            $filename = sprintf("%s/%s", $sfPath, $objectv["filename"]);
-            $filenamepart = sprintf("%s/%s.part", $sfPath, $objectv["filename"]);
-            $filenamearia = sprintf("%s/%s.aria2", $sfPath, $objectv["filename"]);
+            if (file_exists($pid)) {
+                $objectv->set('downloading', true);
 
-            $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir(), $objectv['uuid']);
-
-            if (file_exists($pid))
-            {
-                $objectv['downloading'] = true;
-
-                switch ($objectv['dltype'])
-                {
+                switch ($objectv->get('dltype')) {
                     case "curl":
-                        $objectv['filesize'] = filesize($filename);
+                        $objectv->set('filesize', intval(filesize($filename)));
                         break;
 
                     case "youtube-dl":
-                        $objectv['filesize'] = filesize($filenamepart);
+                        $objectv->set('filesize', intval(filesize($filenamepart)));
                         break;
 
                     case "playlist":
-                        $objectv['filesize'] = "0";
+                        $objectv->set('filesize', 0);
                         break;
 
                     default:
-                        $objectv['filesize'] = filesize($filenamearia);
+                        $objectv->set('filesize', intval(filesize($filenamearia)));
+                }
+            } else {
+                if ($objectv->get('dltype') == "playlist") {
+                    $objectv->set('filesize', 0);
+                } else {
+                    if (file_exists($filename)) {
+                        $objectv->set('filesize', intval(filesize($filename)));
+                    }
                 }
             }
-            else
-            {
-                if ($objectv['dltype'] == "playlist")
-                {
-                    $objectv['filesize'] = "0";
-                }
-                else
-                {
-                    if (file_exists($filename))
-                        $objectv['filesize'] = filesize($filename);
-                }
-            }
+            $objectsAssoc[] = $objectv->getAssoc();
         }
-
         // Filter the result.
-        return $this->applyFilter($objects, $params['start'], $params['limit'],
+        return $this->applyFilter($objectsAssoc, $params['start'], $params['limit'],
             $params['sortfield'], $params['sortdir']);
     }
 
     public function getDownload($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            array("role" => OMV_ROLE_ADMINISTRATOR)
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "uuid" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].' }
-            }
-        }');
-
-          // Get the configuration object.
-        $xPath = sprintf("%s[uuid='%s']", $this->getXPathDownload(), $params['uuid']);
-        $object = $xmlConfig->get($xPath);
-        if (is_null($object))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $xPath
-            );
-        }
-
-        // Modify the result object.
-        $object['keepvideo'] = boolval($object['keepvideo']);
-
-        return $object;
+        $this->validateMethodParams($params, "rpc.common.objectuuid");
+        // Get the configuration object.
+        $db = \OMV\Config\Database::getInstance();
+        return $db->getAssoc("conf.service.downloader.download", $params['uuid']);
     }
 
     public function setDownload($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "uuid"            : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].' },
-                "dltype"          : { "type" : "string" },
-                "filename"        : { "type" : "string", "optional" : true },
-                "keepvideo"       : { "type" : "boolean", "optional" : true },
-                "url"             : { "type" : "string" },
-                "sharedfolderref" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].' },
-                "delete"          : { "type" : "boolean" }
-            }
-        }');
-
-        // Prepare configuration data.
-        $object = array(
-            "uuid"            => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ? OMVUtil::uuid() : $params['uuid'],
-            "dltype"          => $params['dltype'],
-            "filename"        => $params['filename'],
-            "keepvideo"       => array_boolval($params, 'keepvideo'),
-            "url"             => $params['url'],
-            "sharedfolderref" => $params['sharedfolderref'],
-            "delete"          => array_boolval($params, 'delete')
-        );
-
-        // Set the configuration data.
-        $success = FALSE;
-        if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED'])
-        {
-            // Append object to configuration.
-            $success = $xmlConfig->set($this->getXPathDownloads(), array("download" => $object));
+        $this->validateMethodParams($params, "rpc.downloader.setdownload");
+        // Prepare the configuration object.
+        $object = new \OMV\Config\ConfigObject("conf.service.downloader.download");
+        $object->setAssoc($params);
+        // Set the configuration object.
+        $isNew = $object->isNew();
+        $db = \OMV\Config\Database::getInstance();
+        if (TRUE === $isNew) {
+            // Check uniqueness - URL
+            $db->assertIsUnique($object, "url");
         }
-        else
-        {
-            // Update existing configuration object.
-            $xPath = sprintf("%s[uuid='%s']", $this->getXPathDownload(), $params['uuid'] );
-            $success = $xmlConfig->replace($xPath, $object);
-        }
-        if (FALSE === $success)
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED
-            );
-        }
-
+        $db->set($object);
         // Notify configuration changes.
-        $dispatcher = &OMVNotifyDispatcher::getInstance();
+        $dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
         $dispatcher->notify(
-            ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-            $this->getEventMessagePathDownload(),
-            $object
+            $isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+            "org.openmediavault.services.downloader.download",
+            $object->getAssoc()
         );
-
         // Return the configuration object.
-        return $object;
+        return $object->getAssoc();
     }
 
     public function deleteDownload($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "uuid" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].' }
-            }
-        }');
-
+        $this->validateMethodParams($params, "rpc.common.objectuuid");
         // Destroy pid file
-        $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir(), $params['uuid']);
+        $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir, $params['uuid']);
         unlink($pid);
-
         // Delete the configuration object.
-        $xPath = sprintf("%s[uuid='%s']", $this->getXPathDownload(), $params['uuid']);
-
-        return $this->deleteConfigObjectByPath(
-            $xPath,
-            $this->getEventMessagePathDownload()
+        return $this->deleteConfigObjectByUuid(
+            "conf.service.downloader.download",
+            $params['uuid'],
+            "org.openmediavault.services.downloader.download"
         );
     }
 
     public function doDownload($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type":"object",
-            "properties":{
-                "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-            }
-        }');
-
+        $this->validateMethodParams($params, "rpc.common.objectuuid");
         // Get the configuration object.
-        $xPath = sprintf("%s[uuid='%s']", $this->getXPathDownload(), $params['uuid']);
-        $object = $xmlConfig->get($xPath);
-        if (is_null($object))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $xPath
-            );
-        }
+        $db = \OMV\Config\Database::getInstance();
+        // Get the configuration object.
+        $object = $db->get("conf.service.downloader.download", $params['uuid']);
 
-        $dltype    = $object['dltype'];
-        $filename  = $object['filename'];
-        $keepvideo = boolval($object['keepvideo']);
-        $sfref     = $object['sharedfolderref'];
-        $url       = $object['url'];
-        $delete    = boolval($object['delete']);
+        $dltype    = $object->get('dltype');
+        $filename  = $object->get('filename');
+        $keepvideo = boolval($object->get('keepvideo'));
+        $url       = $object->get('url');
+        $delete    = boolval($object->get('delete'));
 
-        $xPath = sprintf("%s[uuid='%s']", $this->getXPathSharedFolder(), $sfref);
-        $objectsf = $xmlConfig->get($xPath);
-        if (is_null($objectsf))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $xPath
-            );
+        if (!empty($object->get("sharedfolderref"))) {
+            $sfObject = $db->get("conf.system.sharedfolder", $object->get("sharedfolderref"));
+            // Get the mount point configuration object to build the absolute shared folder path.
+            $meObject = $db->get("conf.system.filesystem.mountpoint", $sfObject->get("mntentref"));
+            // Return the absolute shared folder path.
+            $sfPath = build_path(DIRECTORY_SEPARATOR, $meObject->get("dir"), $sfObject->get("reldirpath"));
         }
-        $mntentref = $objectsf['mntentref'];
-        $path      = $objectsf['reldirpath'];
-        $sfname    = $objectsf['name'];
-
-        $xPath = sprintf("%s[uuid='%s']", $this->getXPathMntEnt(), $mntentref);
-        $objectmt = $xmlConfig->get($xPath);
-        if (is_null($objectsf))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $xPath
-            );
-        }
-        $dir = $objectmt['dir'];
         $ext = strtolower(substr($filename, -3));
-
-        $kv = "";
-
-        switch ($dltype)
-        {
+        $kv  = "";
+        switch ($dltype) {
             case "curl":
-                $cmd = sprintf("%s -L -s -o \"%s/%s/%s\" \"%s\" 2>&1", $this->getCurl(), $dir, $path, $filename, $url );
+                $cmd = sprintf("%s -L -s -o \"%s/%s\" \"%s\" 2>&1 > /dev/null &", $this->getCurl, $sfPath, $filename, $url);
                 break;
-
             case "youtube-dl":
-                if( $keepvideo == true )
+                if ($keepvideo == true) {
                     $kv = "-k ";
-
-                if ($ext == "mp3" || $ext == "aac" || $ext == "wav" || $ext == "m4a" )
-                {
+                }
+                if ($ext == "mp3" || $ext == "aac" || $ext == "wav" || $ext == "m4a" ) {
                     $filename = substr($filename, 0, strlen($filename) - 3) . "mp4";
                     $cmd = sprintf(
-                        "%s -q -x %s--audio-format \"%s\" --newline --no-warnings -o \"%s/%s/%s\" \"%s\" 2>&1",
-                        $this->getYoutubedl(), $kv, $ext, $dir, $path, $filename, $url
+                        "%s -q -x %s--audio-format \"%s\" --newline --no-warnings -o \"%s/%s\" \"%s\" 2>&1",
+                        $this->getYoutubedl, $kv, $ext, $sfPath, $filename, $url
+                    );
+                } else {
+                    $cmd = sprintf("%s -q --newline --no-warnings -o \"%s/%s\" \"%s\" 2>&1 > /dev/null &",
+                        $this->getYoutubedl, $sfPath, $filename, $url
                     );
                 }
-                else
-                {
-                    $cmd = sprintf("%s -q --newline --no-warnings -o \"%s/%s/%s\" \"%s\" 2>&1", $this->getYoutubedl(), $dir, $path, $filename, $url );
-                }
                 break;
-
             case "playlist":
-                if( $keepvideo == true )
+                if( $keepvideo == true ) {
                     $kv = "-k --format \"mp4\" ";
-
+                }
                 $cmd = sprintf(
-                    "%s -q -x %s--audio-format \"mp3\" --newline --no-warnings -o \"%s/%s/%%(autonumber)s-%%(title)s.%%(ext)s\" \"%s\" 2>&1 > /tmp/output2",
-                    $this->getYoutubedl(), $kv, $dir, $path, $url
+                    "%s -q -x %s--audio-format \"mp3\" --newline --no-warnings -o \"%s/%%(autonumber)s-%%(title)s.%%(ext)s\" \"%s\" 2>&1 > /tmp/output2",
+                    $this->getYoutubedl, $kv, $sfPath, $url
                 );
-
-                file_put_contents("/tmp/output", $cmd);
-
             default:
-                $cmd = sprintf("%s -q -d \"%s/%s/\" -o \"%s\" \"%s\" 2>&1", $this->getAria2(), $dir, $path, $filename, $url);
+                $cmd = sprintf("%s -q -d \"%s/\" -o \"%s\" \"%s\" 2>&1 > /dev/null &", $this->getAria2, $sfPath, $filename, $url);
         }
-
         // Create pid file
-        $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir(), $params['uuid']);
+        $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir, $params['uuid']);
         touch($pid);
 
         // [2013-10-30 13:30:15] DOWNLOAD: youtube-dl: test.mp4: movies: START: http://domain.com/test.mp4
         $log = sprintf("[%s] DOWNLOAD: %s: %s: %s: START: %s\r\n", date("Y-m-d H:i:s"), $dltype, $filename, $sfname, $url);
-        file_put_contents($this->getLogFile(), $log, FILE_APPEND);
+        file_put_contents($this->getLogFile, $log, FILE_APPEND);
 
-        if (0 !== $this->exec($cmd, $output))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_EXEC_FAILED,
-                $cmd,
-                implode("\n", $output)
-            );
-        }
+        // Start download
+        exec($cmd);
 
         $log = sprintf("[%s] DOWNLOAD: %s: %s: %s: FINISH: %s\r\n", date("Y-m-d H:i:s"), $dltype, $filename, $sfname, $url);
-        file_put_contents($this->getLogFile(), $log, FILE_APPEND);
+        file_put_contents($this->getLogFile, $log, FILE_APPEND);
 
         // Destroy pid file
         unlink($pid);
 
-        if ( $delete )
-        {
-            // Delete the configuration object.
-            $xPath = sprintf("%s[uuid='%s']", $this->getXPathDownload(), $params['uuid']);
-            $this->deleteConfigObjectByPath(
-                $xPath,
-                $this->getEventMessagePathDownload()
+        if ( $delete ) {
+            $this->deleteConfigObjectByUuid(
+                "conf.service.downloader.download",
+                $params['uuid'],
+                "org.openmediavault.services.downloader.download"
             );
         }
     }
 
     public function getUpload($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            array("role" => OMV_ROLE_ADMINISTRATOR)
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Get the configuration object.
-        $object = $xmlConfig->get( $this->getXPath() );
-        if (is_null($object))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath()
-            );
-        }
-
-        // Remove useless fields from the result object.
-        unset($object['downloads']);
-        unset($object['symlinks']);
-
-        return $object;
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.downloader");
+        // Remove useless properties from the object.
+        $object->remove("downloads");
+        return $object->getAssoc();
     }
 
     public function setUpload($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "username"  : { "type" : "string" },
-                "uploadref" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].' }
-            }
-        }');
-
+        $this->validateMethodParams($params, "rpc.downloader.setupload");
         // Get the existing configuration object.
-        $oldObject = $xmlConfig->get( $this->getXPath() );
-        if (is_null($oldObject))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath()
-            );
-        }
-
-        // Prepare configuration data.
-        $object = array(
-            "username"  => $params['username'],
-            "uploadref" => $params['uploadref'],
-            "downloads" => isset($oldObject['downloads']) ? $oldObject['downloads'] : array(),
-            "symlinks"  => isset($oldObject['symlinks']) ? $oldObject['symlinks'] : array()
-        );
-
-        if (FALSE === $xmlConfig->replace($this->getXPath(), $object))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED
-            );
-        }
-
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.downloader");
+        $object->setAssoc($params);
+        $db->set($object);
+        // Remove useless properties from the object.
+        $object->remove("downloads");
         // Notify configuration changes.
-        $dispatcher = &OMVNotifyDispatcher::getInstance();
+        $dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
         $dispatcher->notify(
             OMV_NOTIFY_MODIFY,
-            $this->getEventMessagePath(),
-            $object
+            "org.openmediavault.conf.service.downloader",
+            $object->getAssoc()
         );
-
         // Return the configuration object.
-        return $object;
+        return $object->getAssoc();
     }
 
     public function doUpload($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "filename" : { "type" : "string" },
-                "filepath" : { "type" : "string" }
-            }
-        }');
-
+        $this->validateMethodParams($params, "rpc.downloader.doupload");
         // Get the configuration object.
-        $object = $xmlConfig->get( $this->getXPath() );
-        if (is_null($object))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath()
-            );
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.downloader");
+        // Remove useless properties from the object.
+        $object->remove("downloads");
+
+        if (!empty($object->get("uploadref"))) {
+            $sfObject = $db->get("conf.system.sharedfolder", $object->get("uploadref"));
+
+            // Get the mount point configuration object to build the absolute shared folder path.
+            $meObject = $db->get("conf.system.filesystem.mountpoint", $sfObject->get("mntentref"));
+
+            // Return the absolute shared folder path.
+            $sfPath = build_path(DIRECTORY_SEPARATOR, $meObject->get("dir"), $sfObject->get("reldirpath"));
+            $uploadFile = sprintf("%s/%s", $sfPath, $params['filename']);
         }
-
-        unset($object['downloads']);
-        unset($object['symlinks']);
-
-        // Get the absolute shared folder path.
-        $sfPath = OMVRpc::exec("ShareMgmt", "getPath", array("uuid" => $object['uploadref']), $context);
-        $uploadFile = sprintf("%s/%s", $sfPath, $params['filename']);
-
-        if ( file_exists($uploadFile) )
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_MISC_FAILURE,
-                "File already exists."
-            );
+        if ( file_exists($uploadFile) ) {
+            throw new \OMV\Exception("File already exists.");
         }
-
         // Move file to shared folder selected
-        if ( !rename( $params['filepath'], $uploadFile ) )
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_MISC_FAILURE,
-                sprintf(
-                    "Failed to move file '%s' to shared folder.",
-                    $params['filename']
-                )
-            );
+        if ( !rename( $params['filepath'], $uploadFile ) ) {
+            throw new \OMV\Exception("Failed to move file");
         }
         // Change ownership of file
-        if ( !chown( $uploadFile, $object['username'] ) )
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_MISC_FAILURE,
-                "Failed to change ownership of file"
-            );
+        if ( !chown( $uploadFile, $object->get('username') ) ) {
+            throw new \OMV\Exception("Failed to change ownership of file");
         }
-        if ( !chgrp( $uploadFile, "users" ) )
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_MISC_FAILURE,
-                "Failed to change group of file"
-            );
+        if ( !chgrp( $uploadFile, "users" ) ) {
+            throw new \OMV\Exception("Failed to change group of file");
         }
     }
 
     public function doUpdate($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
-        );
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
 
         // Create a background process.
         $bgStatusFilename = $this->createBgProcStatus();
         $pid = $this->fork();
-        if ($pid > 0) { // Parent process.
+        if($pid > 0) { // Parent process.
             $this->initializeBgProcStatus($bgStatusFilename, $pid);
             return $bgStatusFilename;
         }
-
         // Child process.
         try {
             $bgOutputFilename = $this->createBgProcOutput();
             $this->updateBgProcStatus($bgStatusFilename, "outputfilename", $bgOutputFilename);
 
-            $cmd = sprintf("%s -L# -o %s \"https://yt-dl.org/downloads/latest/youtube-dl\" 2>&1", $this->getCurl(), $this->getYoutubedl() );
+            // Execute command.
+            $cmd = sprintf("%s -L# -o %s \"https://yt-dl.org/downloads/latest/youtube-dl\" 2>&1",
+                $this->getCurl, $this->getYoutubedl
+            );
             $this->exec($cmd, $output, $bgOutputFilename);
             $this->finalizeBgProcStatus($bgStatusFilename, $output);
-
-            if ( !chmod( $this->getYoutubedl(), 0755 ) )
-            {
-                throw new OMVException(
-                    OMVErrorMsg::E_MISC_FAILURE,
-                    "Failed to make file executable"
-                );
+            if ( !chmod( $this->getYoutubedl(), 0755 ) ) {
+                throw new \OMV\Exception("Failed to make file executable");
             }
-            if ( !chown( $this->getYoutubedl(), "root" ) )
-            {
-                throw new OMVException(
-                    OMVErrorMsg::E_MISC_FAILURE,
-                    "Failed to change ownership of file"
-                );
+            if ( !chown( $this->getYoutubedl(), "root" ) ) {
+                throw new \OMV\Exception("Failed to change ownership of file");
             }
-            if ( !chgrp( $this->getYoutubedl(), "root" ) )
-            {
-                throw new OMVException(
-                    OMVErrorMsg::E_MISC_FAILURE,
-                    "Failed to change group of file"
-                );
+            if ( !chgrp( $this->getYoutubedl(), "root" ) ) {
+                throw new \OMV\Exception("Failed to change group of file");
             }
             exit(0);
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             $this->finalizeBgProcStatus($bgStatusFilename, "", $e);
             exit(1);
         }
     }
-
-    public function getSymlinks($params, $context)
-    {
-        global $xmlConfig;
-
-        // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
-        );
-
-        // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "start"     : { "type" : "integer" },
-                "limit"     : { '.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].' },
-                "sortfield" : { '.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].' },
-                "sortdir"   : { '.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].' }
-            }
-        }');
-
-        // Get configuration data.
-        $objects = $xmlConfig->getList( $this->getXPathSymlink() );
-        if (is_null($objects))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPathSymlink()
-            );
-        }
-
-        // Filter the result.
-        return $this->applyFilter($objects, $params['start'], $params['limit'],
-            $params['sortfield'], $params['sortdir']);
-    }
-
-    public function getSymlink($params, $context)
-    {
-        global $xmlConfig;
-
-        // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            array("role" => OMV_ROLE_ADMINISTRATOR)
-        );
-
-        // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "uuid" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].' }
-            }
-        }');
-
-          // Get the configuration object.
-        $xPath = sprintf("%s[uuid='%s']", $this->getXPathSymlink(), $params['uuid']);
-        $object = $xmlConfig->get($xPath);
-        if (is_null($object))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $xPath
-            );
-        }
-
-        // Modify the result object.
-        $object['enable'] = boolval($object['enable']);
-
-        return $object;
-    }
-
-    public function setSymlink($params, $context)
-    {
-        global $xmlConfig;
-
-        // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
-        );
-
-        // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "uuid"        : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].' },
-                "enable"      : { "type" : "boolean" },
-                "source"      : { "type" : "string" },
-                "destination" : { "type" : "string" }
-            }
-        }');
-
-        // Prepare configuration data.
-        $object = array(
-            "uuid"        => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ? OMVUtil::uuid() : $params['uuid'],
-            "enable"      => array_boolval($params, 'enable'),
-            "source"      => $params['source'],
-            "destination" => $params['destination']
-        );
-
-        // Set the configuration data.
-        $success = FALSE;
-        if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED'])
-        {
-            $xPath = sprintf("%s[destination='%s']", $this->getXPathSymlink(), $params['destination']);
-            if (TRUE === $xmlConfig->exists($xPath))
-            {
-                throw new OMVException(
-                    OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-                    gettext("This destination is already in use.")
-                );
-            }
-            // Append object to configuration.
-            $success = $xmlConfig->set($this->getXPathSymlinks(), array("symlink" => $object));
-        }
-        else
-        {
-            // Get the old configuration object.
-            $xPath = sprintf("%s[uuid='%s']", $this->getXPathSymlink(), $params['uuid']);
-            $oldObject = $xmlConfig->get($xPath);
-            if (is_null($oldObject))
-            {
-                throw new OMVException(
-                    OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                    $xPath
-                );
-            }
-
-            // remove old symbolic link
-            if (is_link($oldObject['destination']))
-            {
-                unlink($oldObject['destination']);
-            }
-
-            // Update existing configuration object.
-            $xPath = sprintf("%s[uuid='%s']", $this->getXPathSymlink(), $params['uuid'] );
-            $success = $xmlConfig->replace($xPath, $object);
-        }
-        if (FALSE === $success)
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED
-            );
-        }
-
-        if ($object['enable'] === true)
-        {
-            // Create symbolic link
-            $success = FALSE;
-            $success = symlink($object['source'], $object['destination']);
-            if (FALSE === $success)
-            {
-                throw new OMVException(
-                    OMVErrorMsg::E_MISC_FAILURE,
-                    sprintf(
-                        "Failed to create symbolic link at %s",
-                        $object['destination']
-                    )
-                );
-            }
-        }
-
-        // Notify configuration changes.
-        $dispatcher = &OMVNotifyDispatcher::getInstance();
-        $dispatcher->notify(
-            ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-            $this->getEventMessagePathSymlink(),
-            $object
-        );
-
-        // Return the configuration object.
-        return $object;
-    }
-
-    public function deleteSymlink($params, $context)
-    {
-        global $xmlConfig;
-
-        // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
-        );
-
-        // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "uuid" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].' }
-            }
-        }');
-
-        // Get the configuration object.
-        $xPath = sprintf("%s[uuid='%s']", $this->getXPathSymlink(), $params['uuid']);
-        $object = $xmlConfig->get($xPath);
-        if (is_null($object))
-        {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $xPath
-            );
-        }
-
-        // remove old symbolic link
-        if (is_link($object['destination']))
-        {
-            unlink($object['destination']);
-        }
-
-        // Delete the configuration object.
-        $xPath = sprintf("%s[uuid='%s']", $this->getXPathSymlink(), $params['uuid']);
-
-        return $this->deleteConfigObjectByPath(
-            $xPath,
-            $this->getEventMessagePathSymlink()
-        );
-    }
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceDownloader());

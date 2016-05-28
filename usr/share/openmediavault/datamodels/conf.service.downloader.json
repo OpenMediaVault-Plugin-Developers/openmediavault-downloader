@@ -1,0 +1,55 @@
+{
+	"type": "config",
+	"id": "conf.service.downloader",
+	"title": "Downloader",
+	"queryinfo": {
+		"xpath": "//services/downloader",
+		"iterable": false
+	},
+	"properties": {
+		"username": {
+			"type": "string",
+			"default": ""
+		},
+		"uploadref": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"downloads": {
+			"type": "object",
+			"properties": {
+				"download": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"dltype": {
+								"type": "string"
+							},
+							"filename": {
+								"type": "string"
+							},
+							"url": {
+								"type": "string"
+							},
+							"keepvideo": {
+								"type": "boolean"
+							},
+							"sharedfolderref": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"delete": {
+								"type": "boolean"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
