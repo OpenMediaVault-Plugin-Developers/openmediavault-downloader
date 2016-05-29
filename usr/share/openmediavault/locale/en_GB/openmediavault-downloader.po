@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-30 08:51-0500\n"
-"PO-Revision-Date: 2015-08-30 13:51+0000\n"
-"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
+"POT-Creation-Date: 2016-05-29 08:34-0500\n"
+"PO-Revision-Date: 2016-05-29 13:34+0000\n"
+"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,14 +18,14 @@ msgstr ""
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "Add Playlist"
+msgstr ""
+
 msgid "Add download"
 msgstr "Add download"
 
 msgid "Add playlist"
-msgstr ""
-
-msgid "Add symlink"
-msgstr "Add symlink"
+msgstr "Add playlist"
 
 msgid "Component"
 msgstr "Component"
@@ -41,9 +41,6 @@ msgstr "Delete after Download"
 
 msgid "Delete from list of downloads after file is downloaded"
 msgstr "Delete from list of downloads after file is downloaded"
-
-msgid "Destination"
-msgstr "Destination"
 
 msgid "Done..."
 msgstr "Done..."
@@ -65,15 +62,6 @@ msgstr "Downloads"
 
 msgid "Downloads to this shared folder"
 msgstr "Downloads to this shared folder"
-
-msgid "Edit symlink"
-msgstr "Edit symlink"
-
-msgid "Enable"
-msgstr "Enable"
-
-msgid "Enabled"
-msgstr "Enabled"
 
 msgid "File Owner"
 msgstr "File Owner"
@@ -107,15 +95,6 @@ msgstr "Settings"
 
 msgid "Shared Folder"
 msgstr "Shared Folder"
-
-msgid "Source"
-msgstr "Source"
-
-msgid "Symlinks"
-msgstr "Symlinks"
-
-msgid "This destination is already in use."
-msgstr "This destination is already in use."
 
 msgid "Type"
 msgstr "Type"

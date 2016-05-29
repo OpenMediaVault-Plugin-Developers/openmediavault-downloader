@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-30 08:51-0500\n"
-"PO-Revision-Date: 2015-08-30 13:51+0000\n"
-"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
+"POT-Creation-Date: 2016-05-29 08:34-0500\n"
+"PO-Revision-Date: 2016-05-29 13:34+0000\n"
+"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,14 +18,14 @@ msgstr ""
 "Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "Add Playlist"
+msgstr ""
+
 msgid "Add download"
 msgstr "Engadir descarga"
 
 msgid "Add playlist"
 msgstr ""
-
-msgid "Add symlink"
-msgstr "Engadir ligazón simbólica"
 
 msgid "Component"
 msgstr "Compoñente"
@@ -41,9 +41,6 @@ msgstr "Eliminar trala descarga"
 
 msgid "Delete from list of downloads after file is downloaded"
 msgstr "Eliminar da lista de descarga após o ficheiro sexa descargado"
-
-msgid "Destination"
-msgstr "Destino"
 
 msgid "Done..."
 msgstr "Feito..."
@@ -65,15 +62,6 @@ msgstr "Descargas"
 
 msgid "Downloads to this shared folder"
 msgstr "Descargar neste cartafol compartido"
-
-msgid "Edit symlink"
-msgstr "Editar a ligazón simbólica"
-
-msgid "Enable"
-msgstr "Activar"
-
-msgid "Enabled"
-msgstr "Activada"
 
 msgid "File Owner"
 msgstr "Propietario do ficheiro"
@@ -107,15 +95,6 @@ msgstr "Axustes"
 
 msgid "Shared Folder"
 msgstr "Cartafol compartido"
-
-msgid "Source"
-msgstr "Orixe"
-
-msgid "Symlinks"
-msgstr "Ligazóns simbólicas"
-
-msgid "This destination is already in use."
-msgstr "O destino xa está a ser usado"
 
 msgid "Type"
 msgstr "Tipo"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-30 08:51-0500\n"
+"POT-Creation-Date: 2016-05-29 08:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,13 +17,13 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Add Playlist"
+msgstr ""
+
 msgid "Add download"
 msgstr ""
 
 msgid "Add playlist"
-msgstr ""
-
-msgid "Add symlink"
 msgstr ""
 
 msgid "Component"
@@ -39,9 +39,6 @@ msgid "Delete after Download"
 msgstr ""
 
 msgid "Delete from list of downloads after file is downloaded"
-msgstr ""
-
-msgid "Destination"
 msgstr ""
 
 msgid "Done..."
@@ -63,15 +60,6 @@ msgid "Downloads"
 msgstr ""
 
 msgid "Downloads to this shared folder"
-msgstr ""
-
-msgid "Edit symlink"
-msgstr ""
-
-msgid "Enable"
-msgstr ""
-
-msgid "Enabled"
 msgstr ""
 
 msgid "File Owner"
@@ -102,15 +90,6 @@ msgid "Settings"
 msgstr ""
 
 msgid "Shared Folder"
-msgstr ""
-
-msgid "Source"
-msgstr ""
-
-msgid "Symlinks"
-msgstr ""
-
-msgid "This destination is already in use."
 msgstr ""
 
 msgid "Type"

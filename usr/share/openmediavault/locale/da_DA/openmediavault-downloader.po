@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2014
+# Stefan Thrane Overby <stoverby@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-30 08:51-0500\n"
-"PO-Revision-Date: 2015-08-30 13:51+0000\n"
-"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
+"POT-Creation-Date: 2016-05-29 08:34-0500\n"
+"PO-Revision-Date: 2016-05-29 13:34+0000\n"
+"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,14 +18,14 @@ msgstr ""
 "Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "Add Playlist"
+msgstr ""
+
 msgid "Add download"
 msgstr "Tilføj download"
 
 msgid "Add playlist"
-msgstr ""
-
-msgid "Add symlink"
-msgstr "Tilføj symlink"
+msgstr "Tilføj playliste"
 
 msgid "Component"
 msgstr "Komponent"
@@ -41,9 +41,6 @@ msgstr "Slet efter Download"
 
 msgid "Delete from list of downloads after file is downloaded"
 msgstr "Slet fra liste af downloads efter filen er downloadet"
-
-msgid "Destination"
-msgstr "Destination"
 
 msgid "Done..."
 msgstr "Færdig..."
@@ -65,15 +62,6 @@ msgstr "Downloads"
 
 msgid "Downloads to this shared folder"
 msgstr "Downloader til denne delte mappe"
-
-msgid "Edit symlink"
-msgstr "Rediger symlink"
-
-msgid "Enable"
-msgstr "Aktiver"
-
-msgid "Enabled"
-msgstr "Aktiveret"
 
 msgid "File Owner"
 msgstr "Fil Ejer"
@@ -107,15 +95,6 @@ msgstr "Indstilinger"
 
 msgid "Shared Folder"
 msgstr "Delte Mapper"
-
-msgid "Source"
-msgstr "Kilde"
-
-msgid "Symlinks"
-msgstr "Symlinks"
-
-msgid "This destination is already in use."
-msgstr "Destinationen er allerede i brug."
 
 msgid "Type"
 msgstr "Type"
