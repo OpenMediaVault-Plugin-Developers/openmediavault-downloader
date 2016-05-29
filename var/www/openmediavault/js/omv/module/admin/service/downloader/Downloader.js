@@ -142,12 +142,6 @@ Ext.define("OMV.module.admin.service.downloader.Playlist", {
             fieldLabel    : _("URL"),
             allowBlank    : false
         },{
-            xtype      : "checkbox",
-            name       : "keepvideo",
-            fieldLabel : _("Keep Video"),
-            boxLabel   : _("Keep video file after conversion to audio.  Video will have mp4 extension."),
-            checked    : false
-        },{
             xtype         : "sharedfoldercombo",
             name          : "sharedfolderref",
             fieldLabel    : _("Shared Folder"),
@@ -162,10 +156,6 @@ Ext.define("OMV.module.admin.service.downloader.Playlist", {
             fieldLabel    : _("Delete"),
             checked       : false,
             boxLabel      : _("Delete from list of downloads after file is downloaded")
-        },{
-            xtype : "hiddenfield",
-            name  : "filename",
-            value : "--"
         },{
             xtype : "hiddenfield",
             name  : "dltype",

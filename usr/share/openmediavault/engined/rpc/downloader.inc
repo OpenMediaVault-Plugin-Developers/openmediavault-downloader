@@ -220,13 +220,9 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 }
                 break;
             case "playlist":
-                if( $keepvideo == true ) {
-                    $kv = "-k --format \"mp4\" ";
-                }
-                $cmd = sprintf(
-                    "%s -q -x %s--audio-format \"mp3\" --newline --no-warnings -o \"%s/%%(autonumber)s-%%(title)s.%%(ext)s\" \"%s\" 2>&1 > /tmp/output2",
-                    $this->getYoutubedl, $kv, $sfPath, $url
-                );
+                $cmd = sprintf("cd %s && %s --newline --no-warnings \"%s\"", $sfPath, $this->getYoutubedl, $url);
+                file_put_contents("/tmp/output", $cmd);
+                break;
             default:
                 $cmd = sprintf("%s -q -d \"%s/\" -o \"%s\" \"%s\" 2>&1 > /dev/null &", $this->getAria2, $sfPath, $filename, $url);
         }

@@ -1,10 +1,10 @@
-openmediavault-downloader (3.0) UNRELEASED; urgency=medium
+openmediavault-downloader (3.0) stable; urgency=low
 
   * Update for OMV 3 and datamodels
   * Update youtube-dl to 2016.05.21.2
   * Remove symlinks tab
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Thu, 26 May 2016 08:35:05 -0500
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 29 May 2016 08:30:14 -0500
 
 openmediavault-downloader (2.1) stable; urgency=low
 
