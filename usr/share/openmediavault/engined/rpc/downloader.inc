@@ -145,13 +145,6 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
             $db->assertIsUnique($object, "url");
         }
         $db->set($object);
-        // Notify configuration changes.
-        $dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-        $dispatcher->notify(
-            $isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-            "org.openmediavault.services.downloader.download",
-            $object->getAssoc()
-        );
         // Return the configuration object.
         return $object->getAssoc();
     }
@@ -166,11 +159,11 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
         $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir, $params['uuid']);
         unlink($pid);
         // Delete the configuration object.
-        return $this->deleteConfigObjectByUuid(
-            "conf.service.downloader.download",
-            $params['uuid'],
-            "org.openmediavault.services.downloader.download"
-        );
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.downloader.download", $params['uuid']);
+        $db->delete($object);
+        // Return the deleted configuration object.
+        return $object->getAssoc();
     }
 
     public function doDownload($params, $context)
@@ -244,11 +237,10 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
         unlink($pid);
 
         if ( $delete ) {
-            $this->deleteConfigObjectByUuid(
-                "conf.service.downloader.download",
-                $params['uuid'],
-                "org.openmediavault.services.downloader.download"
-            );
+            // Delete the configuration object.
+            $db = \OMV\Config\Database::getInstance();
+            $object = $db->get("conf.service.downloader.download", $params['uuid']);
+            $db->delete($object);
         }
     }
 
@@ -277,13 +269,6 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
         $db->set($object);
         // Remove useless properties from the object.
         $object->remove("downloads");
-        // Notify configuration changes.
-        $dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-        $dispatcher->notify(
-            OMV_NOTIFY_MODIFY,
-            "org.openmediavault.conf.service.downloader",
-            $object->getAssoc()
-        );
         // Return the configuration object.
         return $object->getAssoc();
     }
