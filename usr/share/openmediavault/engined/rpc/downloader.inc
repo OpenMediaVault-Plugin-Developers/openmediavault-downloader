@@ -213,7 +213,7 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 }
                 break;
             case "playlist":
-                $cmd = sprintf("cd %s && %s --newline --no-warnings \"%s\"", $sfPath, $this->getYoutubedl, $url);
+                $cmd = sprintf("cd %s && %s --newline --no-warnings --ignore-errors \"%s\"", $sfPath, $this->getYoutubedl, $url);
                 file_put_contents("/tmp/output", $cmd);
                 break;
             default:
