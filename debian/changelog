@@ -1,3 +1,9 @@
+openmediavault-downloader (3.3) stable; urgency=low
+
+  * Update for OMV 3.0.40
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 25 Sep 2016 17:21:36 -0500
+
 openmediavault-downloader (3.2) stable; urgency=low
 
   * Add --ignore-errors to playlist download
