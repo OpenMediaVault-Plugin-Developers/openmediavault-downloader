@@ -3,7 +3,7 @@
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
  * @copyright Copyright (c) 2009-2013 Volker Theile
- * @copyright Copyright (c) 2013-2016 OpenMediaVault Plugin Developers
+ * @copyright Copyright (c) 2013-2017 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -183,31 +183,36 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
     stateful          : true,
     stateId           : "a982a76d-6804-1632-a31b-8b48c0ea6dde",
     columns           : [{
-        text        : _("Download Type"),
-        sortable    : true,
-        dataIndex   : "dltype",
-        stateId     : "dltype"
+        xtype     : "textcolumn",
+        text      : _("Download Type"),
+        sortable  : true,
+        dataIndex : "dltype",
+        stateId   : "dltype"
     },{
-        text        : _("Filename"),
-        sortable    : true,
-        dataIndex   : "filename",
-        stateId     : "filename"
+        xtype     : "textcolumn",
+        text      : _("Filename"),
+        sortable  : true,
+        dataIndex : "filename",
+        stateId   : "filename"
     },{
-        text        : _("URL"),
-        sortable    : true,
-        dataIndex   : "url",
-        stateId     : "url"
+        xtype     : "textcolumn",
+        text      : _("URL"),
+        sortable  : true,
+        dataIndex : "url",
+        stateId   : "url"
     },{
-        text        : _("Shared Folder"),
-        sortable    : true,
-        dataIndex   : "sharedfoldername",
-        stateId     : "sharedfoldername"
+        xtype     : "textcolumn",
+        text      : _("Shared Folder"),
+        sortable  : true,
+        dataIndex : "sharedfoldername",
+        stateId   : "sharedfoldername"
     },{
-        text        : _("Downloading"),
-        sortable    : true,
-        dataIndex   : "downloading",
-        stateId     : "downloading",
-        renderer    : function (value) {
+        xtype     : "textcolumn",
+        text      : _("Downloading"),
+        sortable  : true,
+        dataIndex : "downloading",
+        stateId   : "downloading",
+        renderer  : function (value) {
             var content;
             if ( value )
                 content = _("Yes");
@@ -216,17 +221,19 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
             return content;
         }
     },{
+        xtype     : "textcolumn",
         text      : _("Filesize"),
         sortable  : true,
         dataIndex : "filesize",
         stateId   : "filesize",
         renderer  : OMV.module.services.downloader.util.Format.fsRenderer
     },{
-        text        : _("Delete after Download"),
-        sortable    : true,
-        dataIndex   : "delete",
-        stateId     : "delete",
-        renderer    : function (value) {
+        xtype     : "textcolumn",
+        text      : _("Delete after Download"),
+        sortable  : true,
+        dataIndex : "delete",
+        stateId   : "delete",
+        renderer  : function (value) {
             var content;
             if ( value )
                 content = _("Yes");
