@@ -39,6 +39,9 @@
 							"keepvideo": {
 								"type": "boolean"
 							},
+							"format": {
+								"type": "string"
+							},
 							"sharedfolderref": {
 								"type": "string",
 								"format": "uuidv4"

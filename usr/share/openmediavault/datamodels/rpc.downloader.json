@@ -44,7 +44,7 @@
 			},
 			"dltype": {
 				"type": "string",
-			    "enum":[ "aria2", "curl", "playlist", "youtube-dl" ],
+			    "enum":[ "aria2", "curl", "playlist", "multiple", "youtube-dl" ],
 				"required": true
 			},
 			"filename": {
@@ -57,6 +57,10 @@
 			},
 			"keepvideo": {
 				"type": "boolean",
+				"required": false
+			},
+			"format": {
+				"type": "string",
 				"required": false
 			},
 			"sharedfolderref": {

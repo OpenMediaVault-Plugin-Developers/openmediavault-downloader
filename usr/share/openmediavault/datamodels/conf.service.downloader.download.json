@@ -28,6 +28,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"format": {
+			"type": "string",
+			"default": ""
+		},
 		"sharedfolderref": {
 			"type": "string",
 			"format": "uuidv4"

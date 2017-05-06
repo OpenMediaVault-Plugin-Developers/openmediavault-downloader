@@ -81,11 +81,12 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
             $filenamepart = sprintf("%s/%s.part", $sfPath, $objectv->get("filename"));
             $filenamearia = sprintf("%s/%s.aria2", $sfPath, $objectv->get("filename"));
             $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir, $objectv->get('uuid'));
+            $dlType = $objectv->get('dltype');
 
             if (file_exists($pid)) {
                 $objectv->set('downloading', true);
 
-                switch ($objectv->get('dltype')) {
+                switch ($dlType) {
                     case "curl":
                         $objectv->set('filesize', intval(filesize($filename)));
                         break;
@@ -95,6 +96,7 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                         break;
 
                     case "playlist":
+                    case "multiple":
                         $objectv->set('filesize', 0);
                         break;
 
@@ -102,7 +104,7 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                         $objectv->set('filesize', intval(filesize($filenamearia)));
                 }
             } else {
-                if ($objectv->get('dltype') == "playlist") {
+                if ($dlType == "playlist" || $dlType == "multiple") {
                     $objectv->set('filesize', 0);
                 } else {
                     if (file_exists($filename)) {
@@ -110,6 +112,7 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                     }
                 }
             }
+            $objectv->set('url', str_replace(PHP_EOL, '<br/>', $objectv->get('url')));
             $objectsAssoc[] = $objectv->getAssoc();
         }
         // Filter the result.
@@ -177,12 +180,6 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
         // Get the configuration object.
         $object = $db->get("conf.service.downloader.download", $params['uuid']);
 
-        $dltype    = $object->get('dltype');
-        $filename  = $object->get('filename');
-        $keepvideo = boolval($object->get('keepvideo'));
-        $url       = $object->get('url');
-        $delete    = boolval($object->get('delete'));
-
         if (!empty($object->get("sharedfolderref"))) {
             $sfObject = $db->get("conf.system.sharedfolder", $object->get("sharedfolderref"));
             // Get the mount point configuration object to build the absolute shared folder path.
@@ -190,35 +187,86 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
             // Return the absolute shared folder path.
             $sfPath = build_path(DIRECTORY_SEPARATOR, $meObject->get("dir"), $sfObject->get("reldirpath"));
         }
-        $ext = strtolower(substr($filename, -3));
-        $kv  = "";
+
+        $dltype    = $object->get('dltype');
+        $filename  = $object->get('filename');
+        $url       = $object->get('url');
+        $delete    = boolval($object->get('delete'));
+
+        switch ($object->get('format')) {
+            case "aac":
+                $format = "bestaudio[ext=aac]/bestaudio";
+                $audio  = true;
+                break;
+            case "m4a":
+                $format = "bestaudio[ext=m4a]/bestaudio";
+                $audio  = true;
+                break;
+            case "mp3":
+                $format = "bestaudio[ext=mp3]/bestaudio";
+                $audio  = true;
+                break;
+            case "mp4";
+                $format = "best[ext=mp4]/best";
+                break;
+            case "wav":
+                $format = "bestaudio[ext=wav]/bestaudio";
+                $audio  = true;
+                break;
+            case "webm";
+                $format = "best[ext=webm]/best";
+                break;
+        }
+        $cmdArgs = [];
+
         switch ($dltype) {
             case "curl":
-                $cmd = sprintf("%s -L -s -o \"%s/%s\" \"%s\" 2>&1 > /dev/null &", $this->getCurl, $sfPath, $filename, $url);
+                $cmdBin = $this->getCurl;
+                $cmdArgs[] = "--location";
+                $cmdArgs[] = "--silent";
+                $cmdArgs[] = sprintf("--output \"%s/%s\"", $sfPath, $filename);
+                $cmdArgs[] = sprintf("\"%s\"", $url);
                 break;
+
             case "youtube-dl":
-                if ($keepvideo == true) {
-                    $kv = "-k ";
-                }
-                if ($ext == "mp3" || $ext == "aac" || $ext == "wav" || $ext == "m4a" ) {
-                    $filename = substr($filename, 0, strlen($filename) - 3) . "mp4";
-                    $cmd = sprintf(
-                        "%s -q -x %s--audio-format \"%s\" --newline --no-warnings -o \"%s/%s\" \"%s\" 2>&1",
-                        $this->getYoutubedl, $kv, $ext, $sfPath, $filename, $url
-                    );
-                } else {
-                    $cmd = sprintf("%s -q --newline --no-warnings -o \"%s/%s\" \"%s\" 2>&1 > /dev/null &",
-                        $this->getYoutubedl, $sfPath, $filename, $url
-                    );
-                }
+                $cmdBin = $this->getYoutubedl;
+                $cmdArgs[] = "--quiet";
+                $cmdArgs[] = "--newline";
+                $cmdArgs[] = "--no-warnings";
+                $cmdArgs[] = sprintf("--format '%s'", $format);
+                $cmdArgs[] = sprintf("-o \"%s/%s\"", $sfPath, $filename);
+                $cmdArgs[] = sprintf("\"%s\"", $url);
                 break;
+
             case "playlist":
-                $cmd = sprintf("cd %s && %s --newline --no-warnings --ignore-errors \"%s\"", $sfPath, $this->getYoutubedl, $url);
-                file_put_contents("/tmp/output", $cmd);
+                $cmdBin = sprintf("cd %s && %s", $sfPath, $this->getYoutubedl);
+                $cmdArgs[] = "--newline";
+                $cmdArgs[] = "--no-warnings";
+                $cmdArgs[] = "--ignore-errors";
+                $cmdArgs[] = sprintf("--format '%s'", $format);
+                $cmdArgs[] = sprintf("\"%s\"", $url);
                 break;
+
+            case "multiple":
+                $tmpfname = tempnam("/tmp", "multiple");
+                file_put_contents($tmpfname, $url);
+
+                $cmdBin = sprintf("cd %s && %s", $sfPath, $this->getYoutubedl);
+                $cmdArgs[] = "--newline";
+                $cmdArgs[] = "--no-warnings";
+                $cmdArgs[] = "--ignore-errors";
+                $cmdArgs[] = sprintf("--format '%s'", $format);
+                $cmdArgs[] = sprintf("--batch-file \"%s\"", $tmpfname);
+                break;
+
             default:
-                $cmd = sprintf("%s -q -d \"%s/\" -o \"%s\" \"%s\" 2>&1 > /dev/null &", $this->getAria2, $sfPath, $filename, $url);
+                $cmdBin = $this->getAria2;
+                $cmdArgs[] = "--quiet=true";
+                $cmdArgs[] = sprintf("--dir \"%s/\"", $sfPath);
+                $cmdArgs[] = sprintf("--out \"%s\"", $filename);
+                $cmdArgs[] = sprintf("\"%s\"", $url);
         }
+
         // Create pid file
         $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir, $params['uuid']);
         touch($pid);
@@ -228,7 +276,9 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
         file_put_contents($this->getLogFile, $log, FILE_APPEND);
 
         // Start download
-        exec($cmd);
+        $cmd = new \OMV\System\Process($cmdBin, $cmdArgs);
+        var_dump($cmd->getCommandLine());
+        $cmd->execute();
 
         $log = sprintf("[%s] DOWNLOAD: %s: %s: %s: FINISH: %s\r\n", date("Y-m-d H:i:s"), $dltype, $filename, $sfname, $url);
         file_put_contents($this->getLogFile, $log, FILE_APPEND);
@@ -241,6 +291,11 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
             $db = \OMV\Config\Database::getInstance();
             $object = $db->get("conf.service.downloader.download", $params['uuid']);
             $db->delete($object);
+        }
+
+        // Destroy url list file
+        if (!empty($tmpfname) && file_exists($tmpfname)) {
+            unlink($tmpfname);
         }
     }
 
@@ -316,37 +371,24 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
         // Validate the RPC caller context.
         $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
 
-        // Create a background process.
-        $bgStatusFilename = $this->createBgProcStatus();
-        $pid = $this->fork();
-        if($pid > 0) { // Parent process.
-            $this->initializeBgProcStatus($bgStatusFilename, $pid);
-            return $bgStatusFilename;
-        }
-        // Child process.
-        try {
-            $bgOutputFilename = $this->createBgProcOutput();
-            $this->updateBgProcStatus($bgStatusFilename, "outputfilename", $bgOutputFilename);
+        $cmdArgs = [];
+        $cmdArgs[] = "-L#";
+        $cmdArgs[] = sprintf("-o %s", $this->getYoutubedl);
+        $cmdArgs[] = "\"https://yt-dl.org/downloads/latest/youtube-dl\"";
+        $cmd = new \OMV\System\Process($this->getCurl, $cmdArgs);
+        $cmdLine = $cmd->getCommandLine();
 
-            // Execute command.
-            $cmd = sprintf("%s -L# -o %s \"https://yt-dl.org/downloads/latest/youtube-dl\" 2>&1",
-                $this->getCurl, $this->getYoutubedl
-            );
-            $this->exec($cmd, $output, $bgOutputFilename);
-            $this->finalizeBgProcStatus($bgStatusFilename, $output);
-            if ( !chmod( $this->getYoutubedl(), 0755 ) ) {
-                throw new \OMV\Exception("Failed to make file executable");
-            }
-            if ( !chown( $this->getYoutubedl(), "root" ) ) {
-                throw new \OMV\Exception("Failed to change ownership of file");
-            }
-            if ( !chgrp( $this->getYoutubedl(), "root" ) ) {
-                throw new \OMV\Exception("Failed to change group of file");
-            }
-            exit(0);
-        } catch(\Exception $e) {
-            $this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-            exit(1);
+        if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename)) {
+            throw new \OMV\ExecException($cmdLine, $output);
+        }
+        if ( !chmod( $this->getYoutubedl, 0755 ) ) {
+            throw new \OMV\Exception("Failed to make file executable");
+        }
+        if ( !chown( $this->getYoutubedl, "root" ) ) {
+            throw new \OMV\Exception("Failed to change ownership of file");
+        }
+        if ( !chgrp( $this->getYoutubedl, "root" ) ) {
+            throw new \OMV\Exception("Failed to change group of file");
         }
     }
 }

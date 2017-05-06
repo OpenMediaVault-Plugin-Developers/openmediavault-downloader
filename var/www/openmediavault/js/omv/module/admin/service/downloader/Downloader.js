@@ -48,7 +48,8 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
                 value : "youtube-dl"
             }],
             name       : [
-                "keepvideo"
+                "keepvideo",
+                "format"
             ],
             properties : [
                 "show"
@@ -82,20 +83,86 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
             xtype         : "textfield",
             name          : "filename",
             fieldLabel    : _("Filename"),
+            allowBlank    : false
+        },{
+            xtype         : "combo",
+            name          : "format",
+            fieldLabel    : _("Format"),
             allowBlank    : false,
-            plugins       : [{
+            editable      : false,
+            store         : [
+                [ "aac", _("aac audio only") ],
+                [ "m4a", _("m4a audio only") ],
+                [ "mp3", _("mp3 audio only") ],
+                [ "mp4", _("mp4/m4a") ],
+                [ "wav", _("wav audio only") ],
+                [ "webm", _("webm") ]
+            ],
+            mode          : "local",
+            triggerAction : "all",
+            value         : "mp4",
+            hidden        : true
+        },{
+            xtype      : "textfield",
+            name       : "url",
+            fieldLabel : _("URL"),
+            allowBlank : false
+        },{
+            xtype      : "sharedfoldercombo",
+            name       : "sharedfolderref",
+            fieldLabel : _("Shared Folder"),
+            readOnly   : (me.uuid !== OMV.UUID_UNDEFINED),
+            plugins    : [{
                 ptype : "fieldinfo",
-                text  : _("Saves download as this filename. If file extension is aac, m4a, mp3, or wav, audio will be extracted to filename.")
+                text  : _("Downloads to this shared folder")
             }]
         },{
             xtype      : "checkbox",
-            name       : "keepvideo",
-            fieldLabel : _("Keep Video"),
-            boxLabel   : _("Keep video file after conversion to audio.  Video will have mp4 extension."),
+            name       : "delete",
+            fieldLabel : _("Delete"),
             checked    : false,
-            hidden     : true
+            boxLabel   : _("Delete from list of downloads after file is downloaded")
+        }];
+    }
+});
+
+Ext.define("OMV.module.admin.service.downloader.DownloadMultiple", {
+    extend   : "OMV.workspace.window.Form",
+    requires : [
+        "OMV.workspace.window.plugin.ConfigObject"
+    ],
+
+    plugins: [{
+        ptype : "configobject"
+    }],
+
+    rpcService   : "Downloader",
+    rpcGetMethod : "getDownload",
+    rpcSetMethod : "setDownload",
+
+    width        : 600,
+
+    getFormItems : function() {
+        var me = this;
+        return [{
+            xtype         : "combo",
+            name          : "format",
+            fieldLabel    : _("Format"),
+            allowBlank    : false,
+            editable      : false,
+            store         : [
+                [ "aac", _("aac audio only") ],
+                [ "m4a", _("m4a audio only") ],
+                [ "mp3", _("mp3 audio only") ],
+                [ "mp4", _("mp4/m4a") ],
+                [ "wav", _("wav audio only") ],
+                [ "webm", _("webm") ]
+            ],
+            mode          : "local",
+            triggerAction : "all",
+            value         : "mp4"
         },{
-            xtype         : "textfield",
+            xtype         : "textarea",
             name          : "url",
             fieldLabel    : _("URL"),
             allowBlank    : false
@@ -114,6 +181,10 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
             fieldLabel    : _("Delete"),
             checked       : false,
             boxLabel      : _("Delete from list of downloads after file is downloaded")
+        },{
+            xtype : "hiddenfield",
+            name  : "dltype",
+            value : "multiple"
         }];
     }
 });
@@ -137,6 +208,23 @@ Ext.define("OMV.module.admin.service.downloader.Playlist", {
     getFormItems : function() {
         var me = this;
         return [{
+            xtype         : "combo",
+            name          : "format",
+            fieldLabel    : _("Format"),
+            allowBlank    : false,
+            editable      : false,
+            store         : [
+                [ "aac", _("aac audio only") ],
+                [ "m4a", _("m4a audio only") ],
+                [ "mp3", _("mp3 audio only") ],
+                [ "mp4", _("mp4/m4a") ],
+                [ "wav", _("wav audio only") ],
+                [ "webm", _("webm") ]
+            ],
+            mode          : "local",
+            triggerAction : "all",
+            value         : "mp4"
+        },{
             xtype         : "textfield",
             name          : "url",
             fieldLabel    : _("URL"),
@@ -175,6 +263,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
     ],
     uses     : [
         "OMV.module.admin.service.downloader.Download",
+        "OMV.module.admin.service.downloader.DownloadMultiple",
         "OMV.module.admin.service.downloader.Playlist"
     ],
 
@@ -195,11 +284,12 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         dataIndex : "filename",
         stateId   : "filename"
     },{
-        xtype     : "textcolumn",
+        xtype     : "templatecolumn",
         text      : _("URL"),
         sortable  : true,
         dataIndex : "url",
-        stateId   : "url"
+        stateId   : "url",
+        tpl       : '<tpl for="url" between="&lt;br/&gt;">{.}</tpl>'
     },{
         xtype     : "textcolumn",
         text      : _("Shared Folder"),
@@ -241,6 +331,12 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
                 content = _("No");
             return content;
         }
+    },{
+        xtype     : "textcolumn",
+        text      : _("Format"),
+        sortable  : true,
+        dataIndex : "format",
+        stateId   : "format"
     }],
 
     initComponent: function() {
@@ -258,6 +354,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
                         { name : "sharedfoldername", type: "string" },
                         { name : "downloading", type: "boolean" },
                         { name : "filesize", type: "string" },
+                        { name : "format", type: "string" },
                         { name : "delete", type: "boolean" }
                     ]
                 }),
@@ -278,6 +375,14 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         var items = me.callParent(arguments);
 
         Ext.Array.insert(items, 1, [{
+            id       : me.getId() + "-multiple",
+            xtype    : "button",
+            text     : _("Add Multiple"),
+            icon     : "images/add.png",
+            iconCls  : Ext.baseCSSPrefix + "btn-icon-16x16",
+            handler  : Ext.Function.bind(me.onMultipleButton, me, [ me ]),
+            scope    : me
+        },{
             id       : me.getId() + "-playlist",
             xtype    : "button",
             text     : _("Add Playlist"),
@@ -287,7 +392,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
             scope    : me
         }]);
 
-        Ext.Array.insert(items, 3, [{
+        Ext.Array.insert(items, 4, [{
             id       : me.getId() + "-download",
             xtype    : "button",
             text     : _("Download"),
@@ -298,7 +403,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
             disabled : true
         }]);
 
-        Ext.Array.insert(items, 5, [{
+        Ext.Array.insert(items, 6, [{
             id       : me.getId() + "-update",
             xtype    : "button",
             text     : _("Update youtube-dl"),
@@ -327,6 +432,20 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
     onAddButton : function() {
         var me = this;
         Ext.create("OMV.module.admin.service.downloader.Download", {
+            title     : _("Add download"),
+            uuid      : OMV.UUID_UNDEFINED,
+            listeners : {
+                scope  : me,
+                submit : function() {
+                    this.doReload();
+                }
+            }
+        }).show();
+    },
+
+    onMultipleButton : function() {
+        var me = this;
+        Ext.create("OMV.module.admin.service.downloader.DownloadMultiple", {
             title     : _("Add download"),
             uuid      : OMV.UUID_UNDEFINED,
             listeners : {
@@ -410,27 +529,14 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
 
     onUpdateButton: function() {
         var me = this;
-        var wnd = Ext.create("OMV.window.Execute", {
-            title      : _("Update youtube-dl"),
-            rpcService : "Downloader",
-            rpcMethod  : "doUpdate",
-            hideStartButton : true,
-            hideStopButton  : true,
-            listeners       : {
-                scope     : me,
-                finish    : function(wnd, response) {
-                    wnd.appendValue(_("Done..."));
-                    wnd.setButtonDisabled("close", false);
-                },
-                exception : function(wnd, error) {
-                    OMV.MessageBox.error(null, error);
-                    wnd.setButtonDisabled("close", false);
-                }
+        var record = me.getSelected();
+        OMV.Rpc.request({
+            scope    : me,
+            rpcData  : {
+                service : "Downloader",
+                method  : "doUpdate"
             }
         });
-        wnd.setButtonDisabled("close", true);
-        wnd.show();
-        wnd.start();
     }
 });
 
