@@ -48,7 +48,6 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
                 value : "youtube-dl"
             }],
             name       : [
-                "keepvideo",
                 "format"
             ],
             properties : [

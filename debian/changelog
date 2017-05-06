@@ -1,8 +1,8 @@
-openmediavault-downloader (3.5) UNRELEASED; urgency=medium
+openmediavault-downloader (3.5) stable; urgency=low
 
   * Allow multiple urls to download on one job.
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Tue, 02 May 2017 06:40:26 -0500
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 06 May 2017 09:01:56 -0500
 
 openmediavault-downloader (3.4) stable; urgency=low
 
