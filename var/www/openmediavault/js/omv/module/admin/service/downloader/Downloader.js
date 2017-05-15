@@ -445,7 +445,7 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
     onMultipleButton : function() {
         var me = this;
         Ext.create("OMV.module.admin.service.downloader.DownloadMultiple", {
-            title     : _("Add download"),
+            title     : _("Add multiple downloads"),
             uuid      : OMV.UUID_UNDEFINED,
             listeners : {
                 scope  : me,
@@ -474,12 +474,22 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         var me = this;
         var record = me.getSelected();
         var type = record.get("dltype");
-        var windowName = "OMV.module.admin.service.downloader.Download";
-        var title = "Edit download";
+        var windowName = "";
+        var title = "";
 
-        if (type == "playlist") {
-            windowName = "OMV.module.admin.service.downloader.Playlist";
-            title = "Edit playlist";
+        alert (type);
+        switch (type) {
+            case "playlist":
+                windowName = "OMV.module.admin.service.downloader.Playlist";
+                title = _("Edit playlist");
+                break;
+            case "multiple":
+                windowName = "OMV.module.admin.service.downloader.DownloadMultiple";
+                title = _("Edit multiple downloads");
+                break;
+            default:
+                windowName = "OMV.module.admin.service.downloader.Download";
+                title = _("Edit download");
         }
 
         Ext.create(windowName, {
