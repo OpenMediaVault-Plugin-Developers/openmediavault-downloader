@@ -477,7 +477,6 @@ Ext.define("OMV.module.admin.service.downloader.Downloads", {
         var windowName = "";
         var title = "";
 
-        alert (type);
         switch (type) {
             case "playlist":
                 windowName = "OMV.module.admin.service.downloader.Playlist";
