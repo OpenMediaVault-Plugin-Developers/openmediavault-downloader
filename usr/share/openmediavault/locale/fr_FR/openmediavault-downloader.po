@@ -98,7 +98,7 @@ msgid "Message"
 msgstr ""
 
 msgid "No"
-msgstr "N°"
+msgstr "Non"
 
 msgid "OK"
 msgstr ""
