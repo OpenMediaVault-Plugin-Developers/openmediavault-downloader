@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-29 08:34-0500\n"
-"PO-Revision-Date: 2016-05-29 13:34+0000\n"
+"POT-Creation-Date: 2017-06-03 08:46-0500\n"
+"PO-Revision-Date: 2017-06-03 13:46+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -18,11 +18,17 @@ msgstr ""
 "Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "Add Multiple"
+msgstr ""
+
 msgid "Add Playlist"
 msgstr ""
 
 msgid "Add download"
 msgstr "Engadir descarga"
+
+msgid "Add multiple downloads"
+msgstr ""
 
 msgid "Add playlist"
 msgstr ""
@@ -42,9 +48,6 @@ msgstr "Eliminar trala descarga"
 msgid "Delete from list of downloads after file is downloaded"
 msgstr "Eliminar da lista de descarga após o ficheiro sexa descargado"
 
-msgid "Done..."
-msgstr "Feito..."
-
 msgid "Download"
 msgstr "Descarga"
 
@@ -63,6 +66,15 @@ msgstr "Descargas"
 msgid "Downloads to this shared folder"
 msgstr "Descargar neste cartafol compartido"
 
+msgid "Edit download"
+msgstr ""
+
+msgid "Edit multiple downloads"
+msgstr ""
+
+msgid "Edit playlist"
+msgstr ""
+
 msgid "File Owner"
 msgstr "Propietario do ficheiro"
 
@@ -72,23 +84,14 @@ msgstr "Nome do ficheiro"
 msgid "Filesize"
 msgstr "Tamaño do ficheiro"
 
-msgid "Keep Video"
-msgstr "Manter o vídeo"
-
-msgid ""
-"Keep video file after conversion to audio.  Video will have mp4 extension."
-msgstr "Manter o ficheiro de vídeo após a conversión a son. O vídeo terá a extensión .mp4."
+msgid "Format"
+msgstr ""
 
 msgid "Message"
 msgstr "Mensaxe"
 
 msgid "No"
 msgstr "Non"
-
-msgid ""
-"Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
-" audio will be extracted to filename."
-msgstr "Gardar a descarga con este nome. Se a extensión é aac, m4a, mp3, ou wav, o son será extraído con este nome."
 
 msgid "Settings"
 msgstr "Axustes"
@@ -117,14 +120,32 @@ msgstr "Enviar un ficheiro a este cartafol compartido"
 msgid "Yes"
 msgstr "Si"
 
+msgid "aac audio only"
+msgstr ""
+
 msgid "aria2"
 msgstr "aria2"
 
 msgid "curl"
 msgstr "curl"
 
+msgid "m4a audio only"
+msgstr ""
+
+msgid "mp3 audio only"
+msgstr ""
+
+msgid "mp4/m4a"
+msgstr ""
+
 msgid "n/a"
 msgstr "n/d"
+
+msgid "wav audio only"
+msgstr ""
+
+msgid "webm"
+msgstr ""
 
 msgid "youtube-dl"
 msgstr "youtube-dl"

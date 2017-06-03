@@ -11,8 +11,6 @@ Package: openmediavault-downloader
 Architecture: all
 Depends: aria2,
          curl,
-         libav-tools | ffmpeg,
-         libav-tools | ffprobe,
          openmediavault (>= 3.0.67),
          python,
          ${misc:Depends}

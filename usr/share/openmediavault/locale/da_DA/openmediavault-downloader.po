@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2014-2015
+# Stefan Thrane Overby <stoverby@gmail.com>, 2014-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-29 08:34-0500\n"
-"PO-Revision-Date: 2016-05-29 13:34+0000\n"
+"POT-Creation-Date: 2017-06-03 08:46-0500\n"
+"PO-Revision-Date: 2017-06-03 13:46+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -18,11 +18,17 @@ msgstr ""
 "Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add Playlist"
+msgid "Add Multiple"
 msgstr ""
+
+msgid "Add Playlist"
+msgstr "Tilføj Playliste"
 
 msgid "Add download"
 msgstr "Tilføj download"
+
+msgid "Add multiple downloads"
+msgstr ""
 
 msgid "Add playlist"
 msgstr "Tilføj playliste"
@@ -42,9 +48,6 @@ msgstr "Slet efter Download"
 msgid "Delete from list of downloads after file is downloaded"
 msgstr "Slet fra liste af downloads efter filen er downloadet"
 
-msgid "Done..."
-msgstr "Færdig..."
-
 msgid "Download"
 msgstr "Download"
 
@@ -63,6 +66,15 @@ msgstr "Downloads"
 msgid "Downloads to this shared folder"
 msgstr "Downloader til denne delte mappe"
 
+msgid "Edit download"
+msgstr ""
+
+msgid "Edit multiple downloads"
+msgstr ""
+
+msgid "Edit playlist"
+msgstr ""
+
 msgid "File Owner"
 msgstr "Fil Ejer"
 
@@ -72,23 +84,14 @@ msgstr "Filnavn"
 msgid "Filesize"
 msgstr "Filstørrelse"
 
-msgid "Keep Video"
-msgstr "Behold Video"
-
-msgid ""
-"Keep video file after conversion to audio.  Video will have mp4 extension."
-msgstr "Behold video efter konvertering til lyd. Video vil have mp4 endelse."
+msgid "Format"
+msgstr ""
 
 msgid "Message"
 msgstr "Besked"
 
 msgid "No"
 msgstr "Nej"
-
-msgid ""
-"Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
-" audio will be extracted to filename."
-msgstr "Gemmer download som dette filnavn. Hvis fil endelsen er acc, m4a, mp3 eller wav vil lyd blive udhentet til filnavn."
 
 msgid "Settings"
 msgstr "Indstilinger"
@@ -117,14 +120,32 @@ msgstr "Upload fil til denne delte mappe."
 msgid "Yes"
 msgstr "Ja"
 
+msgid "aac audio only"
+msgstr ""
+
 msgid "aria2"
 msgstr "aria2"
 
 msgid "curl"
 msgstr "curl"
 
+msgid "m4a audio only"
+msgstr ""
+
+msgid "mp3 audio only"
+msgstr ""
+
+msgid "mp4/m4a"
+msgstr ""
+
 msgid "n/a"
 msgstr "n/a"
+
+msgid "wav audio only"
+msgstr ""
+
+msgid "webm"
+msgstr ""
 
 msgid "youtube-dl"
 msgstr "youtube-dl"

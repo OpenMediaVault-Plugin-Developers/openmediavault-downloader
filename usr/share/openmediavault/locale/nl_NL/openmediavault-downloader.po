@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# okpail <okpail@gmail.com>, 2014-2015
+# okpail <okpail@gmail.com>, 2014-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-29 08:34-0500\n"
-"PO-Revision-Date: 2016-05-29 13:34+0000\n"
+"POT-Creation-Date: 2017-06-03 08:46-0500\n"
+"PO-Revision-Date: 2017-06-03 13:46+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -18,11 +18,17 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add Playlist"
+msgid "Add Multiple"
 msgstr ""
+
+msgid "Add Playlist"
+msgstr "Voeg een afspeelijst toe"
 
 msgid "Add download"
 msgstr "Download toevoegen"
+
+msgid "Add multiple downloads"
+msgstr ""
 
 msgid "Add playlist"
 msgstr "Voeg een afspeellijst toe"
@@ -42,9 +48,6 @@ msgstr "Wissen na Download"
 msgid "Delete from list of downloads after file is downloaded"
 msgstr "Wis van de lijst van download nadat de file is verkregen"
 
-msgid "Done..."
-msgstr "Klaar..."
-
 msgid "Download"
 msgstr "Download"
 
@@ -63,6 +66,15 @@ msgstr "Downloads"
 msgid "Downloads to this shared folder"
 msgstr "Download naar deze gedeelde folder"
 
+msgid "Edit download"
+msgstr ""
+
+msgid "Edit multiple downloads"
+msgstr ""
+
+msgid "Edit playlist"
+msgstr ""
+
 msgid "File Owner"
 msgstr "File eigenaar"
 
@@ -72,23 +84,14 @@ msgstr "Filenaam"
 msgid "Filesize"
 msgstr "File grootte"
 
-msgid "Keep Video"
-msgstr "Bewaar de Video"
-
-msgid ""
-"Keep video file after conversion to audio.  Video will have mp4 extension."
-msgstr "Bewaar de video file na conversie naar een audio file. De video zal een .mp4 extensie hebben"
+msgid "Format"
+msgstr ""
 
 msgid "Message"
 msgstr "Boodschap"
 
 msgid "No"
 msgstr "Nee"
-
-msgid ""
-"Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
-" audio will be extracted to filename."
-msgstr "Bewaar een download met de opgegeven filename. Als de file extensie aac, m4a, mp3 of wav hebben zal de audio worden gextraheerd met de opgegeven filenaam."
 
 msgid "Settings"
 msgstr "Instellingen"
@@ -117,14 +120,32 @@ msgstr "Voeg een file to aan de gedeelde folder"
 msgid "Yes"
 msgstr "Ja"
 
+msgid "aac audio only"
+msgstr ""
+
 msgid "aria2"
 msgstr "aria2"
 
 msgid "curl"
 msgstr "curl"
 
+msgid "m4a audio only"
+msgstr ""
+
+msgid "mp3 audio only"
+msgstr ""
+
+msgid "mp4/m4a"
+msgstr ""
+
 msgid "n/a"
 msgstr "niet beschikbaar"
+
+msgid "wav audio only"
+msgstr ""
+
+msgid "webm"
+msgstr ""
 
 msgid "youtube-dl"
 msgstr "youtube-dl"

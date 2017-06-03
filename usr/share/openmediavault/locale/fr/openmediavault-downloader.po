@@ -3,15 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Alexandre DAUMAS <daumas.alexandre@gmail.com>, 2017
 # benitude <benjamin.wuthrich@gmail.com>, 2014
+# Julien ROCH <jroch74@live.fr>, 2017
 # Seboss666 <sebastien_verdet@seboss666.info>, 2015
 # Zacharie ARNAISE <spacebrain.damage@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-29 08:34-0500\n"
-"PO-Revision-Date: 2016-05-29 13:34+0000\n"
+"POT-Creation-Date: 2017-06-03 08:46-0500\n"
+"PO-Revision-Date: 2017-06-03 13:46+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -20,11 +22,17 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-msgid "Add Playlist"
+msgid "Add Multiple"
 msgstr ""
+
+msgid "Add Playlist"
+msgstr "Ajouter une playlist"
 
 msgid "Add download"
 msgstr "Ajouter téléchargement"
+
+msgid "Add multiple downloads"
+msgstr ""
 
 msgid "Add playlist"
 msgstr "Ajouter une playlist"
@@ -44,9 +52,6 @@ msgstr "Suppression après téléchargement"
 msgid "Delete from list of downloads after file is downloaded"
 msgstr "Supprimer de la liste des téléchargement une fois complété"
 
-msgid "Done..."
-msgstr "Terminé..."
-
 msgid "Download"
 msgstr "Téléchargement"
 
@@ -65,6 +70,15 @@ msgstr "Téléchargements"
 msgid "Downloads to this shared folder"
 msgstr "Télécharger dans ce dossier partagé"
 
+msgid "Edit download"
+msgstr ""
+
+msgid "Edit multiple downloads"
+msgstr ""
+
+msgid "Edit playlist"
+msgstr ""
+
 msgid "File Owner"
 msgstr "File Owner"
 
@@ -74,23 +88,14 @@ msgstr "Nom du fichier"
 msgid "Filesize"
 msgstr "Taille du fichier"
 
-msgid "Keep Video"
-msgstr "Conserver la vidéo"
-
-msgid ""
-"Keep video file after conversion to audio.  Video will have mp4 extension."
-msgstr "Conserver le fichier vidéo après la conversion en audio. La vidéo aura l'extension mp4."
+msgid "Format"
+msgstr ""
 
 msgid "Message"
 msgstr "Message"
 
 msgid "No"
-msgstr "N°"
-
-msgid ""
-"Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
-" audio will be extracted to filename."
-msgstr "Enregistrer le fichier téléchargé avec ce nom. Si l'extension est aac, m4a, mp3, ou wav, l'audio sera extrait vers le fichier."
+msgstr "Non"
 
 msgid "Settings"
 msgstr "Paramètres"
@@ -119,14 +124,32 @@ msgstr "Uploader un fichier vers ce dossier partagé."
 msgid "Yes"
 msgstr "Oui"
 
+msgid "aac audio only"
+msgstr ""
+
 msgid "aria2"
 msgstr "aria2"
 
 msgid "curl"
 msgstr "curl"
 
+msgid "m4a audio only"
+msgstr ""
+
+msgid "mp3 audio only"
+msgstr ""
+
+msgid "mp4/m4a"
+msgstr ""
+
 msgid "n/a"
 msgstr "n/a"
+
+msgid "wav audio only"
+msgstr ""
+
+msgid "webm"
+msgstr ""
 
 msgid "youtube-dl"
 msgstr "youtube-dl"

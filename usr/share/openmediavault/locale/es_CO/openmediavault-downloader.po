@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-29 08:34-0500\n"
-"PO-Revision-Date: 2016-05-29 13:34+0000\n"
+"POT-Creation-Date: 2017-06-03 08:46-0500\n"
+"PO-Revision-Date: 2017-06-03 13:46+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Spanish (Colombia) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/es_CO/)\n"
 "MIME-Version: 1.0\n"
@@ -17,10 +17,16 @@ msgstr ""
 "Language: es_CO\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "Add Multiple"
+msgstr ""
+
 msgid "Add Playlist"
 msgstr ""
 
 msgid "Add download"
+msgstr ""
+
+msgid "Add multiple downloads"
 msgstr ""
 
 msgid "Add playlist"
@@ -41,9 +47,6 @@ msgstr ""
 msgid "Delete from list of downloads after file is downloaded"
 msgstr ""
 
-msgid "Done..."
-msgstr ""
-
 msgid "Download"
 msgstr ""
 
@@ -62,6 +65,15 @@ msgstr ""
 msgid "Downloads to this shared folder"
 msgstr ""
 
+msgid "Edit download"
+msgstr ""
+
+msgid "Edit multiple downloads"
+msgstr ""
+
+msgid "Edit playlist"
+msgstr ""
+
 msgid "File Owner"
 msgstr ""
 
@@ -71,22 +83,13 @@ msgstr ""
 msgid "Filesize"
 msgstr ""
 
-msgid "Keep Video"
-msgstr ""
-
-msgid ""
-"Keep video file after conversion to audio.  Video will have mp4 extension."
+msgid "Format"
 msgstr ""
 
 msgid "Message"
 msgstr ""
 
 msgid "No"
-msgstr ""
-
-msgid ""
-"Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
-" audio will be extracted to filename."
 msgstr ""
 
 msgid "Settings"
@@ -116,13 +119,31 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
+msgid "aac audio only"
+msgstr ""
+
 msgid "aria2"
 msgstr ""
 
 msgid "curl"
 msgstr ""
 
+msgid "m4a audio only"
+msgstr ""
+
+msgid "mp3 audio only"
+msgstr ""
+
+msgid "mp4/m4a"
+msgstr ""
+
 msgid "n/a"
+msgstr ""
+
+msgid "wav audio only"
+msgstr ""
+
+msgid "webm"
 msgstr ""
 
 msgid "youtube-dl"

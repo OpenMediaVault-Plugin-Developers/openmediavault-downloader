@@ -5,13 +5,13 @@
 # Translators:
 # Alexander Savchenko, 2014
 # JonBAL <jonbal1@rambler.ru>, 2015
-# артур Мудрых <arturmon82@gmail.com>, 2013
+# Артур Мудрых <arturmon82@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-29 08:34-0500\n"
-"PO-Revision-Date: 2016-05-29 13:34+0000\n"
+"POT-Creation-Date: 2017-06-03 08:46-0500\n"
+"PO-Revision-Date: 2017-06-03 13:46+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -20,11 +20,17 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
+msgid "Add Multiple"
+msgstr ""
+
 msgid "Add Playlist"
 msgstr ""
 
 msgid "Add download"
 msgstr "Добавить загрузку"
+
+msgid "Add multiple downloads"
+msgstr ""
 
 msgid "Add playlist"
 msgstr "Добавить плейлист"
@@ -44,9 +50,6 @@ msgstr "Удалить после загрузки"
 msgid "Delete from list of downloads after file is downloaded"
 msgstr "Удалить из списка загрузок после загрузки файла"
 
-msgid "Done..."
-msgstr "Выполнение..."
-
 msgid "Download"
 msgstr "Загрузка"
 
@@ -65,6 +68,15 @@ msgstr "Загрузки"
 msgid "Downloads to this shared folder"
 msgstr "Загрузить в эту общую папку"
 
+msgid "Edit download"
+msgstr ""
+
+msgid "Edit multiple downloads"
+msgstr ""
+
+msgid "Edit playlist"
+msgstr ""
+
 msgid "File Owner"
 msgstr "Владелец файла"
 
@@ -74,11 +86,7 @@ msgstr "Имя файла"
 msgid "Filesize"
 msgstr "Размер файла"
 
-msgid "Keep Video"
-msgstr ""
-
-msgid ""
-"Keep video file after conversion to audio.  Video will have mp4 extension."
+msgid "Format"
 msgstr ""
 
 msgid "Message"
@@ -86,11 +94,6 @@ msgstr ""
 
 msgid "No"
 msgstr "Нет"
-
-msgid ""
-"Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
-" audio will be extracted to filename."
-msgstr ""
 
 msgid "Settings"
 msgstr "Настройки"
@@ -119,14 +122,32 @@ msgstr "Загрузить файл в эту папку."
 msgid "Yes"
 msgstr "Да"
 
+msgid "aac audio only"
+msgstr ""
+
 msgid "aria2"
 msgstr "aria2"
 
 msgid "curl"
 msgstr "curl"
 
+msgid "m4a audio only"
+msgstr ""
+
+msgid "mp3 audio only"
+msgstr ""
+
+msgid "mp4/m4a"
+msgstr ""
+
 msgid "n/a"
 msgstr "н/д"
+
+msgid "wav audio only"
+msgstr ""
+
+msgid "webm"
+msgstr ""
 
 msgid "youtube-dl"
 msgstr "youtube-dl"

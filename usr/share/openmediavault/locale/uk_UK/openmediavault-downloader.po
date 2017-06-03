@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-29 08:34-0500\n"
-"PO-Revision-Date: 2016-05-29 13:34+0000\n"
+"POT-Creation-Date: 2017-06-03 08:46-0500\n"
+"PO-Revision-Date: 2017-06-03 13:46+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -18,11 +18,17 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
+msgid "Add Multiple"
+msgstr ""
+
 msgid "Add Playlist"
 msgstr ""
 
 msgid "Add download"
 msgstr "Додати завантаження"
+
+msgid "Add multiple downloads"
+msgstr ""
 
 msgid "Add playlist"
 msgstr ""
@@ -42,9 +48,6 @@ msgstr "Видалити після завантаження"
 msgid "Delete from list of downloads after file is downloaded"
 msgstr "Видалити зі списку завантажень після завантаження файлу"
 
-msgid "Done..."
-msgstr ""
-
 msgid "Download"
 msgstr "Завантажити"
 
@@ -63,6 +66,15 @@ msgstr "Завантажування"
 msgid "Downloads to this shared folder"
 msgstr "Завантажити до цієї спільної теки"
 
+msgid "Edit download"
+msgstr ""
+
+msgid "Edit multiple downloads"
+msgstr ""
+
+msgid "Edit playlist"
+msgstr ""
+
 msgid "File Owner"
 msgstr ""
 
@@ -72,11 +84,7 @@ msgstr "Назва файлу"
 msgid "Filesize"
 msgstr ""
 
-msgid "Keep Video"
-msgstr ""
-
-msgid ""
-"Keep video file after conversion to audio.  Video will have mp4 extension."
+msgid "Format"
 msgstr ""
 
 msgid "Message"
@@ -84,11 +92,6 @@ msgstr ""
 
 msgid "No"
 msgstr "Ні"
-
-msgid ""
-"Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
-" audio will be extracted to filename."
-msgstr ""
 
 msgid "Settings"
 msgstr ""
@@ -117,14 +120,32 @@ msgstr ""
 msgid "Yes"
 msgstr "Так"
 
+msgid "aac audio only"
+msgstr ""
+
 msgid "aria2"
 msgstr "aria2"
 
 msgid "curl"
 msgstr "curl"
 
+msgid "m4a audio only"
+msgstr ""
+
+msgid "mp3 audio only"
+msgstr ""
+
+msgid "mp4/m4a"
+msgstr ""
+
 msgid "n/a"
 msgstr "н/д"
+
+msgid "wav audio only"
+msgstr ""
+
+msgid "webm"
+msgstr ""
 
 msgid "youtube-dl"
 msgstr "youtube-dl"

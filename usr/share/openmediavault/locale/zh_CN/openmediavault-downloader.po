@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# songming <by@songming.me>, 2013-2015
+# songming <by@songming.me>, 2013-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-29 08:34-0500\n"
-"PO-Revision-Date: 2016-05-29 13:34+0000\n"
+"POT-Creation-Date: 2017-06-03 08:46-0500\n"
+"PO-Revision-Date: 2017-06-03 13:46+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -18,11 +18,17 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Add Playlist"
+msgid "Add Multiple"
 msgstr ""
+
+msgid "Add Playlist"
+msgstr "添加列表"
 
 msgid "Add download"
 msgstr "添加下载"
+
+msgid "Add multiple downloads"
+msgstr ""
 
 msgid "Add playlist"
 msgstr "添加列表"
@@ -42,9 +48,6 @@ msgstr "下载后删除"
 msgid "Delete from list of downloads after file is downloaded"
 msgstr "下载完成后从下载列表删除"
 
-msgid "Done..."
-msgstr "完成 ..."
-
 msgid "Download"
 msgstr "下载"
 
@@ -63,6 +66,15 @@ msgstr "下载"
 msgid "Downloads to this shared folder"
 msgstr "下载到这个共享文件夹"
 
+msgid "Edit download"
+msgstr ""
+
+msgid "Edit multiple downloads"
+msgstr ""
+
+msgid "Edit playlist"
+msgstr ""
+
 msgid "File Owner"
 msgstr "文件所有者"
 
@@ -72,23 +84,14 @@ msgstr "文件名"
 msgid "Filesize"
 msgstr "文件大小"
 
-msgid "Keep Video"
-msgstr "保存视频"
-
-msgid ""
-"Keep video file after conversion to audio.  Video will have mp4 extension."
-msgstr "转换音频后以mp4扩展名保存视频文件。"
+msgid "Format"
+msgstr ""
 
 msgid "Message"
 msgstr "消息"
 
 msgid "No"
 msgstr "否"
-
-msgid ""
-"Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
-" audio will be extracted to filename."
-msgstr "保存下载为该名称，如果文件是aac、m4a、mp3、wav等音频则添加扩展名。"
 
 msgid "Settings"
 msgstr "设置"
@@ -117,14 +120,32 @@ msgstr "上传文件到共享文件夹。"
 msgid "Yes"
 msgstr "是"
 
+msgid "aac audio only"
+msgstr ""
+
 msgid "aria2"
 msgstr "aria2"
 
 msgid "curl"
 msgstr "curl"
 
+msgid "m4a audio only"
+msgstr ""
+
+msgid "mp3 audio only"
+msgstr ""
+
+msgid "mp4/m4a"
+msgstr ""
+
 msgid "n/a"
 msgstr "N/A"
+
+msgid "wav audio only"
+msgstr ""
+
+msgid "webm"
+msgstr ""
 
 msgid "youtube-dl"
 msgstr "youtube-dl"

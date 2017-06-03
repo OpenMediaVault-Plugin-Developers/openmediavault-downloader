@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Paolo Velati <paolo.velati@gmail.com>, 2014-2015
+# Paolo Velati <paolo.velati@gmail.com>, 2014-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-29 08:34-0500\n"
-"PO-Revision-Date: 2016-05-29 13:34+0000\n"
+"POT-Creation-Date: 2017-06-03 08:46-0500\n"
+"PO-Revision-Date: 2017-06-03 13:46+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -18,11 +18,17 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add Playlist"
+msgid "Add Multiple"
 msgstr ""
+
+msgid "Add Playlist"
+msgstr "Aggiungi playlist"
 
 msgid "Add download"
 msgstr "Aggiungi download"
+
+msgid "Add multiple downloads"
+msgstr ""
 
 msgid "Add playlist"
 msgstr "Aggiungi playlist"
@@ -42,9 +48,6 @@ msgstr "Elimina dopo Scaricamento"
 msgid "Delete from list of downloads after file is downloaded"
 msgstr "Elimina dalla lista dei download dopo lo scaricamento"
 
-msgid "Done..."
-msgstr "Fatto..."
-
 msgid "Download"
 msgstr "Download"
 
@@ -63,6 +66,15 @@ msgstr "Download"
 msgid "Downloads to this shared folder"
 msgstr "I Download in questa cartella condivisa"
 
+msgid "Edit download"
+msgstr ""
+
+msgid "Edit multiple downloads"
+msgstr ""
+
+msgid "Edit playlist"
+msgstr ""
+
 msgid "File Owner"
 msgstr "Proprietario del file"
 
@@ -72,23 +84,14 @@ msgstr "Nome file"
 msgid "Filesize"
 msgstr "Dimensione File"
 
-msgid "Keep Video"
-msgstr "Mantieni Video"
-
-msgid ""
-"Keep video file after conversion to audio.  Video will have mp4 extension."
-msgstr "Mantieni il file video dopo la conversione in file audio. Il video avrà estensione mp4."
+msgid "Format"
+msgstr ""
 
 msgid "Message"
 msgstr "Messaggio"
 
 msgid "No"
 msgstr "No"
-
-msgid ""
-"Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
-" audio will be extracted to filename."
-msgstr "Salva il download con questo nome. Se l'estensione del file è aac, m4a, mp3 oppure wav, l'audio verrà estratto."
 
 msgid "Settings"
 msgstr "Impostazioni"
@@ -117,14 +120,32 @@ msgstr "Carica file in questa cartella condivisa."
 msgid "Yes"
 msgstr "Sì"
 
+msgid "aac audio only"
+msgstr ""
+
 msgid "aria2"
 msgstr "aria2"
 
 msgid "curl"
 msgstr "curl"
 
+msgid "m4a audio only"
+msgstr ""
+
+msgid "mp3 audio only"
+msgstr ""
+
+msgid "mp4/m4a"
+msgstr ""
+
 msgid "n/a"
 msgstr "n/d"
+
+msgid "wav audio only"
+msgstr ""
+
+msgid "webm"
+msgstr ""
 
 msgid "youtube-dl"
 msgstr "youtube-dl"

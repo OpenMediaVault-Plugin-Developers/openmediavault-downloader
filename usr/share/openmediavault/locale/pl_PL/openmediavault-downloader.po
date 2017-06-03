@@ -8,21 +8,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-29 08:34-0500\n"
-"PO-Revision-Date: 2016-05-29 13:34+0000\n"
+"POT-Creation-Date: 2017-06-03 08:46-0500\n"
+"PO-Revision-Date: 2017-06-03 13:46+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl_PL\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>=14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+msgid "Add Multiple"
+msgstr ""
 
 msgid "Add Playlist"
 msgstr ""
 
 msgid "Add download"
 msgstr "Dodaj pobieranie"
+
+msgid "Add multiple downloads"
+msgstr ""
 
 msgid "Add playlist"
 msgstr ""
@@ -42,9 +48,6 @@ msgstr "Usuń po pobraniu"
 msgid "Delete from list of downloads after file is downloaded"
 msgstr "Usuń z listy pobierania po pobraniu pliku"
 
-msgid "Done..."
-msgstr "Skończone..."
-
 msgid "Download"
 msgstr "Pobierz"
 
@@ -63,6 +66,15 @@ msgstr "Pobrane"
 msgid "Downloads to this shared folder"
 msgstr "Pobierzaj do tego katalogu"
 
+msgid "Edit download"
+msgstr ""
+
+msgid "Edit multiple downloads"
+msgstr ""
+
+msgid "Edit playlist"
+msgstr ""
+
 msgid "File Owner"
 msgstr "Właściciel pliku"
 
@@ -72,23 +84,14 @@ msgstr "Nazwa pliku"
 msgid "Filesize"
 msgstr "Rozmiar pliku"
 
-msgid "Keep Video"
-msgstr "Zachowaj wideo"
-
-msgid ""
-"Keep video file after conversion to audio.  Video will have mp4 extension."
-msgstr "Zostawia plik wideo po konwersji na audio. Wideo będzie zapisane w rozszerzeniu mp4."
+msgid "Format"
+msgstr ""
 
 msgid "Message"
 msgstr "Wiadomość"
 
 msgid "No"
 msgstr "Nie"
-
-msgid ""
-"Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
-" audio will be extracted to filename."
-msgstr "Zapisuje do pobrania jako ta nazwa pliku. Jeśli rozszerzeniem pliku jest aac, m4a, mp3 lub wav, audio zostaną wyodrębnione do nazwy pliku."
 
 msgid "Settings"
 msgstr "Ustawienia"
@@ -117,14 +120,32 @@ msgstr "Wczytaj plik do tego katalogu."
 msgid "Yes"
 msgstr "Tak"
 
+msgid "aac audio only"
+msgstr ""
+
 msgid "aria2"
 msgstr "aria2"
 
 msgid "curl"
 msgstr "curl"
 
+msgid "m4a audio only"
+msgstr ""
+
+msgid "mp3 audio only"
+msgstr ""
+
+msgid "mp4/m4a"
+msgstr ""
+
 msgid "n/a"
 msgstr "n/a"
+
+msgid "wav audio only"
+msgstr ""
+
+msgid "webm"
+msgstr ""
 
 msgid "youtube-dl"
 msgstr "youtube-dl"
