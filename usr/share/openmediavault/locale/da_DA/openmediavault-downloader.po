@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2014-2016
+# Stefan Thrane Overby <stoverby@gmail.com>, 2014-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-03 08:46-0500\n"
-"PO-Revision-Date: 2017-06-03 13:46+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"PO-Revision-Date: 2017-09-19 22:52+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add Multiple"
-msgstr ""
+msgstr "Tilføj Flere"
 
 msgid "Add Playlist"
 msgstr "Tilføj Playliste"
@@ -28,7 +28,7 @@ msgid "Add download"
 msgstr "Tilføj download"
 
 msgid "Add multiple downloads"
-msgstr ""
+msgstr "Tilføj flere downloads"
 
 msgid "Add playlist"
 msgstr "Tilføj playliste"
@@ -67,13 +67,13 @@ msgid "Downloads to this shared folder"
 msgstr "Downloader til denne delte mappe"
 
 msgid "Edit download"
-msgstr ""
+msgstr "Rediger download"
 
 msgid "Edit multiple downloads"
-msgstr ""
+msgstr "Rediger flere downloads"
 
 msgid "Edit playlist"
-msgstr ""
+msgstr "Rediger playliste"
 
 msgid "File Owner"
 msgstr "Fil Ejer"
@@ -85,7 +85,7 @@ msgid "Filesize"
 msgstr "Filstørrelse"
 
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 msgid "Message"
 msgstr "Besked"
@@ -121,7 +121,7 @@ msgid "Yes"
 msgstr "Ja"
 
 msgid "aac audio only"
-msgstr ""
+msgstr "Kun acc lyd"
 
 msgid "aria2"
 msgstr "aria2"
@@ -130,22 +130,22 @@ msgid "curl"
 msgstr "curl"
 
 msgid "m4a audio only"
-msgstr ""
+msgstr "Kun m4a lyd"
 
 msgid "mp3 audio only"
-msgstr ""
+msgstr "Kun mp3 lyd"
 
 msgid "mp4/m4a"
-msgstr ""
+msgstr "mp4/m4a"
 
 msgid "n/a"
 msgstr "n/a"
 
 msgid "wav audio only"
-msgstr ""
+msgstr "Kun wav lyd"
 
 msgid "webm"
-msgstr ""
+msgstr "webm"
 
 msgid "youtube-dl"
 msgstr "youtube-dl"

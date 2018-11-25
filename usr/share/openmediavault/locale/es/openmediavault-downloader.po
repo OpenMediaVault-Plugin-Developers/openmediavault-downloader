@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2014-2016
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2014-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-03 08:46-0500\n"
-"PO-Revision-Date: 2017-06-03 13:46+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"PO-Revision-Date: 2017-09-19 23:19+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add Multiple"
-msgstr ""
+msgstr "Añadir varios"
 
 msgid "Add Playlist"
 msgstr "Añadir lista"
@@ -28,7 +28,7 @@ msgid "Add download"
 msgstr "Añadir descarga"
 
 msgid "Add multiple downloads"
-msgstr ""
+msgstr "Añadir varias descargas"
 
 msgid "Add playlist"
 msgstr "Añadir lista"
@@ -67,13 +67,13 @@ msgid "Downloads to this shared folder"
 msgstr "Descargar a esta carpeta compartida"
 
 msgid "Edit download"
-msgstr ""
+msgstr "Editar descarga"
 
 msgid "Edit multiple downloads"
-msgstr ""
+msgstr "Editar multiples descargas"
 
 msgid "Edit playlist"
-msgstr ""
+msgstr "Editar la Playlist"
 
 msgid "File Owner"
 msgstr "Propietario"
@@ -85,7 +85,7 @@ msgid "Filesize"
 msgstr "Tamaño"
 
 msgid "Format"
-msgstr ""
+msgstr "Formato"
 
 msgid "Message"
 msgstr "Mensaje"
@@ -121,7 +121,7 @@ msgid "Yes"
 msgstr "Si"
 
 msgid "aac audio only"
-msgstr ""
+msgstr "Audio AAC únicamente"
 
 msgid "aria2"
 msgstr "aria2"
@@ -130,22 +130,22 @@ msgid "curl"
 msgstr "curl"
 
 msgid "m4a audio only"
-msgstr ""
+msgstr "Audio m4a únicamente"
 
 msgid "mp3 audio only"
-msgstr ""
+msgstr "Audio mp3 únicamente"
 
 msgid "mp4/m4a"
-msgstr ""
+msgstr "mp4/m4a"
 
 msgid "n/a"
 msgstr "n/d"
 
 msgid "wav audio only"
-msgstr ""
+msgstr "Audio wav únicamente"
 
 msgid "webm"
-msgstr ""
+msgstr "webm"
 
 msgid "youtube-dl"
 msgstr "youtube-dl"
