@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# songming <by@songming.me>, 2013-2017
+# songming <by@songming.me>, 2013-2017,2019
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-03 08:46-0500\n"
-"PO-Revision-Date: 2017-09-23 19:27+0000\n"
+"PO-Revision-Date: 2019-01-06 12:50+0000\n"
 "Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Add Multiple"
-msgstr ""
+msgstr "添加批量"
 
 msgid "Add Playlist"
 msgstr "添加列表"
@@ -28,7 +28,7 @@ msgid "Add download"
 msgstr "添加下载"
 
 msgid "Add multiple downloads"
-msgstr ""
+msgstr "添加批量下载"
 
 msgid "Add playlist"
 msgstr "添加列表"
@@ -70,7 +70,7 @@ msgid "Edit download"
 msgstr "编辑下载"
 
 msgid "Edit multiple downloads"
-msgstr ""
+msgstr "编辑批量下载"
 
 msgid "Edit playlist"
 msgstr "编辑列表"
@@ -85,7 +85,7 @@ msgid "Filesize"
 msgstr "文件大小"
 
 msgid "Format"
-msgstr ""
+msgstr "格式"
 
 msgid "Message"
 msgstr "消息"
@@ -145,7 +145,7 @@ msgid "wav audio only"
 msgstr "仅 wav 音频"
 
 msgid "webm"
-msgstr ""
+msgstr "webm"
 
 msgid "youtube-dl"
 msgstr "youtube-dl"
