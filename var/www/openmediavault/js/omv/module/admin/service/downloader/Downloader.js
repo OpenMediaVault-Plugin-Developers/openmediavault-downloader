@@ -44,7 +44,7 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
                 value: "youtube-dl"
             }],
             name: [
-                "format"
+                "format","subtitles"
             ],
             properties: [
                 "show"
@@ -113,6 +113,13 @@ Ext.define("OMV.module.admin.service.downloader.Download", {
             }]
         },{
             xtype: "checkbox",
+            name: "subtitles",
+            fieldLabel: _("Subtitles"),
+            checked: false,
+            boxLabel: _("Download subtitles"),
+            hidden: true
+        },{
+            xtype: "checkbox",
             name: "delete",
             fieldLabel: _("Delete"),
             checked: false,
@@ -170,6 +177,12 @@ Ext.define("OMV.module.admin.service.downloader.DownloadMultiple", {
                 ptype: "fieldinfo",
                 text: _("Downloads to this shared folder")
             }]
+        },{
+            xtype: "checkbox",
+            name: "subtitles",
+            fieldLabel: _("Subtitles"),
+            checked: false,
+            boxLabel: _("Download subtitles")
         },{
             xtype: "checkbox",
             name: "delete",
@@ -233,6 +246,12 @@ Ext.define("OMV.module.admin.service.downloader.Playlist", {
                 ptype: "fieldinfo",
                 text: _("Downloads to this shared folder")
             }]
+        },{
+            xtype: "checkbox",
+            name: "subtitles",
+            fieldLabel: _("Subtitles"),
+            checked: false,
+            boxLabel: _("Download subtitles")
         },{
             xtype: "checkbox",
             name: "delete",

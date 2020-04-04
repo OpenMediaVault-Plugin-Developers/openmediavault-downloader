@@ -21,30 +21,17 @@
 
 set -e
 
-. /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-case "$1" in
-    configure)
-        # Activate package triggers.
-        dpkg-trigger update-fixperms
-        dpkg-trigger update-locale
+SERVICE_XPATH_NAME="downloader"
+SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
 
-        # Initialize and migrate configuration database.
-        echo "Updating configuration database ..."
-        omv-confdbadm create "conf.service.downloader"
-        if [ -n "$2" ]; then
-            omv-confdbadm migrate "conf.service.downloader" "${2}"
-        fi
-    ;;
-
-    abort-upgrade|abort-remove|abort-deconfigure)
-    ;;
-
-    *)
-        echo "postinst called with unknown argument '$1'" >&2
-        exit 1
-    ;;
-esac
+if ! omv_config_exists "${SERVICE_XPATH}"; then
+    echo "Initialize configuration"
+    omv_config_add_node "/config/services" "${SERVICE_XPATH_NAME}"
+    omv_config_add_key "${SERVICE_XPATH}" "username" ""
+    omv_config_add_key "${SERVICE_XPATH}" "uploadref" "0"
+    omv_config_add_node "${SERVICE_XPATH}" "downloads" ""
+fi
 
 exit 0

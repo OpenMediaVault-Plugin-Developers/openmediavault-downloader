@@ -5,8 +5,8 @@
 		"type": "object",
 		"properties": {
 			"filename": {
-			    "type": "string",
-		        "required": true
+				"type": "string",
+				"required": true
 			},
 			"filepath": {
 				"type": "string",
@@ -21,8 +21,8 @@
 		"type": "object",
 		"properties": {
 			"username": {
-			    "type": "string",
-		        "required": true
+				"type": "string",
+				"required": true
 			},
 			"uploadref": {
 				"type": "string",
@@ -44,7 +44,7 @@
 			},
 			"dltype": {
 				"type": "string",
-			    "enum":[ "aria2", "curl", "playlist", "multiple", "youtube-dl" ],
+				"enum":[ "aria2", "curl", "playlist", "multiple", "youtube-dl" ],
 				"required": true
 			},
 			"filename": {
@@ -68,8 +68,12 @@
 				"format": "uuidv4",
 				"required": true
 			},
+			"subtitles": {
+				"type": "boolean",
+				"required": false
+			},
 			"delete": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			}
 		}

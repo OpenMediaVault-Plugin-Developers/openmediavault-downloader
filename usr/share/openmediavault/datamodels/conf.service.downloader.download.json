@@ -36,6 +36,10 @@
 			"type": "string",
 			"format": "uuidv4"
 		},
+		"subtitles": {
+			"type": "boolean",
+			"default": false
+		},
 		"delete": {
 			"type": "boolean",
 			"default": false

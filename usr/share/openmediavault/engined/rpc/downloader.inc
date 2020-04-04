@@ -233,6 +233,9 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 $cmdArgs[] = "--quiet";
                 $cmdArgs[] = "--newline";
                 $cmdArgs[] = "--no-warnings";
+                if ($object->get('subtitles')) {
+                    $cmdArgs[] = "--all-subs --write-sub";
+                }
                 $cmdArgs[] = sprintf("--format '%s'", $format);
                 $cmdArgs[] = sprintf("-o \"%s/%s\"", $sfPath, $filename);
                 $cmdArgs[] = sprintf("\"%s\"", $url);
@@ -243,6 +246,9 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 $cmdArgs[] = "--newline";
                 $cmdArgs[] = "--no-warnings";
                 $cmdArgs[] = "--ignore-errors";
+                if ($object->get('subtitles')) {
+                    $cmdArgs[] = "--all-subs --write-sub";
+                }
                 $cmdArgs[] = sprintf("--format '%s'", $format);
                 $cmdArgs[] = sprintf("\"%s\"", $url);
                 break;
@@ -255,6 +261,9 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 $cmdArgs[] = "--newline";
                 $cmdArgs[] = "--no-warnings";
                 $cmdArgs[] = "--ignore-errors";
+                if ($object->get('subtitles')) {
+                    $cmdArgs[] = "--all-subs --write-sub";
+                }
                 $cmdArgs[] = sprintf("--format '%s'", $format);
                 $cmdArgs[] = sprintf("--batch-file \"%s\"", $tmpfname);
                 break;
