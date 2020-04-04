@@ -3,7 +3,7 @@
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2013 Volker Theile
- * @copyright Copyright (c) 2013-2019 OpenMediaVault Plugin Developers
+ * @copyright Copyright (c) 2013-2020 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,10 +23,10 @@ require_once("openmediavault/functions.inc");
 
 class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
 {
-    private $getAria2     = "/usr/bin/aria2c";
-    private $getCurl      = "/usr/bin/curl";
-    private $getLogFile   = "/var/log/downloader.log";
-    private $getPidDir    = "/var/run/";
+    private $getAria2 = "/usr/bin/aria2c";
+    private $getCurl = "/usr/bin/curl";
+    private $getLogFile = "/var/log/downloader.log";
+    private $getPidDir = "/var/run/";
     private $getYoutubedl = "/usr/sbin/youtube-dl";
 
     public function getName()
@@ -188,30 +188,30 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
             $sfPath = build_path(DIRECTORY_SEPARATOR, $meObject->get("dir"), $sfObject->get("reldirpath"));
         }
 
-        $dltype    = $object->get('dltype');
-        $filename  = $object->get('filename');
-        $url       = $object->get('url');
-        $delete    = boolval($object->get('delete'));
+        $dltype = $object->get('dltype');
+        $filename = $object->get('filename');
+        $url = $object->get('url');
+        $delete = boolval($object->get('delete'));
 
         switch ($object->get('format')) {
             case "aac":
                 $format = "bestaudio[ext=aac]/bestaudio";
-                $audio  = true;
+                $audio = true;
                 break;
             case "m4a":
                 $format = "bestaudio[ext=m4a]/bestaudio";
-                $audio  = true;
+                $audio = true;
                 break;
             case "mp3":
                 $format = "bestaudio[ext=mp3]/bestaudio";
-                $audio  = true;
+                $audio = true;
                 break;
             case "mp4";
                 $format = "best[ext=mp4]/best";
                 break;
             case "wav":
                 $format = "bestaudio[ext=wav]/bestaudio";
-                $audio  = true;
+                $audio = true;
                 break;
             case "webm";
                 $format = "best[ext=webm]/best";

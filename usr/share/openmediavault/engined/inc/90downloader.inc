@@ -1,7 +1,7 @@
 <?php
 /**
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
- * @copyright Copyright (c) 2013-2019 OpenMediaVault Plugin Developers
+ * @copyright Copyright (c) 2013-2020 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,14 +21,14 @@
 \OMV\System\LogFileSpec::registerSpecification("downloader", [
     "filename" => "downloader.log",
     "filepath" => "/var/log/downloader.log",
-    "regex"    => "/^\[((.*?)\s+(.*?))\]\s+(.*?):\s+(.*?):\s+(.*?):\s+(.*?):\s+(.*?):\s+(.*?)$/",
-    "columns"  => [
-        "date"      => 1,
+    "regex" => "/^\[((.*?)\s+(.*?))\]\s+(.*?):\s+(.*?):\s+(.*?):\s+(.*?):\s+(.*?):\s+(.*?)$/",
+    "columns" => [
+        "date" => 1,
         "component" => 4,
-        "type"      => 5,
-        "filename"  => 6,
-        "folder"    => 7,
-        "message"   => 8,
-        "url"       => 9
+        "type" => 5,
+        "filename" => 6,
+        "folder" => 7,
+        "message" => 8,
+        "url" => 9
     ]
 ]);

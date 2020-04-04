@@ -4,7 +4,7 @@
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
  * @copyright Copyright (c) 2009-2013 Volker Theile
- * @copyright Copyright (c) 2013-2019 OpenMediaVault Plugin Developers
+ * @copyright Copyright (c) 2013-2020 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,62 +28,62 @@
 // require("js/omv/form/field/UserComboBox.js")
 
 Ext.define("OMV.module.admin.service.downloader.Upload", {
-    extend : "OMV.workspace.form.Panel",
-    uses   : [
+    extend: "OMV.workspace.form.Panel",
+    uses: [
         "OMV.Rpc",
         "OMV.data.Store",
         "OMV.data.Model",
         "OMV.data.proxy.Rpc"
     ],
 
-    rpcService      : "Downloader",
-    rpcGetMethod    : "getUpload",
-    rpcSetMethod    : "setUpload",
+    rpcService: "Downloader",
+    rpcGetMethod: "getUpload",
+    rpcSetMethod: "setUpload",
 
-    hideOkButton  : true,
+    hideOkButton: true,
 
-    getFormItems    : function() {
+    getFormItems: function() {
         var me = this;
         return [{
-            xtype    : "fieldset",
-            title    : _("Settings"),
-            defaults : {
-                labelSeparator : ""
+            xtype: "fieldset",
+            title: _("Settings"),
+            defaults: {
+                labelSeparator: ""
             },
-            items : [{
-                xtype      : "sharedfoldercombo",
-                name       : "uploadref",
-                fieldLabel : _("Shared Folder"),
-                plugins    : [{
-                    ptype : "fieldinfo",
-                    text  : _("Upload file to this shared folder.")
+            items: [{
+                xtype: "sharedfoldercombo",
+                name: "uploadref",
+                fieldLabel: _("Shared Folder"),
+                plugins: [{
+                    ptype: "fieldinfo",
+                    text: _("Upload file to this shared folder.")
                 }]
             },{
-                xtype      : "usercombo",
-                name       : "username",
-                fieldLabel : _("File Owner"),
-                value      : "root"
+                xtype: "usercombo",
+                name: "username",
+                fieldLabel: _("File Owner"),
+                value: "root"
             },{
-                xtype   : "button",
-                name    : "upload",
-                text    : _("Upload"),
-                scope   : this,
-                handler : Ext.Function.bind(me.onUploadButton, me, [ me ]),
-                margin  : "0 0 5 0"
+                xtype: "button",
+                name: "upload",
+                text: _("Upload"),
+                scope: this,
+                handler: Ext.Function.bind(me.onUploadButton, me, [ me ]),
+                margin: "0 0 5 0"
             }]
         }];
     },
 
-    onUploadButton : function() {
+    onUploadButton: function() {
         var me = this;
         me.doSubmit();
         Ext.create("OMV.window.Upload", {
-            title     : _("Upload file"),
-            service   : "Downloader",
-            method    : "doUpload",
-            listeners : {
-                scope   : me,
-                success : function(wnd, response) {
+            title: _("Upload file"),
+            service: "Downloader",
+            method: "doUpload",
+            listeners: {
+                scope: me,
+                success: function(wnd, response) {
                     me.doReload();
                 }
             }
@@ -92,9 +92,9 @@ Ext.define("OMV.module.admin.service.downloader.Upload", {
 });
 
 OMV.WorkspaceManager.registerPanel({
-    id        : "upload",
-    path      : "/service/downloader",
-    text      : _("Upload"),
-    position  : 20,
-    className : "OMV.module.admin.service.downloader.Upload"
+    id: "upload",
+    path: "/service/downloader",
+    text: _("Upload"),
+    position: 20,
+    className: "OMV.module.admin.service.downloader.Upload"
 });
