@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-downloader package.
 # 
 # Translators:
 # Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2018
@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-03 08:46-0500\n"
-"PO-Revision-Date: 2018-11-10 09:18+0000\n"
-"Last-Translator: Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>\n"
+"POT-Creation-Date: 2020-05-04 10:21-0500\n"
+"PO-Revision-Date: 2020-05-04 15:22+0000\n"
+"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,6 +53,9 @@ msgstr "Hämta"
 
 msgid "Download Type"
 msgstr "Hämta typ"
+
+msgid "Download subtitles"
+msgstr ""
 
 msgid "Downloader"
 msgstr "Hämtare"
@@ -98,6 +101,9 @@ msgstr "Inställningar"
 
 msgid "Shared Folder"
 msgstr "Delad mapp"
+
+msgid "Subtitles"
+msgstr ""
 
 msgid "Type"
 msgstr "Typ"

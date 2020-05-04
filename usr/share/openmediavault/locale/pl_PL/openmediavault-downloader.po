@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-downloader package.
 # 
 # Translators:
 # Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013-2014
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-03 08:46-0500\n"
-"PO-Revision-Date: 2017-09-23 19:27+0000\n"
+"POT-Creation-Date: 2020-05-04 10:21-0500\n"
+"PO-Revision-Date: 2020-05-04 15:22+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -53,6 +53,9 @@ msgstr "Pobierz"
 
 msgid "Download Type"
 msgstr "Typ pobierania"
+
+msgid "Download subtitles"
+msgstr ""
 
 msgid "Downloader"
 msgstr "Pobieracz"
@@ -98,6 +101,9 @@ msgstr "Ustawienia"
 
 msgid "Shared Folder"
 msgstr "Udostępniony katalog"
+
+msgid "Subtitles"
+msgstr ""
 
 msgid "Type"
 msgstr "Typ"

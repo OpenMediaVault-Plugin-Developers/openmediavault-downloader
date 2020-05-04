@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-downloader package.
 # 
 # Translators:
 # songming <by@songming.me>, 2013-2017,2019
@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-03 08:46-0500\n"
-"PO-Revision-Date: 2019-01-06 12:50+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2020-05-04 10:21-0500\n"
+"PO-Revision-Date: 2020-05-04 15:22+0000\n"
+"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,6 +53,9 @@ msgstr "下载"
 
 msgid "Download Type"
 msgstr "下载类型"
+
+msgid "Download subtitles"
+msgstr ""
 
 msgid "Downloader"
 msgstr "Downloader"
@@ -98,6 +101,9 @@ msgstr "设置"
 
 msgid "Shared Folder"
 msgstr "共享文件夹"
+
+msgid "Subtitles"
+msgstr ""
 
 msgid "Type"
 msgstr "类型"
