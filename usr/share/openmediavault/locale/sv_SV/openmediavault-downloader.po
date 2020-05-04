@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Jonatan Nyberg, 2018
+# Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-03 08:46-0500\n"
 "PO-Revision-Date: 2018-11-10 09:18+0000\n"
-"Last-Translator: Jonatan Nyberg\n"
+"Last-Translator: Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
