@@ -207,14 +207,14 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 $audio = true;
                 break;
             case "mp4";
-                $format = "best[ext=mp4]/best";
+                $format = "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio --merge-output-format mkv";
                 break;
             case "wav":
                 $format = "bestaudio[ext=wav]/bestaudio";
                 $audio = true;
                 break;
             case "webm";
-                $format = "best[ext=webm]/best";
+                $format = "bestvideo[ext=webm]+bestaudio[ext=m4a]/bestvideo+bestaudio --merge-output-format mkv";
                 break;
         }
         $cmdArgs = [];
@@ -236,7 +236,7 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 if ($object->get('subtitles')) {
                     $cmdArgs[] = "--all-subs --write-sub";
                 }
-                $cmdArgs[] = sprintf("--format '%s'", $format);
+                $cmdArgs[] = sprintf("--format %s", $format);
                 $cmdArgs[] = sprintf("-o \"%s/%s\"", $sfPath, $filename);
                 $cmdArgs[] = sprintf("\"%s\"", $url);
                 break;
@@ -249,7 +249,7 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 if ($object->get('subtitles')) {
                     $cmdArgs[] = "--all-subs --write-sub";
                 }
-                $cmdArgs[] = sprintf("--format '%s'", $format);
+                $cmdArgs[] = sprintf("--format %s", $format);
                 $cmdArgs[] = sprintf("\"%s\"", $url);
                 break;
 
@@ -264,7 +264,7 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 if ($object->get('subtitles')) {
                     $cmdArgs[] = "--all-subs --write-sub";
                 }
-                $cmdArgs[] = sprintf("--format '%s'", $format);
+                $cmdArgs[] = sprintf("--format %s", $format);
                 $cmdArgs[] = sprintf("--batch-file \"%s\"", $tmpfname);
                 break;
 
