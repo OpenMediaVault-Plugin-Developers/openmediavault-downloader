@@ -3,25 +3,25 @@ Section: net
 XB-Plugin-Section: downloaders
 Priority: optional
 Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
-Build-Depends: debhelper (>= 9.0.0 )
-Standards-Version: 3.9.6
+Build-Depends: debhelper (>= 12 )
+Standards-Version: 4.3.0
 Homepage: http://omv-extras.org/
 
 Package: openmediavault-downloader
 Architecture: all
 Depends: aria2,
          curl,
-         openmediavault (>= 3.0.67),
+         openmediavault (>= 6),
          python,
          ${misc:Depends}
 Description: OpenMediaVault downloader plugin
  Plugin to download files to a specified share using aria2, curl, or
- youtube-dl.
+ yt-dlp.
  .
  aria2 is a lightweight multi-protocol & multi-source command-line
  download utility. It supports HTTP/HTTPS, FTP, BitTorrent and Metalink.
  .
  curl is a command line tool for transferring data with URL syntax
  .
- youtube-dl is a small command-line program to download videos from
- YouTube.com and a few more sites.
+ yt-dlp is a small command-line program to download videos from
+ YouTube.com and a few more sites (forked from youtube-dl).
