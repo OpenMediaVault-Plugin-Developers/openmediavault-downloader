@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# download latest yt-dlp
+url="https://github.com/ytdl-org/youtube-dl/releases/latest/download/"
+yt="/usr/bin/youtube-dl"
+wget ${url}/youtube-dl -O ${yt}
+chmod a+rx ${yt}
+
+exit 0

@@ -4,7 +4,7 @@
 # @author    Volker Theile <volker.theile@openmediavault.org>
 # @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
 # @copyright Copyright (c) 2009-2013 Volker Theile
-# @copyright Copyright (c) 2013-2020 OpenMediaVault Plugin Developers
+# @copyright Copyright (c) 2013-2021 OpenMediaVault Plugin Developers
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -32,6 +32,14 @@ if ! omv_config_exists "${SERVICE_XPATH}"; then
     omv_config_add_key "${SERVICE_XPATH}" "username" ""
     omv_config_add_key "${SERVICE_XPATH}" "uploadref" "0"
     omv_config_add_node "${SERVICE_XPATH}" "downloads" ""
+fi
+
+# download latest yt-dlp
+/usr/sbin/omv-updateytdl
+
+if [ ! -e "/usr/bin/python" ]; then
+  echo "Adding python symlink to python3..."
+  ln -s /usr/bin/python3 /usr/bin/python
 fi
 
 exit 0

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 10:21-0500\n"
-"PO-Revision-Date: 2020-05-04 15:22+0000\n"
+"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"PO-Revision-Date: 2021-12-19 19:07+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,20 +18,8 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Add Multiple"
-msgstr ""
-
-msgid "Add Playlist"
-msgstr ""
-
 msgid "Add download"
 msgstr "내려받기 추가"
-
-msgid "Add multiple downloads"
-msgstr ""
-
-msgid "Add playlist"
-msgstr "재생목록 추가"
 
 msgid "Component"
 msgstr "구성 요소"
@@ -42,19 +30,19 @@ msgstr "날짜 & 시간"
 msgid "Delete"
 msgstr "지우기"
 
-msgid "Delete after Download"
-msgstr "내려받은 후 지우기"
-
-msgid "Delete from list of downloads after file is downloaded"
-msgstr "파일 내려받기가 완료되면 내려받기 목록에서 지우기 "
-
-msgid "Download"
-msgstr "내려받기"
+msgid "Delete from list of downloads after file is downloaded."
+msgstr ""
 
 msgid "Download Type"
 msgstr "내려받기 유형"
 
-msgid "Download subtitles"
+msgid "Download multiple"
+msgstr ""
+
+msgid "Download playlist"
+msgstr ""
+
+msgid "Download subtitles."
 msgstr ""
 
 msgid "Downloader"
@@ -63,23 +51,8 @@ msgstr "Downloader"
 msgid "Downloading"
 msgstr "내려받는 중"
 
-msgid "Downloads"
-msgstr "내려받기"
-
-msgid "Downloads to this shared folder"
-msgstr "이 공유 폴더에 내려받습니다"
-
-msgid "Edit download"
+msgid "Downloads to this shared folder."
 msgstr ""
-
-msgid "Edit multiple downloads"
-msgstr ""
-
-msgid "Edit playlist"
-msgstr ""
-
-msgid "File Owner"
-msgstr "파일 소유자"
 
 msgid "Filename"
 msgstr "파일 이름"
@@ -93,14 +66,14 @@ msgstr ""
 msgid "Message"
 msgstr "메시지"
 
-msgid "No"
-msgstr "아니오"
-
-msgid "Settings"
-msgstr "설정"
-
 msgid "Shared Folder"
 msgstr "공유 폴더"
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "Start download"
+msgstr ""
 
 msgid "Subtitles"
 msgstr ""
@@ -114,17 +87,8 @@ msgstr "URL"
 msgid "Update youtube-dl"
 msgstr "youtube-dl 갱신"
 
-msgid "Upload"
-msgstr "올려주기"
-
-msgid "Upload file"
-msgstr "올려주기 파일"
-
-msgid "Upload file to this shared folder."
-msgstr "이 공유 폴더로 파일을 올립니다."
-
-msgid "Yes"
-msgstr "예"
+msgid "Update youtube-dl ..."
+msgstr ""
 
 msgid "aac audio only"
 msgstr ""

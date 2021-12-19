@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the openmediavault-downloader package.
 # 
 # Translators:
-# Ettore Atalan <atalanttore@googlemail.com>, 2014-2017
+# Dampflok_HD, 2021
+# Ettore Atalan <atalanttore@googlemail.com>, 2014-2017,2020
 # Raiko, 2015
 # WastlJ, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 10:21-0500\n"
-"PO-Revision-Date: 2020-05-04 15:22+0000\n"
+"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"PO-Revision-Date: 2021-12-19 19:07+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -20,20 +21,8 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add Multiple"
-msgstr ""
-
-msgid "Add Playlist"
-msgstr "Wiedergabeliste hinzufügen"
-
 msgid "Add download"
 msgstr "Download hinzufügen"
-
-msgid "Add multiple downloads"
-msgstr ""
-
-msgid "Add playlist"
-msgstr "Wiedergabeliste hinzufügen"
 
 msgid "Component"
 msgstr "Bestandteil"
@@ -44,19 +33,19 @@ msgstr "Datum & Zeit"
 msgid "Delete"
 msgstr "Löschen"
 
-msgid "Delete after Download"
-msgstr "Nach dem Herunterladen löschen"
-
-msgid "Delete from list of downloads after file is downloaded"
-msgstr "Aus der Liste der Downloads nach dem Herunterladen entfernen"
-
-msgid "Download"
-msgstr "Herunterladen"
+msgid "Delete from list of downloads after file is downloaded."
+msgstr ""
 
 msgid "Download Type"
 msgstr "Herunterladen-Typ"
 
-msgid "Download subtitles"
+msgid "Download multiple"
+msgstr ""
+
+msgid "Download playlist"
+msgstr ""
+
+msgid "Download subtitles."
 msgstr ""
 
 msgid "Downloader"
@@ -65,23 +54,8 @@ msgstr "Downloader"
 msgid "Downloading"
 msgstr "Herunterladen"
 
-msgid "Downloads"
-msgstr "Downloads"
-
-msgid "Downloads to this shared folder"
-msgstr "In diesen gemeinsamen Ordner herunterladen"
-
-msgid "Edit download"
-msgstr "Herunterladen bearbeiten"
-
-msgid "Edit multiple downloads"
+msgid "Downloads to this shared folder."
 msgstr ""
-
-msgid "Edit playlist"
-msgstr "Wiedergabeliste bearbeiten"
-
-msgid "File Owner"
-msgstr "Dateieigentümer"
 
 msgid "Filename"
 msgstr "Dateiname"
@@ -95,17 +69,17 @@ msgstr "Format"
 msgid "Message"
 msgstr "Nachricht"
 
-msgid "No"
-msgstr "Nein"
-
-msgid "Settings"
-msgstr "Einstellungen"
-
 msgid "Shared Folder"
 msgstr "Gemeinsamer Ordner"
 
-msgid "Subtitles"
+msgid "Shared folder"
 msgstr ""
+
+msgid "Start download"
+msgstr ""
+
+msgid "Subtitles"
+msgstr "Untertitel"
 
 msgid "Type"
 msgstr "Typ"
@@ -116,17 +90,8 @@ msgstr "URL"
 msgid "Update youtube-dl"
 msgstr "Youtube-dl aktualisieren"
 
-msgid "Upload"
-msgstr "Hochladen"
-
-msgid "Upload file"
-msgstr "Datei hochladen"
-
-msgid "Upload file to this shared folder."
-msgstr "Datei in diesen gemeinsamen Ordner hochladen."
-
-msgid "Yes"
-msgstr "Ja"
+msgid "Update youtube-dl ..."
+msgstr ""
 
 msgid "aac audio only"
 msgstr "Nur AAC-Audio"

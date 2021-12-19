@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 10:21-0500\n"
-"PO-Revision-Date: 2020-05-04 15:22+0000\n"
+"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"PO-Revision-Date: 2021-12-19 19:07+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -20,20 +20,8 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-msgid "Add Multiple"
-msgstr ""
-
-msgid "Add Playlist"
-msgstr ""
-
 msgid "Add download"
 msgstr "Добавить загрузку"
-
-msgid "Add multiple downloads"
-msgstr ""
-
-msgid "Add playlist"
-msgstr "Добавить плейлист"
 
 msgid "Component"
 msgstr "Компонент"
@@ -44,19 +32,19 @@ msgstr "Дата/Время"
 msgid "Delete"
 msgstr "Удалить"
 
-msgid "Delete after Download"
-msgstr "Удалить после загрузки"
-
-msgid "Delete from list of downloads after file is downloaded"
-msgstr "Удалить из списка загрузок после загрузки файла"
-
-msgid "Download"
-msgstr "Загрузка"
+msgid "Delete from list of downloads after file is downloaded."
+msgstr ""
 
 msgid "Download Type"
 msgstr "Тип загрузки"
 
-msgid "Download subtitles"
+msgid "Download multiple"
+msgstr ""
+
+msgid "Download playlist"
+msgstr ""
+
+msgid "Download subtitles."
 msgstr ""
 
 msgid "Downloader"
@@ -65,23 +53,8 @@ msgstr "Downloader"
 msgid "Downloading"
 msgstr "Загрузка"
 
-msgid "Downloads"
-msgstr "Загрузки"
-
-msgid "Downloads to this shared folder"
-msgstr "Загрузить в эту общую папку"
-
-msgid "Edit download"
+msgid "Downloads to this shared folder."
 msgstr ""
-
-msgid "Edit multiple downloads"
-msgstr ""
-
-msgid "Edit playlist"
-msgstr ""
-
-msgid "File Owner"
-msgstr "Владелец файла"
 
 msgid "Filename"
 msgstr "Имя файла"
@@ -95,14 +68,14 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-msgid "No"
-msgstr "Нет"
-
-msgid "Settings"
-msgstr "Настройки"
-
 msgid "Shared Folder"
 msgstr "Общая папка"
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "Start download"
+msgstr ""
 
 msgid "Subtitles"
 msgstr ""
@@ -116,17 +89,8 @@ msgstr "URL"
 msgid "Update youtube-dl"
 msgstr "Обновить youtube-dl"
 
-msgid "Upload"
-msgstr "Загрузить"
-
-msgid "Upload file"
-msgstr "Загрузить файл"
-
-msgid "Upload file to this shared folder."
-msgstr "Загрузить файл в эту папку."
-
-msgid "Yes"
-msgstr "Да"
+msgid "Update youtube-dl ..."
+msgstr ""
 
 msgid "aac audio only"
 msgstr ""

@@ -1,0 +1,265 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-downloader-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 10000
+    hasSearchField: true
+    stateId: a682250a-5e8d-11ec-9a5f-0050568b504a
+    store:
+      proxy:
+        service: Downloader
+        get:
+          method: getDownloadList
+    columns:
+      - name: _("Type")
+        prop: dltype
+        flexGrow: 1
+        sortable: true
+      - name: _("Filename")
+        prop: filename
+        flexGrow: 1
+        sortable: true
+      - name: _("URL")
+        prop: url
+        flexGrow: 3
+        sortable: true
+      - name: _("Shared Folder")
+        prop: sharedfoldername
+        flexGrow: 1
+        sortable: true
+      - name: _("Downloading")
+        prop: downloading
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: checkIcon
+      - name: _("Filesize")
+        prop: filesize
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: binaryUnit
+      - name: _("Format")
+        prop: format
+        flexGrow: 1
+        sortable: true
+      - name: _("Delete")
+        prop: delete
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: checkIcon
+    actions:
+      - type: iconButton
+        icon: mdi:plus-box
+        tooltip: _("Add download")
+        execute:
+          type: formDialog
+          formDialog:
+            title: _('Add download ...')
+            fields:
+              - type: hidden
+                name: uuid
+                value: "{{ newconfobjuuid }}"
+              - type: select
+                name: dltype
+                label: _("Download Type")
+                value: ""
+                store:
+                  data:
+                    - ["aria2", _("aria2")]
+                    - ["curl", _("curl")]
+                    - ["youtube-dl", _("youtube-dl")]
+              - type: textInput
+                name: filename
+                label: _("Filename")
+                value: ""
+              - type: select
+                name: format
+                label: _("Format")
+                value: ""
+                store:
+                  data:
+                    - ["aac", _("aac audio only")]
+                    - ["m4a", _("m4a audio only")]
+                    - ["mp3", _("mp3 audio only")]
+                    - ["mp4", _("mp4/m4a")]
+                    - ["wav", _("wav audio only")]
+                    - ["webm", _("webm")]
+                modifiers:
+                  - type: visible
+                    constraint:
+                      operator: eq
+                      arg0:
+                        prop: dltype
+                      arg1: "youtube-dl"
+              - type: textInput
+                name: url
+                label: _("URL")
+                value: ""
+              - type: sharedFolderSelect
+                name: sharedfolderref
+                label: _("Shared folder")
+                hint: _("Downloads to this shared folder.")
+              - type: checkbox
+                name: subtitles
+                label: _("Subtitles")
+                value: false
+                hint: _("Download subtitles.")
+                modifiers:
+                  - type: visible
+                    constraint:
+                      operator: eq
+                      arg0:
+                        prop: dltype
+                      arg1: "youtube-dl"
+              - type: checkbox
+                name: delete
+                label: _("Delete")
+                value: false
+                hint: _("Delete from list of downloads after file is downloaded.")
+            buttons:
+              submit:
+                text: _('Add')
+                execute:
+                  type: request
+                  request:
+                    service: Downloader
+                    method: setDownload
+                successUrl: /services/downloader
+      - type: iconButton
+        icon: mdi:plus-box-multiple
+        tooltip: _("Download multiple")
+        execute:
+          type: formDialog
+          formDialog:
+            title: _('Download multiple ...')
+            fields:
+              - type: hidden
+                name: uuid
+                value: "{{ newconfobjuuid }}"
+              - type: select
+                name: format
+                label: _("Format")
+                value: ""
+                store:
+                  data:
+                    - ["aac", _("aac audio only")]
+                    - ["m4a", _("m4a audio only")]
+                    - ["mp3", _("mp3 audio only")]
+                    - ["mp4", _("mp4/m4a")]
+                    - ["wav", _("wav audio only")]
+                    - ["webm", _("webm")]
+              - type: textarea
+                name: url
+                label: _("URL")
+                value: ""
+              - type: sharedFolderSelect
+                name: sharedfolderref
+                label: _("Shared folder")
+                hint: _("Downloads to this shared folder.")
+              - type: checkbox
+                name: subtitles
+                label: _("Subtitles")
+                value: false
+                hint: _("Download subtitles.")
+              - type: checkbox
+                name: delete
+                label: _("Delete")
+                value: false
+                hint: _("Delete from list of downloads after file is downloaded.")
+              - type: hidden
+                name: dltype
+                value: "multiple"
+            buttons:
+              submit:
+                text: _('Add')
+                execute:
+                  type: request
+                  request:
+                    service: Downloader
+                    method: setDownload
+                successUrl: /services/kvm/pool
+      - type: iconButton
+        icon: mdi:playlist-plus
+        tooltip: _("Download playlist")
+        execute:
+          type: formDialog
+          formDialog:
+            title: _('Download playlist ...')
+            fields:
+              - type: hidden
+                name: uuid
+                value: "{{ newconfobjuuid }}"
+              - type: select
+                name: format
+                label: _("Format")
+                value: ""
+                store:
+                  data:
+                    - ["aac", _("aac audio only")]
+                    - ["m4a", _("m4a audio only")]
+                    - ["mp3", _("mp3 audio only")]
+                    - ["mp4", _("mp4/m4a")]
+                    - ["wav", _("wav audio only")]
+                    - ["webm", _("webm")]
+              - type: textInput
+                name: url
+                label: _("URL")
+                value: ""
+              - type: sharedFolderSelect
+                name: sharedfolderref
+                label: _("Shared folder")
+                hint: _("Downloads to this shared folder.")
+              - type: checkbox
+                name: subtitles
+                label: _("Subtitles")
+                value: false
+                hint: _("Download subtitles.")
+              - type: checkbox
+                name: delete
+                label: _("Delete")
+                value: false
+                hint: _("Delete from list of downloads after file is downloaded.")
+              - type: hidden
+                name: dltype
+                value: "playlist"
+            buttons:
+              submit:
+                text: _('Add')
+                execute:
+                  type: request
+                  request:
+                    service: Downloader
+                    method: setDownload
+                successUrl: /services/kvm/pool
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: Downloader
+            method: deleteDownload
+            params:
+              uuid: "{{ _selected[0].uuid }}"
+      - type: iconButton
+        icon: mdi:update
+        tooltip: _("Update youtube-dl")
+        execute:
+          type: taskDialog
+          taskDialog:
+            config:
+              title: _("Update youtube-dl ...")
+              startOnInit: true
+              request:
+                service: Downloader
+                method: doUpdate
+      - type: iconButton
+        icon: mdi:download
+        tooltip: _("Start download")
+        execute:
+          type: request
+          request:
+            service: Downloader
+            method: doDownloadBg
+            params:
+              uuid: "{{ _selected[0].uuid }}"
+            task: false

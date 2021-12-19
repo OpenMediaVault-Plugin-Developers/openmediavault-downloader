@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the openmediavault-downloader package.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2017
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2017,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 10:21-0500\n"
-"PO-Revision-Date: 2020-05-04 15:22+0000\n"
+"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"PO-Revision-Date: 2021-12-19 19:07+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -18,20 +18,8 @@ msgstr ""
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Add Multiple"
-msgstr "複数を追加"
-
-msgid "Add Playlist"
-msgstr "プレイリストの追加"
-
 msgid "Add download"
 msgstr "ダウンロードの追加"
-
-msgid "Add multiple downloads"
-msgstr "ダウンロードに複数を追加"
-
-msgid "Add playlist"
-msgstr "プレイリストの追加"
 
 msgid "Component"
 msgstr "コンポーネント"
@@ -42,19 +30,19 @@ msgstr "日付 & 時刻"
 msgid "Delete"
 msgstr "削除"
 
-msgid "Delete after Download"
-msgstr "ダウンロード後、削除"
-
-msgid "Delete from list of downloads after file is downloaded"
-msgstr "ファイルのダウンロード後、ダウンロードのリストから削除"
-
-msgid "Download"
-msgstr "ダウンロード"
+msgid "Delete from list of downloads after file is downloaded."
+msgstr ""
 
 msgid "Download Type"
 msgstr "ダウンロードタイプ"
 
-msgid "Download subtitles"
+msgid "Download multiple"
+msgstr ""
+
+msgid "Download playlist"
+msgstr ""
+
+msgid "Download subtitles."
 msgstr ""
 
 msgid "Downloader"
@@ -63,23 +51,8 @@ msgstr "ダウンローダー"
 msgid "Downloading"
 msgstr "ダウンロード中"
 
-msgid "Downloads"
-msgstr "ダウンロード"
-
-msgid "Downloads to this shared folder"
-msgstr "この共有フォルダにファイルをダウンロードします。"
-
-msgid "Edit download"
-msgstr "ダウンロードを編集"
-
-msgid "Edit multiple downloads"
-msgstr "複数ダウンロードを編集"
-
-msgid "Edit playlist"
-msgstr "プレイリストを編集"
-
-msgid "File Owner"
-msgstr "ファイルオーナー"
+msgid "Downloads to this shared folder."
+msgstr ""
 
 msgid "Filename"
 msgstr "ファイル名"
@@ -93,17 +66,17 @@ msgstr "フォーマット"
 msgid "Message"
 msgstr "メッセージ"
 
-msgid "No"
-msgstr "いいえ"
-
-msgid "Settings"
-msgstr "設定"
-
 msgid "Shared Folder"
 msgstr "共有フォルダ"
 
-msgid "Subtitles"
+msgid "Shared folder"
 msgstr ""
+
+msgid "Start download"
+msgstr ""
+
+msgid "Subtitles"
+msgstr "字幕"
 
 msgid "Type"
 msgstr "タイプ"
@@ -114,17 +87,8 @@ msgstr "URL"
 msgid "Update youtube-dl"
 msgstr "youtube-dlのアップデート"
 
-msgid "Upload"
-msgstr "アップロード"
-
-msgid "Upload file"
-msgstr "アップロードファイル"
-
-msgid "Upload file to this shared folder."
-msgstr "この共有フォルダにファイルをアップロードします。"
-
-msgid "Yes"
-msgstr "はい"
+msgid "Update youtube-dl ..."
+msgstr ""
 
 msgid "aac audio only"
 msgstr "aac オーディオのみ"

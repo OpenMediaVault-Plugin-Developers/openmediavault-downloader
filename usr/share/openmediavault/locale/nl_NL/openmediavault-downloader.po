@@ -4,12 +4,13 @@
 # 
 # Translators:
 # okpail <okpail@gmail.com>, 2014-2016
+# Varkentjes, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 10:21-0500\n"
-"PO-Revision-Date: 2020-05-04 15:22+0000\n"
+"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"PO-Revision-Date: 2021-12-19 19:07+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -18,20 +19,8 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add Multiple"
-msgstr ""
-
-msgid "Add Playlist"
-msgstr "Voeg een afspeelijst toe"
-
 msgid "Add download"
 msgstr "Download toevoegen"
-
-msgid "Add multiple downloads"
-msgstr ""
-
-msgid "Add playlist"
-msgstr "Voeg een afspeellijst toe"
 
 msgid "Component"
 msgstr "Component"
@@ -40,21 +29,21 @@ msgid "Date & Time"
 msgstr "Datum en Tijd"
 
 msgid "Delete"
-msgstr "Delete"
+msgstr "Verwijder"
 
-msgid "Delete after Download"
-msgstr "Wissen na Download"
-
-msgid "Delete from list of downloads after file is downloaded"
-msgstr "Wis van de lijst van download nadat de file is verkregen"
-
-msgid "Download"
-msgstr "Download"
+msgid "Delete from list of downloads after file is downloaded."
+msgstr ""
 
 msgid "Download Type"
 msgstr "Download Type"
 
-msgid "Download subtitles"
+msgid "Download multiple"
+msgstr ""
+
+msgid "Download playlist"
+msgstr ""
+
+msgid "Download subtitles."
 msgstr ""
 
 msgid "Downloader"
@@ -63,47 +52,32 @@ msgstr "Downloader"
 msgid "Downloading"
 msgstr "Aan het downloaden "
 
-msgid "Downloads"
-msgstr "Downloads"
-
-msgid "Downloads to this shared folder"
-msgstr "Download naar deze gedeelde folder"
-
-msgid "Edit download"
+msgid "Downloads to this shared folder."
 msgstr ""
-
-msgid "Edit multiple downloads"
-msgstr ""
-
-msgid "Edit playlist"
-msgstr ""
-
-msgid "File Owner"
-msgstr "File eigenaar"
 
 msgid "Filename"
-msgstr "Filenaam"
+msgstr "Bestandsnaam"
 
 msgid "Filesize"
-msgstr "File grootte"
+msgstr "Bestandsgrootte"
 
 msgid "Format"
-msgstr ""
+msgstr "Formaat"
 
 msgid "Message"
-msgstr "Boodschap"
-
-msgid "No"
-msgstr "Nee"
-
-msgid "Settings"
-msgstr "Instellingen"
+msgstr "Bericht"
 
 msgid "Shared Folder"
-msgstr "Gedeelde Folder"
+msgstr "Gedeelde Mao"
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "Start download"
+msgstr ""
 
 msgid "Subtitles"
-msgstr ""
+msgstr "Ondertitels"
 
 msgid "Type"
 msgstr "Type"
@@ -114,44 +88,35 @@ msgstr "URL"
 msgid "Update youtube-dl"
 msgstr "Werk  youtube-dl bij"
 
-msgid "Upload"
-msgstr "Upload"
-
-msgid "Upload file"
-msgstr "Upload file"
-
-msgid "Upload file to this shared folder."
-msgstr "Voeg een file to aan de gedeelde folder"
-
-msgid "Yes"
-msgstr "Ja"
+msgid "Update youtube-dl ..."
+msgstr ""
 
 msgid "aac audio only"
-msgstr ""
+msgstr "alleen AAC-audio"
 
 msgid "aria2"
 msgstr "aria2"
 
 msgid "curl"
-msgstr "curl"
+msgstr "cURL"
 
 msgid "m4a audio only"
-msgstr ""
+msgstr "alleen M4A-audio"
 
 msgid "mp3 audio only"
-msgstr ""
+msgstr "alleen MP3-audio"
 
 msgid "mp4/m4a"
-msgstr ""
+msgstr "MP4/M4A"
 
 msgid "n/a"
-msgstr "niet beschikbaar"
+msgstr "n.v.t."
 
 msgid "wav audio only"
-msgstr ""
+msgstr "alleen WAV-audio"
 
 msgid "webm"
-msgstr ""
+msgstr "WebM"
 
 msgid "youtube-dl"
 msgstr "youtube-dl"

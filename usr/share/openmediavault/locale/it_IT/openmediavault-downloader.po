@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 10:21-0500\n"
-"PO-Revision-Date: 2020-05-04 15:22+0000\n"
+"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"PO-Revision-Date: 2021-12-19 19:07+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -18,20 +18,8 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add Multiple"
-msgstr "Aggiungi download"
-
-msgid "Add Playlist"
-msgstr "Aggiungi playlist"
-
 msgid "Add download"
 msgstr "Aggiungi download"
-
-msgid "Add multiple downloads"
-msgstr "Aggiungi download multipli"
-
-msgid "Add playlist"
-msgstr "Aggiungi playlist"
 
 msgid "Component"
 msgstr "Componente"
@@ -42,19 +30,19 @@ msgstr "Data & Orario"
 msgid "Delete"
 msgstr "Elimina"
 
-msgid "Delete after Download"
-msgstr "Elimina dopo Scaricamento"
-
-msgid "Delete from list of downloads after file is downloaded"
-msgstr "Elimina dalla lista dei download dopo lo scaricamento"
-
-msgid "Download"
-msgstr "Download"
+msgid "Delete from list of downloads after file is downloaded."
+msgstr ""
 
 msgid "Download Type"
 msgstr "Tipo Download"
 
-msgid "Download subtitles"
+msgid "Download multiple"
+msgstr ""
+
+msgid "Download playlist"
+msgstr ""
+
+msgid "Download subtitles."
 msgstr ""
 
 msgid "Downloader"
@@ -63,23 +51,8 @@ msgstr "Downloader"
 msgid "Downloading"
 msgstr "Download in corso"
 
-msgid "Downloads"
-msgstr "Download"
-
-msgid "Downloads to this shared folder"
-msgstr "I Download in questa cartella condivisa"
-
-msgid "Edit download"
-msgstr "Modifica download"
-
-msgid "Edit multiple downloads"
-msgstr "Modifica download multipli"
-
-msgid "Edit playlist"
-msgstr "Modifica playlist"
-
-msgid "File Owner"
-msgstr "Proprietario del file"
+msgid "Downloads to this shared folder."
+msgstr ""
 
 msgid "Filename"
 msgstr "Nome file"
@@ -93,14 +66,14 @@ msgstr "Formato"
 msgid "Message"
 msgstr "Messaggio"
 
-msgid "No"
-msgstr "No"
-
-msgid "Settings"
-msgstr "Impostazioni"
-
 msgid "Shared Folder"
 msgstr "Cartella condivisa"
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "Start download"
+msgstr ""
 
 msgid "Subtitles"
 msgstr ""
@@ -114,17 +87,8 @@ msgstr "URL"
 msgid "Update youtube-dl"
 msgstr "Aggiorna youtube-dl"
 
-msgid "Upload"
-msgstr "Upload"
-
-msgid "Upload file"
-msgstr "Carica file"
-
-msgid "Upload file to this shared folder."
-msgstr "Carica file in questa cartella condivisa."
-
-msgid "Yes"
-msgstr "Sì"
+msgid "Update youtube-dl ..."
+msgstr ""
 
 msgid "aac audio only"
 msgstr "Solo audio aac"

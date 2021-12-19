@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 10:21-0500\n"
-"PO-Revision-Date: 2020-05-04 15:22+0000\n"
+"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"PO-Revision-Date: 2021-12-19 19:07+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -18,20 +18,8 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-msgid "Add Multiple"
-msgstr ""
-
-msgid "Add Playlist"
-msgstr ""
-
 msgid "Add download"
 msgstr "Додати завантаження"
-
-msgid "Add multiple downloads"
-msgstr ""
-
-msgid "Add playlist"
-msgstr ""
 
 msgid "Component"
 msgstr ""
@@ -42,19 +30,19 @@ msgstr ""
 msgid "Delete"
 msgstr "Видалити"
 
-msgid "Delete after Download"
-msgstr "Видалити після завантаження"
-
-msgid "Delete from list of downloads after file is downloaded"
-msgstr "Видалити зі списку завантажень після завантаження файлу"
-
-msgid "Download"
-msgstr "Завантажити"
+msgid "Delete from list of downloads after file is downloaded."
+msgstr ""
 
 msgid "Download Type"
 msgstr "Тип завантаження"
 
-msgid "Download subtitles"
+msgid "Download multiple"
+msgstr ""
+
+msgid "Download playlist"
+msgstr ""
+
+msgid "Download subtitles."
 msgstr ""
 
 msgid "Downloader"
@@ -63,22 +51,7 @@ msgstr "Завантажувач"
 msgid "Downloading"
 msgstr ""
 
-msgid "Downloads"
-msgstr "Завантажування"
-
-msgid "Downloads to this shared folder"
-msgstr "Завантажити до цієї спільної теки"
-
-msgid "Edit download"
-msgstr ""
-
-msgid "Edit multiple downloads"
-msgstr ""
-
-msgid "Edit playlist"
-msgstr ""
-
-msgid "File Owner"
+msgid "Downloads to this shared folder."
 msgstr ""
 
 msgid "Filename"
@@ -93,14 +66,14 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-msgid "No"
-msgstr "Ні"
-
-msgid "Settings"
-msgstr ""
-
 msgid "Shared Folder"
 msgstr "Спільна тека"
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "Start download"
+msgstr ""
 
 msgid "Subtitles"
 msgstr ""
@@ -114,17 +87,8 @@ msgstr "URL"
 msgid "Update youtube-dl"
 msgstr ""
 
-msgid "Upload"
+msgid "Update youtube-dl ..."
 msgstr ""
-
-msgid "Upload file"
-msgstr ""
-
-msgid "Upload file to this shared folder."
-msgstr ""
-
-msgid "Yes"
-msgstr "Так"
 
 msgid "aac audio only"
 msgstr ""

@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the openmediavault-downloader package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2014-2017
+# Stefan Thrane Overby <stoverby@gmail.com>, 2014-2017,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 10:21-0500\n"
-"PO-Revision-Date: 2020-05-04 15:22+0000\n"
+"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"PO-Revision-Date: 2021-12-19 19:07+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -18,20 +18,8 @@ msgstr ""
 "Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add Multiple"
-msgstr "Tilføj Flere"
-
-msgid "Add Playlist"
-msgstr "Tilføj Playliste"
-
 msgid "Add download"
 msgstr "Tilføj download"
-
-msgid "Add multiple downloads"
-msgstr "Tilføj flere downloads"
-
-msgid "Add playlist"
-msgstr "Tilføj playliste"
 
 msgid "Component"
 msgstr "Komponent"
@@ -42,19 +30,19 @@ msgstr "Dato & Tid"
 msgid "Delete"
 msgstr "Slet"
 
-msgid "Delete after Download"
-msgstr "Slet efter Download"
-
-msgid "Delete from list of downloads after file is downloaded"
-msgstr "Slet fra liste af downloads efter filen er downloadet"
-
-msgid "Download"
-msgstr "Download"
+msgid "Delete from list of downloads after file is downloaded."
+msgstr ""
 
 msgid "Download Type"
 msgstr "Download Type"
 
-msgid "Download subtitles"
+msgid "Download multiple"
+msgstr ""
+
+msgid "Download playlist"
+msgstr ""
+
+msgid "Download subtitles."
 msgstr ""
 
 msgid "Downloader"
@@ -63,23 +51,8 @@ msgstr "Downloader"
 msgid "Downloading"
 msgstr "Downloader"
 
-msgid "Downloads"
-msgstr "Downloads"
-
-msgid "Downloads to this shared folder"
-msgstr "Downloader til denne delte mappe"
-
-msgid "Edit download"
-msgstr "Rediger download"
-
-msgid "Edit multiple downloads"
-msgstr "Rediger flere downloads"
-
-msgid "Edit playlist"
-msgstr "Rediger playliste"
-
-msgid "File Owner"
-msgstr "Fil Ejer"
+msgid "Downloads to this shared folder."
+msgstr ""
 
 msgid "Filename"
 msgstr "Filnavn"
@@ -93,17 +66,17 @@ msgstr "Format"
 msgid "Message"
 msgstr "Besked"
 
-msgid "No"
-msgstr "Nej"
-
-msgid "Settings"
-msgstr "Indstilinger"
-
 msgid "Shared Folder"
 msgstr "Delte Mapper"
 
-msgid "Subtitles"
+msgid "Shared folder"
 msgstr ""
+
+msgid "Start download"
+msgstr ""
+
+msgid "Subtitles"
+msgstr "Undertekster"
 
 msgid "Type"
 msgstr "Type"
@@ -114,17 +87,8 @@ msgstr "URL"
 msgid "Update youtube-dl"
 msgstr "Opdater youtube-dl"
 
-msgid "Upload"
-msgstr "Upload"
-
-msgid "Upload file"
-msgstr "Upload fil"
-
-msgid "Upload file to this shared folder."
-msgstr "Upload fil til denne delte mappe."
-
-msgid "Yes"
-msgstr "Ja"
+msgid "Update youtube-dl ..."
+msgstr ""
 
 msgid "aac audio only"
 msgstr "Kun acc lyd"

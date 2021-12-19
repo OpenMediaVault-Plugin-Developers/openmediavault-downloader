@@ -1,8 +1,8 @@
-openmediavault-downloader (6.0) UNRELEASED; urgency=medium
+openmediavault-downloader (6.0) stable; urgency=low
 
   * Update for OMV 6.x
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Wed, 15 Dec 2021 17:31:42 -0600
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 19 Dec 2021 12:48:19 -0600
 
 openmediavault-downloader (5.1) stable; urgency=low
 

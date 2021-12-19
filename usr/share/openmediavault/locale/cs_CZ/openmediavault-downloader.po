@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the openmediavault-downloader package.
 # 
 # Translators:
-# Pavel Borecki <pavel.borecki@gmail.com>, 2015-2017
+# Pavel Borecki <pavel.borecki@gmail.com>, 2015-2017,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 10:21-0500\n"
-"PO-Revision-Date: 2020-05-04 15:22+0000\n"
+"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"PO-Revision-Date: 2021-12-19 19:07+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -18,20 +18,8 @@ msgstr ""
 "Language: cs_CZ\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-msgid "Add Multiple"
-msgstr "Přidat vícero naráz"
-
-msgid "Add Playlist"
-msgstr "Přidat seznam k přehrávání"
-
 msgid "Add download"
 msgstr "Přidat stahování"
-
-msgid "Add multiple downloads"
-msgstr "Přidat vícero stahování naráz"
-
-msgid "Add playlist"
-msgstr "Přidat seznam skladeb"
 
 msgid "Component"
 msgstr "Součást"
@@ -42,19 +30,19 @@ msgstr "Datum a čas"
 msgid "Delete"
 msgstr "Smazat"
 
-msgid "Delete after Download"
-msgstr "Po stažení odebrat ze seznamu"
-
-msgid "Delete from list of downloads after file is downloaded"
-msgstr "Po stažení souboru ho odebrat ze seznamu stahování"
-
-msgid "Download"
-msgstr "Stáhnout"
+msgid "Delete from list of downloads after file is downloaded."
+msgstr ""
 
 msgid "Download Type"
 msgstr "Typ stahování"
 
-msgid "Download subtitles"
+msgid "Download multiple"
+msgstr ""
+
+msgid "Download playlist"
+msgstr ""
+
+msgid "Download subtitles."
 msgstr ""
 
 msgid "Downloader"
@@ -63,23 +51,8 @@ msgstr "Nástroj pro stahování"
 msgid "Downloading"
 msgstr "Stahování"
 
-msgid "Downloads"
-msgstr "Stahování"
-
-msgid "Downloads to this shared folder"
-msgstr "Stahuje do této sdílené složky"
-
-msgid "Edit download"
-msgstr "Upravit stahování"
-
-msgid "Edit multiple downloads"
-msgstr "Upravit vícero stahování"
-
-msgid "Edit playlist"
-msgstr "Upravit seznam skladeb"
-
-msgid "File Owner"
-msgstr "Vlastník souboru"
+msgid "Downloads to this shared folder."
+msgstr ""
 
 msgid "Filename"
 msgstr "Název souboru"
@@ -93,17 +66,17 @@ msgstr "Formát"
 msgid "Message"
 msgstr "Zpráva"
 
-msgid "No"
-msgstr "Ne"
-
-msgid "Settings"
-msgstr "Nastavení"
-
 msgid "Shared Folder"
 msgstr "Sdílená složka"
 
-msgid "Subtitles"
+msgid "Shared folder"
 msgstr ""
+
+msgid "Start download"
+msgstr ""
+
+msgid "Subtitles"
+msgstr "Titulky"
 
 msgid "Type"
 msgstr "Typ"
@@ -114,17 +87,8 @@ msgstr "URL adresa"
 msgid "Update youtube-dl"
 msgstr "Zaktualizovat nástroj youtube-dl"
 
-msgid "Upload"
-msgstr "Nahrát"
-
-msgid "Upload file"
-msgstr "Nahrát soubor"
-
-msgid "Upload file to this shared folder."
-msgstr "Nahrát soubor do této sdílené složky."
-
-msgid "Yes"
-msgstr "Ano"
+msgid "Update youtube-dl ..."
+msgstr ""
 
 msgid "aac audio only"
 msgstr "pouze zvuk v aac"

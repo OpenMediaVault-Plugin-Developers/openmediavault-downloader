@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the openmediavault-downloader package.
 # 
 # Translators:
-# songming <by@songming.me>, 2013-2017,2019
+# songming <by@songming.me>, 2013-2017,2019,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 10:21-0500\n"
-"PO-Revision-Date: 2020-05-04 15:22+0000\n"
+"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"PO-Revision-Date: 2021-12-19 19:07+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -18,20 +18,8 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Add Multiple"
-msgstr "添加批量"
-
-msgid "Add Playlist"
-msgstr "添加列表"
-
 msgid "Add download"
 msgstr "添加下载"
-
-msgid "Add multiple downloads"
-msgstr "添加批量下载"
-
-msgid "Add playlist"
-msgstr "添加列表"
 
 msgid "Component"
 msgstr "组件"
@@ -42,19 +30,19 @@ msgstr "日期和时间"
 msgid "Delete"
 msgstr "删除"
 
-msgid "Delete after Download"
-msgstr "下载后删除"
-
-msgid "Delete from list of downloads after file is downloaded"
-msgstr "下载完成后从下载列表删除"
-
-msgid "Download"
-msgstr "下载"
+msgid "Delete from list of downloads after file is downloaded."
+msgstr ""
 
 msgid "Download Type"
 msgstr "下载类型"
 
-msgid "Download subtitles"
+msgid "Download multiple"
+msgstr ""
+
+msgid "Download playlist"
+msgstr ""
+
+msgid "Download subtitles."
 msgstr ""
 
 msgid "Downloader"
@@ -63,23 +51,8 @@ msgstr "Downloader"
 msgid "Downloading"
 msgstr "下载中"
 
-msgid "Downloads"
-msgstr "下载"
-
-msgid "Downloads to this shared folder"
-msgstr "下载到这个共享文件夹"
-
-msgid "Edit download"
-msgstr "编辑下载"
-
-msgid "Edit multiple downloads"
-msgstr "编辑批量下载"
-
-msgid "Edit playlist"
-msgstr "编辑列表"
-
-msgid "File Owner"
-msgstr "文件所有者"
+msgid "Downloads to this shared folder."
+msgstr ""
 
 msgid "Filename"
 msgstr "文件名"
@@ -93,17 +66,17 @@ msgstr "格式"
 msgid "Message"
 msgstr "消息"
 
-msgid "No"
-msgstr "否"
-
-msgid "Settings"
-msgstr "设置"
-
 msgid "Shared Folder"
 msgstr "共享文件夹"
 
-msgid "Subtitles"
+msgid "Shared folder"
 msgstr ""
+
+msgid "Start download"
+msgstr ""
+
+msgid "Subtitles"
+msgstr "字幕"
 
 msgid "Type"
 msgstr "类型"
@@ -114,17 +87,8 @@ msgstr "URL"
 msgid "Update youtube-dl"
 msgstr "上传youtube-dl"
 
-msgid "Upload"
-msgstr "上传"
-
-msgid "Upload file"
-msgstr "上传文件"
-
-msgid "Upload file to this shared folder."
-msgstr "上传文件到共享文件夹。"
-
-msgid "Yes"
-msgstr "是"
+msgid "Update youtube-dl ..."
+msgstr ""
 
 msgid "aac audio only"
 msgstr "仅 acc 音频"

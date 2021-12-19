@@ -3,7 +3,7 @@
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2013 Volker Theile
- * @copyright Copyright (c) 2013-2020 OpenMediaVault Plugin Developers
+ * @copyright Copyright (c) 2013-2021 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
     private $getCurl = "/usr/bin/curl";
     private $getLogFile = "/var/log/downloader.log";
     private $getPidDir = "/var/run/";
-    private $getYoutubedl = "/usr/sbin/youtube-dl";
+    private $getYoutubedl = "/usr/bin/youtube-dl";
 
     public function getName()
     {
@@ -41,6 +41,7 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
         $this->registerMethod("setDownload");
         $this->registerMethod("deleteDownload");
         $this->registerMethod("doDownload");
+        $this->registerMethod("doDownloadBg");
 
         $this->registerMethod("getUpload");
         $this->registerMethod("setUpload");
@@ -286,7 +287,6 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
 
         // Start download
         $cmd = new \OMV\System\Process($cmdBin, $cmdArgs);
-        var_dump($cmd->getCommandLine());
         $cmd->execute();
 
         $log = sprintf("[%s] DOWNLOAD: %s: %s: %s: FINISH: %s\r\n", date("Y-m-d H:i:s"), $dltype, $filename, $sfname, $url);
@@ -306,6 +306,10 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
         if (!empty($tmpfname) && file_exists($tmpfname)) {
             unlink($tmpfname);
         }
+    }
+
+    public function doDownloadBg($params, $context) {
+        return $this->callMethodBg("doDownload", $params, $context);
     }
 
     public function getUpload($params, $context)
@@ -379,25 +383,17 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
     {
         // Validate the RPC caller context.
         $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
-
-        $cmdArgs = [];
-        $cmdArgs[] = "-L#";
-        $cmdArgs[] = sprintf("-o %s", $this->getYoutubedl);
-        $cmdArgs[] = "\"https://yt-dl.org/downloads/latest/youtube-dl\"";
-        $cmd = new \OMV\System\Process($this->getCurl, $cmdArgs);
-        $cmdLine = $cmd->getCommandLine();
-
-        if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename)) {
-            throw new \OMV\ExecException($cmdLine, $output);
-        }
-        if ( !chmod( $this->getYoutubedl, 0755 ) ) {
-            throw new \OMV\Exception("Failed to make file executable");
-        }
-        if ( !chown( $this->getYoutubedl, "root" ) ) {
-            throw new \OMV\Exception("Failed to change ownership of file");
-        }
-        if ( !chgrp( $this->getYoutubedl, "root" ) ) {
-            throw new \OMV\Exception("Failed to change group of file");
-        }
+        // Create the background process.
+        return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+            use ($params) {
+                $cmd = new \OMV\System\Process("omv-updateytdl");
+                $cmd->setRedirect2to1();
+                $cmdLine = $cmd->getCommandLine();
+                if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename)) {
+                    throw new \OMV\ExecException($cmdLine, $output);
+                }
+                return $output;
+            }
+        );
     }
 }

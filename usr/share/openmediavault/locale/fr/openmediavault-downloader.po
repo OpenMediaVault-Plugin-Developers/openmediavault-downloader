@@ -4,17 +4,18 @@
 # 
 # Translators:
 # Alexandre DAUMAS <daumas.alexandre@gmail.com>, 2017
-# clexanis, 2017
+# Axel Cantenys, 2017
 # benitude <benjamin.wuthrich@gmail.com>, 2014
 # Julien ROCH <jroch74@live.fr>, 2017
+# kevin LECLERCQ <nuklearstriker@gmail.com>, 2020
 # Seboss666 <sebastien_verdet@seboss666.info>, 2015
 # Zacharie ARNAISE <spacebrain.damage@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 10:21-0500\n"
-"PO-Revision-Date: 2020-05-04 15:22+0000\n"
+"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"PO-Revision-Date: 2021-12-19 19:07+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -23,20 +24,8 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-msgid "Add Multiple"
-msgstr "Ajout multiple"
-
-msgid "Add Playlist"
-msgstr "Ajouter une playlist"
-
 msgid "Add download"
 msgstr "Ajouter un téléchargement"
-
-msgid "Add multiple downloads"
-msgstr "Ajouter plusieurs téléchargements"
-
-msgid "Add playlist"
-msgstr "Ajouter une playlist"
 
 msgid "Component"
 msgstr "Composant"
@@ -47,19 +36,19 @@ msgstr "Date & Heure"
 msgid "Delete"
 msgstr "Supprimer"
 
-msgid "Delete after Download"
-msgstr "Supprimer après le téléchargement"
-
-msgid "Delete from list of downloads after file is downloaded"
-msgstr "Supprimer de la liste des téléchargement une fois complété"
-
-msgid "Download"
-msgstr "Téléchargement"
+msgid "Delete from list of downloads after file is downloaded."
+msgstr ""
 
 msgid "Download Type"
 msgstr "Type de téléchargement"
 
-msgid "Download subtitles"
+msgid "Download multiple"
+msgstr ""
+
+msgid "Download playlist"
+msgstr ""
+
+msgid "Download subtitles."
 msgstr ""
 
 msgid "Downloader"
@@ -68,23 +57,8 @@ msgstr "Téléchargeur"
 msgid "Downloading"
 msgstr "Téléchargement en cours"
 
-msgid "Downloads"
-msgstr "Téléchargements"
-
-msgid "Downloads to this shared folder"
-msgstr "Télécharger dans ce dossier partagé"
-
-msgid "Edit download"
-msgstr "Éditer le telechargement"
-
-msgid "Edit multiple downloads"
-msgstr "Éditer plusieurs téléchargement"
-
-msgid "Edit playlist"
-msgstr "Éditer la liste de lecture"
-
-msgid "File Owner"
-msgstr "Propriétaire du fichier"
+msgid "Downloads to this shared folder."
+msgstr ""
 
 msgid "Filename"
 msgstr "Nom du fichier"
@@ -98,17 +72,17 @@ msgstr "Format"
 msgid "Message"
 msgstr "Message"
 
-msgid "No"
-msgstr "Non"
-
-msgid "Settings"
-msgstr "Paramètres"
-
 msgid "Shared Folder"
 msgstr "Dossier partagé"
 
-msgid "Subtitles"
+msgid "Shared folder"
 msgstr ""
+
+msgid "Start download"
+msgstr ""
+
+msgid "Subtitles"
+msgstr "Sous-titres"
 
 msgid "Type"
 msgstr "Type"
@@ -119,17 +93,8 @@ msgstr "URL"
 msgid "Update youtube-dl"
 msgstr "Mettre à jour youtube-dl"
 
-msgid "Upload"
-msgstr "Téléversement"
-
-msgid "Upload file"
-msgstr "Téléverser un fichier"
-
-msgid "Upload file to this shared folder."
-msgstr "Téléverser un fichier vers ce dossier partagé."
-
-msgid "Yes"
-msgstr "Oui"
+msgid "Update youtube-dl ..."
+msgstr ""
 
 msgid "aac audio only"
 msgstr "Audio AAC uniquement"

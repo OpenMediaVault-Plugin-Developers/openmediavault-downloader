@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 10:21-0500\n"
-"PO-Revision-Date: 2020-05-04 15:22+0000\n"
+"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"PO-Revision-Date: 2021-12-19 19:07+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -17,19 +17,7 @@ msgstr ""
 "Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add Multiple"
-msgstr ""
-
-msgid "Add Playlist"
-msgstr ""
-
 msgid "Add download"
-msgstr ""
-
-msgid "Add multiple downloads"
-msgstr ""
-
-msgid "Add playlist"
 msgstr ""
 
 msgid "Component"
@@ -41,19 +29,19 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-msgid "Delete after Download"
-msgstr ""
-
-msgid "Delete from list of downloads after file is downloaded"
-msgstr ""
-
-msgid "Download"
+msgid "Delete from list of downloads after file is downloaded."
 msgstr ""
 
 msgid "Download Type"
 msgstr ""
 
-msgid "Download subtitles"
+msgid "Download multiple"
+msgstr ""
+
+msgid "Download playlist"
+msgstr ""
+
+msgid "Download subtitles."
 msgstr ""
 
 msgid "Downloader"
@@ -62,22 +50,7 @@ msgstr ""
 msgid "Downloading"
 msgstr ""
 
-msgid "Downloads"
-msgstr ""
-
-msgid "Downloads to this shared folder"
-msgstr ""
-
-msgid "Edit download"
-msgstr ""
-
-msgid "Edit multiple downloads"
-msgstr ""
-
-msgid "Edit playlist"
-msgstr ""
-
-msgid "File Owner"
+msgid "Downloads to this shared folder."
 msgstr ""
 
 msgid "Filename"
@@ -92,13 +65,13 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-msgid "No"
-msgstr ""
-
-msgid "Settings"
-msgstr ""
-
 msgid "Shared Folder"
+msgstr ""
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "Start download"
 msgstr ""
 
 msgid "Subtitles"
@@ -113,16 +86,7 @@ msgstr ""
 msgid "Update youtube-dl"
 msgstr ""
 
-msgid "Upload"
-msgstr ""
-
-msgid "Upload file"
-msgstr ""
-
-msgid "Upload file to this shared folder."
-msgstr ""
-
-msgid "Yes"
+msgid "Update youtube-dl ..."
 msgstr ""
 
 msgid "aac audio only"

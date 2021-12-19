@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the openmediavault-downloader package.
 # 
 # Translators:
-# Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2018
+# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2018,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 10:21-0500\n"
-"PO-Revision-Date: 2020-05-04 15:22+0000\n"
+"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"PO-Revision-Date: 2021-12-19 19:07+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -18,20 +18,8 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add Multiple"
-msgstr "Lägg till flera"
-
-msgid "Add Playlist"
-msgstr "Lägg till spellista"
-
 msgid "Add download"
 msgstr "Lägg till hämtning"
-
-msgid "Add multiple downloads"
-msgstr "Lägg till flera hämtningar"
-
-msgid "Add playlist"
-msgstr "Lägg till spellista"
 
 msgid "Component"
 msgstr "Komponent"
@@ -42,19 +30,19 @@ msgstr "Datum & tid"
 msgid "Delete"
 msgstr "Ta bort"
 
-msgid "Delete after Download"
-msgstr "Ta bort efter hämtning"
-
-msgid "Delete from list of downloads after file is downloaded"
-msgstr "Ta bort från listan över hämtningar efter fil hämtas"
-
-msgid "Download"
-msgstr "Hämta"
+msgid "Delete from list of downloads after file is downloaded."
+msgstr ""
 
 msgid "Download Type"
 msgstr "Hämta typ"
 
-msgid "Download subtitles"
+msgid "Download multiple"
+msgstr ""
+
+msgid "Download playlist"
+msgstr ""
+
+msgid "Download subtitles."
 msgstr ""
 
 msgid "Downloader"
@@ -63,23 +51,8 @@ msgstr "Hämtare"
 msgid "Downloading"
 msgstr "Hämtar"
 
-msgid "Downloads"
-msgstr "Hämtningar"
-
-msgid "Downloads to this shared folder"
-msgstr "Hämtningar till denna delade mapp"
-
-msgid "Edit download"
-msgstr "Redigera hämtning"
-
-msgid "Edit multiple downloads"
-msgstr "Redigera flera hämtningar"
-
-msgid "Edit playlist"
-msgstr "Redigera spellista"
-
-msgid "File Owner"
-msgstr "Filägare"
+msgid "Downloads to this shared folder."
+msgstr ""
 
 msgid "Filename"
 msgstr "Filnamn"
@@ -93,17 +66,17 @@ msgstr "Format"
 msgid "Message"
 msgstr "Meddelande"
 
-msgid "No"
-msgstr "Nej"
-
-msgid "Settings"
-msgstr "Inställningar"
-
 msgid "Shared Folder"
 msgstr "Delad mapp"
 
-msgid "Subtitles"
+msgid "Shared folder"
 msgstr ""
+
+msgid "Start download"
+msgstr ""
+
+msgid "Subtitles"
+msgstr "Undertexter"
 
 msgid "Type"
 msgstr "Typ"
@@ -114,17 +87,8 @@ msgstr "Webbadress"
 msgid "Update youtube-dl"
 msgstr "Uppdatera youtube-dl"
 
-msgid "Upload"
-msgstr "Ladda upp"
-
-msgid "Upload file"
-msgstr "Ladda upp fil"
-
-msgid "Upload file to this shared folder."
-msgstr "Ladda upp filen till den här delade mappen."
-
-msgid "Yes"
-msgstr "Ja"
+msgid "Update youtube-dl ..."
+msgstr ""
 
 msgid "aac audio only"
 msgstr "endast aac-ljud"

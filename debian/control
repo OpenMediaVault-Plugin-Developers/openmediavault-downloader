@@ -12,7 +12,8 @@ Architecture: all
 Depends: aria2,
          curl,
          openmediavault (>= 6),
-         python,
+         python3,
+         wget,
          ${misc:Depends}
 Description: OpenMediaVault downloader plugin
  Plugin to download files to a specified share using aria2, curl, or

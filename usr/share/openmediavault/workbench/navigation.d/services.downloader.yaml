@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.downloader"
+  text: _("Downloader")
+  icon: "mdi:download-network-outline"
+  url: "/services/downloader"

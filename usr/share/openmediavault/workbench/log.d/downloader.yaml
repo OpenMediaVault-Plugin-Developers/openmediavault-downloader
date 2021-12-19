@@ -1,0 +1,40 @@
+version: "1.0"
+type: log
+data:
+  id: downloader
+  text: _("Downloader")
+  columns:
+    - name: _("Date & Time")
+      sortable: true
+      prop: date
+      cellTemplateName: localeDateTime
+      flexGrow: 1
+    - name: _("Component")
+      sortable: true
+      prop: component
+      flexGrow: 1
+    - name: _("Type")
+      sortable: true
+      prop: type
+      flexGrow: 1
+    - name: _("Filename")
+      sortable: true
+      prop: filename
+      flexGrow: 2
+    - name: _("URL")
+      sortable: true
+      prop: url
+      flexGrow: 3
+    - name: _("Shared Folder")
+      sortable: true
+      prop: folder
+      flexGrow: 1
+    - name: _("Message")
+      sortable: true
+      prop: message
+      flexGrow: 2
+  request:
+    service: LogFile
+    method: getList
+    params:
+      id: downloader
