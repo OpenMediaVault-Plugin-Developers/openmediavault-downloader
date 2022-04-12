@@ -3,7 +3,7 @@
 # download latest yt-dlp
 url="https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp"
 yt="/usr/bin/youtube-dl"
-wget ${url}/youtube-dl -O ${yt}
+wget ${url} -O ${yt}
 chmod a+rx ${yt}
 
 exit 0
