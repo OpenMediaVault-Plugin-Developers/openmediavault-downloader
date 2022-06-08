@@ -244,7 +244,7 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                     $cmdArgs[] = sprintf("--format '%s'", $format);
                     $cmdArgs[] = sprintf("-o \"%s/%s\"", $sfPath, $filename);
                 }
-                $cmdArgs[] = sprintf("\"%s\"", $url);
+                $cmdArgs[] = sprintf("--no-exec \"%s\"", $url);
                 break;
 
             case "playlist":
