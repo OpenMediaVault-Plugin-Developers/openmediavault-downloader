@@ -82,8 +82,7 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
             $filename = sprintf("%s/%s", $sfPath, $objectv->get("filename"));
             $finalExt = $objectv->get('format');
             $finalfilename = sprintf("%s/%s.%s", $sfPath, $objectv->get("filename"), $finalExt);
-            $tmpExt = strtoupper($finalExt);
-            $finalNOFFMPEGfilename = sprintf("%s/%s.%s", $sfPath, $objectv->get("filename"), $tmpExt);
+            $tmpExt = "tmp";
             $filenamepart = sprintf("%s/%s.%s.part", $sfPath, $objectv->get("filename"), $tmpExt);
             $filenamearia = sprintf("%s/%s.aria2", $sfPath, $objectv->get("filename"));
             $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir, $objectv->get('uuid'));
@@ -97,14 +96,16 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 $objectv->set('filesize', 0);
             } else {
                 if (file_exists($filename)) {
+                    //curl 
                     $objectv->set('filesize', intval(filesize($filename)));
                 } elseif (file_exists($finalfilename)) {
+                    //Youtube-dl, Playlist, multiple Done
                     $objectv->set('filesize', intval(filesize($finalfilename)));
-                } elseif (file_exists($finalNOFFMPEGfilename)) {
-                    $objectv->set('filesize', intval(filesize($finalNOFFMPEGfilename)));
                 } elseif (file_exists($filenamearia)) {
+                    //Aria
                     $objectv->set('filesize', intval(filesize($filenamearia)));
                 } elseif (file_exists($filenamepart)) {
+                    //Youtube-dl in progress
                     $objectv->set('filesize', intval(filesize($filenamepart)));
                 }
             }
@@ -190,8 +191,19 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
         $url = $object->get('url');
         $delete = boolval($object->get('delete'));
         $finalExt = $object->get('format');
-        $tmpExt = strtoupper($finalExt);
+        $tmpExt = "tmp";
 
+# I think we need a best audio, and a best video (technically 'best' since a large point of the option would be best file that's a straight download)
+# -x is specifically for audio, 
+#  bestvideo+bestaudio on sites that offer it (youtube) with ffmpeg will basically force the file to be a perticular format with --merge-output-format
+# When we hard code the extension, and youtube-dl falls back to the last "best" it's basically going to give the file the wrong ext (with merge output I think the only time we run into this might be wma files?.
+#  We can have youtube-dl set the extension correctly, but I'd like the user to be infored somehow that their "webm" has been renamed "mp4" because that's all that was available.
+# I honestly don't know what's actually better bestXXXXX[ext=xxx]/bestXXXX  or just bestxxxx
+# I had a situation where setting it to mp4 maxed out at 720p because that's the best mp4 youtube had on file
+# but set it to webm and it jumped up to 2160p because that's the best webm they had,
+# setting bestvideo+bestaudio instead of bestvideo[ext=mp4]+bestaudio[ext=mp4] and set --merge-output-format getst me a 2160 mp4
+# but it just dumps the VP8 + opus streams into a mp4 container, rather then converting video to h.264... 
+# --reencode-video will fix that, but (as one should expect) it's a lot slower
 
         switch ($object->get('format')) {
             case "aac":
@@ -207,14 +219,14 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 $audio = true;
                 break;
             case "mp4";
-                $format = "best[ext=mp4]/best";
+                $format = "bestvideo[ext=mp4]+bestaudio[ext=mp4]/best[ext=mp4]/bestvideo+bestaudio/best";
                 break;
             case "wav":
                 $format = "bestaudio[ext=wav]/bestaudio";
                 $audio = true;
                 break;
             case "webm";
-                $format = "best[ext=webm]/best";
+                 $format = "bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]/bestvideo+bestaudio/best";
                 break;
         }
         $cmdArgs = [];
@@ -233,18 +245,21 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 $cmdArgs[] = "--quiet";
                 $cmdArgs[] = "--newline";
                 $cmdArgs[] = "--no-warnings";
+                $cmdArgs[] = "--no-playlist";
                 if ($object->get('subtitles')) {
                     $cmdArgs[] = "--all-subs --write-sub";
                 }
                 if ($audio){
+                    //Audio: Sometimes ends up turncated without using a tmpExt.
                     $cmdArgs[] = sprintf("-x --audio-format '%s' --format '%s'", $finalExt, $format);
                     $cmdArgs[] = sprintf("-o \"%s/%s.%s\"", $sfPath, $filename, $tmpExt);
                 }
                 else{
-                    $cmdArgs[] = sprintf("--format '%s'", $format);
-                    $cmdArgs[] = sprintf("-o \"%s/%s\"", $sfPath, $filename);
+                    //Video: Seems Ok jumping straight to finalExt
+                    $cmdArgs[] = sprintf("--format '%s' --merge-output-format '%s'", $format, $finalExt);
+                    $cmdArgs[] = sprintf("-o \"%s/%s.%s\"", $sfPath, $filename, $finalExt);
                 }
-                $cmdArgs[] = sprintf("--no-exec \"%s\"", $url);
+                $cmdArgs[] = sprintf("--no-part --no-exec \"%s\"", $url);
                 break;
 
             case "playlist":
@@ -255,11 +270,18 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 if ($object->get('subtitles')) {
                     $cmdArgs[] = "--all-subs --write-sub";
                 }
-                $cmdArgs[] = sprintf("--format '%s'", $format);
+                if ($audio){
+                    $cmdArgs[] = sprintf("-x --audio-format '%s' --format '%s'", $finalExt, $format);
+                }
+                else{
+                    $cmdArgs[] = sprintf("--format '%s' --merge-output-format '%s'", $format, $finalExt);
+                }
                 $cmdArgs[] = sprintf("\"%s\"", $url);
                 break;
 
             case "multiple":
+#Our youtubedl can actually make a decent run at a random (say pdf) file but only(?) if you leave format unconfigured, or 'best'... Adding multiple formats, causes it to realize it's not(?) a media file and fail. Not sure this is inteneded behaviour, so not sure we should act on it.
+#aren't playlist and Multiple esentially the same on the backend, is there any reason not to merge them, playlist doesn't make a tmp file that seems to be the only difference.  
                 $tmpfname = tempnam("/tmp", "multiple");
                 file_put_contents($tmpfname, $url);
 
@@ -270,7 +292,12 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 if ($object->get('subtitles')) {
                     $cmdArgs[] = "--all-subs --write-sub";
                 }
-                $cmdArgs[] = sprintf("--format '%s'", $format);
+                if ($audio){
+                    $cmdArgs[] = sprintf("-x --audio-format '%s' --format '%s'", $finalExt, $format);
+                }
+                else{
+                    $cmdArgs[] = sprintf("--format '%s' --merge-output-format '%s'", $format, $finalExt);
+                }
                 $cmdArgs[] = sprintf("--batch-file \"%s\"", $tmpfname);
                 break;
 
