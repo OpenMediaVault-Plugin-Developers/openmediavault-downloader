@@ -36,6 +36,9 @@
 							"url": {
 								"type": "string"
 							},
+							"parts": {
+								"type": "integer"
+							},
 							"keepvideo": {
 								"type": "boolean"
 							},

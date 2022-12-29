@@ -44,7 +44,7 @@
 			},
 			"dltype": {
 				"type": "string",
-				"enum":[ "aria2", "curl", "playlist", "multiple", "youtube-dl" ],
+				"enum":[ "aria2", "curl", "playlist", "multiple", "youtube-dl", "ulozto-downloader" ],
 				"required": true
 			},
 			"filename": {
@@ -54,6 +54,10 @@
 			"url": {
 				"type": "string",
 				"required": true
+			},
+			"parts": {
+				"type": "integer",
+				"required": false
 			},
 			"keepvideo": {
 				"type": "boolean",

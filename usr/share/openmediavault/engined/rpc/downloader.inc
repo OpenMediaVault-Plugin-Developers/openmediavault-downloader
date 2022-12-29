@@ -29,6 +29,7 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
     private $getLogFile = "/var/log/downloader.log";
     private $getPidDir = "/var/run/";
     private $getYoutubedl = "/usr/bin/youtube-dl";
+    private $getUloztoDownloader = "/usr/local/bin/ulozto-downloader";
 
     public function getName()
     {
@@ -237,6 +238,14 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 $cmdArgs[] = "--location";
                 $cmdArgs[] = "--silent";
                 $cmdArgs[] = sprintf("--output \"%s/%s\"", $sfPath, $filename);
+                $cmdArgs[] = sprintf("\"%s\"", $url);
+                break;
+
+            case "ulozto-downloader":
+                $cmdBin = $this->getUloztoDownloader;
+                $cmdArgs[] = "--temp /tmp";
+                $cmdArgs[] = sprintf("--output \"%s/%s\"", $sfPath, $filename);
+                $cmdArgs[] = sprintf("--log \"%s\"", $this->getLogFile);
                 $cmdArgs[] = sprintf("\"%s\"", $url);
                 break;
 

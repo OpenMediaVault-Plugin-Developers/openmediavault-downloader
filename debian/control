@@ -13,8 +13,10 @@ Depends: aria2,
          curl,
          openmediavault (>= 6),
          python3,
+         python3-pip,
          wget,
          ffmpeg,
+         tor,
          ${misc:Depends}
 Description: OpenMediaVault downloader plugin
  Plugin to download files to a specified share using aria2, curl, or
@@ -27,3 +29,6 @@ Description: OpenMediaVault downloader plugin
  .
  yt-dlp is a small command-line program to download videos from
  YouTube.com and a few more sites (forked from youtube-dl).
+ .
+ ulozto-downloader is a parallel downloader from Uloz.to (https://uloz.to/)
+ with automatic CAPTCHA solving.

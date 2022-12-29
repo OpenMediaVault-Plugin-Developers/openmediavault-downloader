@@ -42,4 +42,7 @@ if [ ! -e "/usr/bin/python" ]; then
   ln -s /usr/bin/python3 /usr/bin/python
 fi
 
+# install the latest ulozto-downloader
+pip3 install tflite-runtime ulozto-downloader[auto-captcha]
+
 exit 0

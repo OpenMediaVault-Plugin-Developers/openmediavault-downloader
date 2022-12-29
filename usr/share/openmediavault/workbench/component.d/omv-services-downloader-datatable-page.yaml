@@ -69,10 +69,22 @@ data:
                     - ["aria2", _("aria2")]
                     - ["curl", _("curl")]
                     - ["youtube-dl", _("youtube-dl")]
+                    - ["ulozto-downloader", _("ulozto-downloader")]
               - type: textInput
                 name: filename
                 label: _("Filename")
                 value: ""
+              - type: numberInput
+                name: parts
+                label: _("Parts")
+                value: 20
+                modifiers:
+                  - type: visible
+                    constraint:
+                      operator: eq
+                      arg0:
+                        prop: dltype
+                      arg1: "ulozto-downloader"
               - type: select
                 name: format
                 label: _("Format")
