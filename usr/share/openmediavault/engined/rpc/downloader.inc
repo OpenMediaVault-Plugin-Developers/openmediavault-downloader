@@ -29,6 +29,7 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
     private $getLogFile = "/var/log/downloader.log";
     private $getPidDir = "/var/run/";
     private $getYoutubedl = "/usr/bin/youtube-dl";
+    private $getUloztoDownloader = "/usr/local/bin/ulozto-downloader";
 
     public function getName()
     {
@@ -79,14 +80,17 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
             } else {
                 continue;
             }
-            $filename = sprintf("%s/%s", $sfPath, $objectv->get("filename"));
-            $finalExt = $objectv->get('format');
-            $finalfilename = sprintf("%s/%s.%s", $sfPath, $objectv->get("filename"), $finalExt);
-            $tmpExt = "tmp";
-            $filenamepart = sprintf("%s/%s.%s.part", $sfPath, $objectv->get("filename"), $tmpExt);
-            $filenamearia = sprintf("%s/%s.aria2", $sfPath, $objectv->get("filename"));
-            $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir, $objectv->get('uuid'));
+            
+            $basename = sprintf("%s", $objectv->get("filename"));
             $dlType = $objectv->get('dltype');
+
+            $filename = sprintf("%s/%s", $sfPath, $basename);
+            $finalExt = $objectv->get('format');
+            $finalfilename = sprintf("%s/%s.%s", $sfPath, $basename, $finalExt);
+            $tmpExt = "tmp";
+            $filenamepart = sprintf("%s/%s.%s.part", $sfPath, $basename, $tmpExt);
+            $filenamearia = sprintf("%s/%s.aria2", $sfPath, $basename);
+            $pid = sprintf("%sdownloader-%s.pid", $this->getPidDir, $objectv->get('uuid'));
 
             if (file_exists($pid)) {
                 $objectv->set('downloading', true);
@@ -188,6 +192,7 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
 
         $dltype = $object->get('dltype');
         $filename = $object->get('filename');
+        $partcount = $object->get('parts');
         $url = $object->get('url');
         $delete = boolval($object->get('delete'));
         $finalExt = $object->get('format');
@@ -237,6 +242,16 @@ class OMVRpcServiceDownloader extends \OMV\Rpc\ServiceAbstract
                 $cmdArgs[] = "--location";
                 $cmdArgs[] = "--silent";
                 $cmdArgs[] = sprintf("--output \"%s/%s\"", $sfPath, $filename);
+                $cmdArgs[] = sprintf("\"%s\"", $url);
+                break;
+
+            case "ulozto-downloader":
+                $cmdBin = $this->getUloztoDownloader;
+                $cmdArgs[] = "--temp /tmp";
+                $cmdArgs[] = "--auto-captcha";
+                $cmdArgs[] = sprintf("--output \"%s/%s\"", $sfPath, $filename);
+                $cmdArgs[] = sprintf("--log \"%s\"", $this->getLogFile);
+                $cmdArgs[] = sprintf("--parts \"%s\"", $partcount);
                 $cmdArgs[] = sprintf("\"%s\"", $url);
                 break;
 

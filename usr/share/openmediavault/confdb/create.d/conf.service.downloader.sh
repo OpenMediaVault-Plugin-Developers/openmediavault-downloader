@@ -26,6 +26,10 @@ set -e
 SERVICE_XPATH_NAME="downloader"
 SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
 
+# Versions of the downloader plugins and dependecies
+ULOZTO_DOWNLOADER_VERSION="3.3.1"
+TFLITE_VERSION="2.11.0"
+
 if ! omv_config_exists "${SERVICE_XPATH}"; then
     echo "Initialize configuration"
     omv_config_add_node "/config/services" "${SERVICE_XPATH_NAME}"
@@ -41,5 +45,8 @@ if [ ! -e "/usr/bin/python" ]; then
   echo "Adding python symlink to python3..."
   ln -s /usr/bin/python3 /usr/bin/python
 fi
+
+# install the ulozto-downloader
+pip3 install tflite-runtime==$TFLITE_VERSION ulozto-downloader[auto-captcha]==$ULOZTO_DOWNLOADER_VERSION
 
 exit 0
