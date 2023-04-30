@@ -69,7 +69,7 @@ data:
                     - ["aria2", _("aria2")]
                     - ["curl", _("curl")]
                     - ["youtube-dl", _("youtube-dl")]
-                    - ["ulozto-downloader", _("ulozto-downloader")]
+#                    - ["ulozto-downloader", _("ulozto-downloader")]
               - type: textInput
                 name: filename
                 label: _("Filename")
