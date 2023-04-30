@@ -47,6 +47,6 @@ if [ ! -e "/usr/bin/python" ]; then
 fi
 
 # install the ulozto-downloader
-pip3 install tflite-runtime==$TFLITE_VERSION ulozto-downloader[auto-captcha]==$ULOZTO_DOWNLOADER_VERSION
+#pip3 install tflite-runtime==$TFLITE_VERSION ulozto-downloader[auto-captcha]==$ULOZTO_DOWNLOADER_VERSION
 
 exit 0
