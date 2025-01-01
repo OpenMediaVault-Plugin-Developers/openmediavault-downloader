@@ -3,7 +3,7 @@
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2013 Volker Theile
- * @copyright Copyright (c) 2013-2024 OpenMediaVault Plugin Developers
+ * @copyright Copyright (c) 2013-2025 openmediavault plugin developers
  * @copyright Copyright (c) 2022 Godofallthatwas
  *
  * This program is free software: you can redistribute it and/or modify
