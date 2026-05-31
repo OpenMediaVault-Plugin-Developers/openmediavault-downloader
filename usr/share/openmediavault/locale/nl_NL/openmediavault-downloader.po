@@ -5,14 +5,15 @@
 # Translators:
 # okpail <okpail@gmail.com>, 2014-2016
 # Varkentjes, 2020
+# Stephan Paternotte <stephan@paternottes.net>, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"POT-Creation-Date: 2026-05-31 00:57+0000\n"
 "PO-Revision-Date: 2013-12-07 18:07+0000\n"
-"Last-Translator: Varkentjes, 2020\n"
-"Language-Team: Dutch (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/nl/)\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
+"Language-Team: Dutch (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,28 +33,28 @@ msgid "Delete"
 msgstr "Verwijder"
 
 msgid "Delete from list of downloads after file is downloaded."
-msgstr ""
+msgstr "Verwijderen uit de lijst met downloads nadat het bestand is gedownload."
 
 msgid "Download Type"
 msgstr "Download Type"
 
 msgid "Download multiple"
-msgstr ""
+msgstr "Meervoudige download"
 
 msgid "Download playlist"
-msgstr ""
+msgstr "Playlist downloaden"
 
 msgid "Download subtitles."
-msgstr ""
+msgstr "Ondertitels downloaden"
 
 msgid "Downloader"
 msgstr "Downloader"
 
 msgid "Downloading"
-msgstr "Aan het downloaden "
+msgstr "Downloaden "
 
 msgid "Downloads to this shared folder."
-msgstr ""
+msgstr "Downloaden naar deze gedeelde map."
 
 msgid "Filename"
 msgstr "Bestandsnaam"
@@ -67,14 +68,17 @@ msgstr "Formaat"
 msgid "Message"
 msgstr "Bericht"
 
+msgid "Parts"
+msgstr ""
+
 msgid "Shared Folder"
-msgstr "Gedeelde Mao"
+msgstr "Gedeelde map"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Gedeelde map"
 
 msgid "Start download"
-msgstr ""
+msgstr "Download starten"
 
 msgid "Subtitles"
 msgstr "Ondertitels"
@@ -86,10 +90,10 @@ msgid "URL"
 msgstr "URL"
 
 msgid "Update youtube-dl"
-msgstr "Werk  youtube-dl bij"
+msgstr "youtube-dl bijwerken"
 
 msgid "Update youtube-dl ..."
-msgstr ""
+msgstr "youtube-dl bijwerken…"
 
 msgid "aac audio only"
 msgstr "alleen AAC-audio"
@@ -98,7 +102,7 @@ msgid "aria2"
 msgstr "aria2"
 
 msgid "curl"
-msgstr "cURL"
+msgstr "curl"
 
 msgid "m4a audio only"
 msgstr "alleen M4A-audio"
@@ -116,7 +120,7 @@ msgid "wav audio only"
 msgstr "alleen WAV-audio"
 
 msgid "webm"
-msgstr "WebM"
+msgstr "webm"
 
 msgid "youtube-dl"
 msgstr "youtube-dl"

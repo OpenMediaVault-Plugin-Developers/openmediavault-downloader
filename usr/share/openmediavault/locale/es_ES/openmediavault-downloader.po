@@ -1,31 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-downloader package.
 # 
 # Translators:
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2014
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2014-2017,2020-2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 10:39-0500\n"
-"PO-Revision-Date: 2014-11-16 10:03+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
-"Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault-downloader/language/es_ES/)\n"
+"POT-Creation-Date: 2026-05-31 00:57+0000\n"
+"PO-Revision-Date: 2013-12-07 18:07+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2014-2017,2020-2021\n"
+"Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es_ES\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Add download"
 msgstr "Añadir descarga"
-
-msgid "Add symlink"
-msgstr "Añadir symlink"
-
-msgid "Cancel"
-msgstr "Cancelar"
 
 msgid "Component"
 msgstr "Componente"
@@ -36,23 +30,20 @@ msgstr "Fecha & Hora"
 msgid "Delete"
 msgstr "Borrar"
 
-msgid "Delete after Download"
-msgstr "Borrar despues de descargar"
-
-msgid "Delete from list of downloads after file is downloaded"
-msgstr "Borrar de la lista de descargas despues de que sea descargado"
-
-msgid "Destination"
-msgstr "Destino"
-
-msgid "Done..."
-msgstr "Hecho..."
-
-msgid "Download"
-msgstr "Descarga"
+msgid "Delete from list of downloads after file is downloaded."
+msgstr "Eliminar de la lista de descargas después de descargar el archivo."
 
 msgid "Download Type"
 msgstr "Tipo de descarga"
+
+msgid "Download multiple"
+msgstr "Descarga múltiple"
+
+msgid "Download playlist"
+msgstr "Lista de descargas"
+
+msgid "Download subtitles."
+msgstr "Descargar subtitulos."
 
 msgid "Downloader"
 msgstr "Metodo de descarga"
@@ -60,26 +51,8 @@ msgstr "Metodo de descarga"
 msgid "Downloading"
 msgstr "Descargando"
 
-msgid "Downloads"
-msgstr "Descargas"
-
-msgid "Downloads to this shared folder"
-msgstr "Descargar a esta carpeta compartida"
-
-msgid "Edit download"
-msgstr "Editar descargas"
-
-msgid "Edit symlink"
-msgstr "Editar symlink"
-
-msgid "Enable"
-msgstr "Habilitar"
-
-msgid "Enabled"
-msgstr "Habilitado"
-
-msgid "File Owner"
-msgstr "Propietario"
+msgid "Downloads to this shared folder."
+msgstr "Descargar en esta carpeta compartida."
 
 msgid "Filename"
 msgstr "Nombre de archivo"
@@ -87,44 +60,26 @@ msgstr "Nombre de archivo"
 msgid "Filesize"
 msgstr "Tamaño"
 
-msgid "Keep Video"
-msgstr "Mantener el Video"
-
-msgid ""
-"Keep video file after conversion to audio.  Video will have mp4 extension."
-msgstr "Mantener el archivo de Video despues de la conversión a Audio. El Video tendrá la extensión .mp4."
+msgid "Format"
+msgstr "Formato"
 
 msgid "Message"
 msgstr "Mensaje"
 
-msgid "No"
-msgstr "No"
-
-msgid "OK"
-msgstr "OK"
-
-msgid ""
-"Saves download as this filename. If file extension is aac, m4a, mp3, or wav,"
-" audio will be extracted to filename."
-msgstr "Salvar la descarga con este nombre. Si la extensión es aac, m4a, mp3, o wav, el Audio será descomprimido con este nombre."
-
-msgid "Select a directory"
-msgstr "Seleccione un directorio"
-
-msgid "Settings"
-msgstr "Opciones"
+msgid "Parts"
+msgstr ""
 
 msgid "Shared Folder"
 msgstr "Carpeta compartida"
 
-msgid "Source"
-msgstr "Origen"
+msgid "Shared folder"
+msgstr "Carpeta compartida"
 
-msgid "Symlinks"
-msgstr "Symlinks"
+msgid "Start download"
+msgstr "Iniciar descarga"
 
-msgid "This destination is already in use."
-msgstr "Este destino ya está en uso."
+msgid "Subtitles"
+msgstr "Subtitulos"
 
 msgid "Type"
 msgstr "Tipo"
@@ -135,17 +90,11 @@ msgstr "URL"
 msgid "Update youtube-dl"
 msgstr "Actualizar YouTube-dl"
 
-msgid "Upload"
-msgstr "Subir"
+msgid "Update youtube-dl ..."
+msgstr "Actualizar youtube-dl ..."
 
-msgid "Upload file"
-msgstr "Subir un archivo"
-
-msgid "Upload file to this shared folder."
-msgstr "Subir a esta carpeta compartida."
-
-msgid "Yes"
-msgstr "Si"
+msgid "aac audio only"
+msgstr "Audio aac únicamente"
 
 msgid "aria2"
 msgstr "aria2"
@@ -153,8 +102,23 @@ msgstr "aria2"
 msgid "curl"
 msgstr "curl"
 
+msgid "m4a audio only"
+msgstr "Audio m4a únicamente"
+
+msgid "mp3 audio only"
+msgstr "Audio mp3 únicamente"
+
+msgid "mp4/m4a"
+msgstr "mp4/m4a"
+
 msgid "n/a"
 msgstr "n/d"
+
+msgid "wav audio only"
+msgstr "Audio wav únicamente"
+
+msgid "webm"
+msgstr "webm"
 
 msgid "youtube-dl"
 msgstr "youtube-dl"

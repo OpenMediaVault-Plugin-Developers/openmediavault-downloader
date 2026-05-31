@@ -6,18 +6,18 @@
 # Alexandre DAUMAS <daumas.alexandre@gmail.com>, 2017
 # Axel Cantenys, 2017
 # benitude <benjamin.wuthrich@gmail.com>, 2014
-# Julien ROCH <jroch74@live.fr>, 2017
-# kevin LECLERCQ <nuklearstriker@gmail.com>, 2020
+# 16656aeb055cb4e08f295d808875eb1a_b46dfc2 <2f6d0e52c28329f5e3c8bb65d09c52f6_466277>, 2017
+# Kevin Leclercq <nuklearstriker@gmail.com>, 2020
 # Seboss666 <sebastien_verdet@seboss666.info>, 2015
 # Zacharie ARNAISE <spacebrain.damage@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"POT-Creation-Date: 2026-05-31 00:57+0000\n"
 "PO-Revision-Date: 2013-12-07 18:07+0000\n"
-"Last-Translator: kevin LECLERCQ <nuklearstriker@gmail.com>, 2020\n"
-"Language-Team: French (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/fr/)\n"
+"Last-Translator: Kevin Leclercq <nuklearstriker@gmail.com>, 2020\n"
+"Language-Team: French (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,6 +71,9 @@ msgstr "Format"
 
 msgid "Message"
 msgstr "Message"
+
+msgid "Parts"
+msgstr ""
 
 msgid "Shared Folder"
 msgstr "Dossier partagé"

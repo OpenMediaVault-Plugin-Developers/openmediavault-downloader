@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the openmediavault-downloader package.
 # 
 # Translators:
-# Paolo Velati <paolo.velati@gmail.com>, 2014-2017
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
+# d5316b6b4d283a9cbe4ea704ae8abe02_b972f24 <bd82b27c045fcb3aa6bd04640e5224c5_36908>, 2014-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"POT-Creation-Date: 2026-05-31 00:57+0000\n"
 "PO-Revision-Date: 2013-12-07 18:07+0000\n"
-"Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2014-2017\n"
-"Language-Team: Italian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/it/)\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
+"Language-Team: Italian (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,25 +26,25 @@ msgid "Component"
 msgstr "Componente"
 
 msgid "Date & Time"
-msgstr "Data & Orario"
+msgstr "Data e orario"
 
 msgid "Delete"
 msgstr "Elimina"
 
 msgid "Delete from list of downloads after file is downloaded."
-msgstr ""
+msgstr "Elimina dall'elenco dei download dopo che il file è stato scaricato."
 
 msgid "Download Type"
-msgstr "Tipo Download"
+msgstr "Tipo di download"
 
 msgid "Download multiple"
-msgstr ""
+msgstr "Download multiplo"
 
 msgid "Download playlist"
-msgstr ""
+msgstr "Scarica playlist"
 
 msgid "Download subtitles."
-msgstr ""
+msgstr "Scarica sottotitoli."
 
 msgid "Downloader"
 msgstr "Downloader"
@@ -52,13 +53,13 @@ msgid "Downloading"
 msgstr "Download in corso"
 
 msgid "Downloads to this shared folder."
-msgstr ""
+msgstr "Scarica in questa cartella condivisa."
 
 msgid "Filename"
-msgstr "Nome file"
+msgstr "Nome del file"
 
 msgid "Filesize"
-msgstr "Dimensione File"
+msgstr "Dimensione del file"
 
 msgid "Format"
 msgstr "Formato"
@@ -66,17 +67,20 @@ msgstr "Formato"
 msgid "Message"
 msgstr "Messaggio"
 
+msgid "Parts"
+msgstr ""
+
 msgid "Shared Folder"
 msgstr "Cartella condivisa"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Cartella condivisa"
 
 msgid "Start download"
-msgstr ""
+msgstr "Inizia il download"
 
 msgid "Subtitles"
-msgstr ""
+msgstr "Sottotitoli"
 
 msgid "Type"
 msgstr "Tipo"
@@ -88,7 +92,7 @@ msgid "Update youtube-dl"
 msgstr "Aggiorna youtube-dl"
 
 msgid "Update youtube-dl ..."
-msgstr ""
+msgstr "Sto aggiornando youtube-dl ..."
 
 msgid "aac audio only"
 msgstr "Solo audio aac"
@@ -109,7 +113,7 @@ msgid "mp4/m4a"
 msgstr "mp4/m4a"
 
 msgid "n/a"
-msgstr "n/d"
+msgstr "non disponibile"
 
 msgid "wav audio only"
 msgstr "Solo audio wav"

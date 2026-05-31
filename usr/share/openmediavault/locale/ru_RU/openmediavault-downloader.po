@@ -5,15 +5,16 @@
 # Translators:
 # Alexander Savchenko, 2014
 # JonBAL <jonbal1@rambler.ru>, 2015
-# Артур Мудрых <arturmon82@gmail.com>, 2013
+# Artur Mudrykh <arturmon82@gmail.com>, 2013
+# Дмитрий <bardimnik@rambler.ru>, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-19 13:07-0600\n"
+"POT-Creation-Date: 2026-05-31 00:57+0000\n"
 "PO-Revision-Date: 2013-12-07 18:07+0000\n"
-"Last-Translator: JonBAL <jonbal1@rambler.ru>, 2015\n"
-"Language-Team: Russian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/ru/)\n"
+"Last-Translator: Дмитрий <bardimnik@rambler.ru>, 2023\n"
+"Language-Team: Russian (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,28 +34,28 @@ msgid "Delete"
 msgstr "Удалить"
 
 msgid "Delete from list of downloads after file is downloaded."
-msgstr ""
+msgstr "Удалить из списка загрузок после загрузки файла."
 
 msgid "Download Type"
 msgstr "Тип загрузки"
 
 msgid "Download multiple"
-msgstr ""
+msgstr "Скачать несколько"
 
 msgid "Download playlist"
-msgstr ""
+msgstr "Скачать плейлист"
 
 msgid "Download subtitles."
-msgstr ""
+msgstr "Скачать субтитры."
 
 msgid "Downloader"
-msgstr "Downloader"
+msgstr "Загрузчик"
 
 msgid "Downloading"
 msgstr "Загрузка"
 
 msgid "Downloads to this shared folder."
-msgstr ""
+msgstr "Загрузки в эту общую папку."
 
 msgid "Filename"
 msgstr "Имя файла"
@@ -63,25 +64,28 @@ msgid "Filesize"
 msgstr "Размер файла"
 
 msgid "Format"
-msgstr ""
+msgstr "Формат"
 
 msgid "Message"
+msgstr "Сообщение"
+
+msgid "Parts"
 msgstr ""
 
 msgid "Shared Folder"
 msgstr "Общая папка"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Общая папка"
 
 msgid "Start download"
-msgstr ""
+msgstr "Начать загрузку"
 
 msgid "Subtitles"
-msgstr ""
+msgstr "Субтитры"
 
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 msgid "URL"
 msgstr "URL"
@@ -90,10 +94,10 @@ msgid "Update youtube-dl"
 msgstr "Обновить youtube-dl"
 
 msgid "Update youtube-dl ..."
-msgstr ""
+msgstr "Обновление youtube-dl ..."
 
 msgid "aac audio only"
-msgstr ""
+msgstr "только звук аас"
 
 msgid "aria2"
 msgstr "aria2"
@@ -102,22 +106,22 @@ msgid "curl"
 msgstr "curl"
 
 msgid "m4a audio only"
-msgstr ""
+msgstr "только звук m4a"
 
 msgid "mp3 audio only"
-msgstr ""
+msgstr "только звук в mp3"
 
 msgid "mp4/m4a"
-msgstr ""
+msgstr "mp4/m4a"
 
 msgid "n/a"
 msgstr "н/д"
 
 msgid "wav audio only"
-msgstr ""
+msgstr "только звук wav"
 
 msgid "webm"
-msgstr ""
+msgstr "webm"
 
 msgid "youtube-dl"
 msgstr "youtube-dl"

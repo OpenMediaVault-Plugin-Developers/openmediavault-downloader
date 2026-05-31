@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-downloader package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-downloader\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-31 00:57+0000\n"
+"PO-Revision-Date: 2013-12-07 18:07+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Lao (Laos) (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/lo_LA/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lo_LA\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Add download"
+msgstr "ເພີ່ມການດາວໂຫລດ"
+
+msgid "Component"
+msgstr "ສ່ວນປະກອບ"
+
+msgid "Date & Time"
+msgstr "ວັນທີ ແລະ ເວລາ"
+
+msgid "Delete"
+msgstr "ລຶບ"
+
+msgid "Delete from list of downloads after file is downloaded."
+msgstr "ລຶບອອກຈາກລາຍການດາວໂຫລດ ຫຼັງຈາກທີ່ດາວໂຫລດໄຟລ໌ສຳເລັດແລ້ວ"
+
+msgid "Download Type"
+msgstr "ປະເພດການດາວໂຫລດ"
+
+msgid "Download multiple"
+msgstr "ດາວໂຫລດຫຼາຍລາຍການ"
+
+msgid "Download playlist"
+msgstr "ດາວໂຫລດເພລລິສ໌"
+
+msgid "Download subtitles."
+msgstr "ດາວໂຫລດຄຳບັນຍາຍ"
+
+msgid "Downloader"
+msgstr "ຕົວດາວໂຫລດ"
+
+msgid "Downloading"
+msgstr "ກຳລັງດາວໂຫລດ"
+
+msgid "Downloads to this shared folder."
+msgstr "ດາວໂຫລດໄປຍັງໂຟນເດີທີ່ແບ່ງປັນນີ້"
+
+msgid "Filename"
+msgstr "ຊື່ໄຟລ໌"
+
+msgid "Filesize"
+msgstr "ຂະໜາດໄຟລ໌"
+
+msgid "Format"
+msgstr "ຮູບແບບ"
+
+msgid "Message"
+msgstr "ຂໍ້ຄວາມ"
+
+msgid "Parts"
+msgstr ""
+
+msgid "Shared Folder"
+msgstr "ໂຟນເດີທີ່ແບ່ງປັນ"
+
+msgid "Shared folder"
+msgstr "ໂຟນເດີທີ່ແບ່ງປັນ"
+
+msgid "Start download"
+msgstr "ເລີ່ມການດາວໂຫລດ"
+
+msgid "Subtitles"
+msgstr "ຄຳບັນຍາຍ"
+
+msgid "Type"
+msgstr "ປະເພດ"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Update youtube-dl"
+msgstr "ອັບເດດ youtube-dl"
+
+msgid "Update youtube-dl ..."
+msgstr "ອັບເດດ youtube-dl ..."
+
+msgid "aac audio only"
+msgstr "ສຽງ aac ເທົ່ານັ້ນ"
+
+msgid "aria2"
+msgstr "aria2"
+
+msgid "curl"
+msgstr "curl"
+
+msgid "m4a audio only"
+msgstr "ສຽງ m4a ເທົ່ານັ້ນ"
+
+msgid "mp3 audio only"
+msgstr "ສຽງ mp3 ເທົ່ານັ້ນ"
+
+msgid "mp4/m4a"
+msgstr "mp4/m4a"
+
+msgid "n/a"
+msgstr "ບໍ່ມີຂໍ້ມູນ"
+
+msgid "wav audio only"
+msgstr "ສຽງ wav ເທົ່ານັ້ນ"
+
+msgid "webm"
+msgstr "webm"
+
+msgid "youtube-dl"
+msgstr "youtube-dl"

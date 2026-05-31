@@ -3,100 +3,98 @@
 # This file is distributed under the same license as the openmediavault-downloader package.
 # 
 # Translators:
-# Karl Jonatan Nyberg, 2023
-# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2018,2020
-# Karl Jonatan Nyberg, 2026
+# Priit Uring, 2024
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-downloader\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-31 00:57+0000\n"
 "PO-Revision-Date: 2013-12-07 18:07+0000\n"
-"Last-Translator: Karl Jonatan Nyberg, 2026\n"
-"Language-Team: Swedish (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/sv/)\n"
+"Last-Translator: Priit Uring, 2024\n"
+"Language-Team: Estonian (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-downloader/language/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
+"Language: et\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add download"
-msgstr "Lägg till hämtning"
+msgstr "Lisa allalaadimine"
 
 msgid "Component"
 msgstr "Komponent"
 
 msgid "Date & Time"
-msgstr "Datum & tid"
+msgstr "Kuupäev & kell"
 
 msgid "Delete"
-msgstr "Ta bort"
+msgstr "Kustuta"
 
 msgid "Delete from list of downloads after file is downloaded."
-msgstr "Ta bort från listan över hämtningar efter att filen har hämtats."
+msgstr "Kustuta allalaadimiste nimekirjast, kui fail on allalaaditud."
 
 msgid "Download Type"
-msgstr "Hämtningstyp"
+msgstr ""
 
 msgid "Download multiple"
-msgstr "Hämta flera"
+msgstr ""
 
 msgid "Download playlist"
-msgstr "Hämta spellista"
+msgstr ""
 
 msgid "Download subtitles."
-msgstr "Hämta undertexter."
+msgstr "Lae alla subtiitrid."
 
 msgid "Downloader"
-msgstr "Hämtare"
+msgstr "Allalaadija"
 
 msgid "Downloading"
-msgstr "Hämtar"
+msgstr ""
 
 msgid "Downloads to this shared folder."
-msgstr "Hämtas till denna delade mapp."
+msgstr "Allalaaditakse siia jagatud kausta"
 
 msgid "Filename"
-msgstr "Filnamn"
+msgstr "Failinimi"
 
 msgid "Filesize"
-msgstr "Filstorlek"
+msgstr "Faili suurus"
 
 msgid "Format"
-msgstr "Format"
+msgstr "Formaat"
 
 msgid "Message"
-msgstr "Meddelande"
+msgstr "Sõnum"
 
 msgid "Parts"
 msgstr ""
 
 msgid "Shared Folder"
-msgstr "Delad mapp"
+msgstr "Jagatud kaust"
 
 msgid "Shared folder"
-msgstr "Delad mapp"
+msgstr "Jagatud kaust"
 
 msgid "Start download"
-msgstr "Starta hämtning"
+msgstr "Käivita allalaadimine"
 
 msgid "Subtitles"
-msgstr "Undertexter"
+msgstr "Subtiitrid"
 
 msgid "Type"
-msgstr "Typ"
+msgstr "Tüüp"
 
 msgid "URL"
-msgstr "Webbadress"
+msgstr "URL"
 
 msgid "Update youtube-dl"
-msgstr "Uppdatera youtube-dl"
+msgstr "Uuenda youtube-dl"
 
 msgid "Update youtube-dl ..."
-msgstr "Uppdatera youtube-dl ..."
+msgstr "Uuenda youtube-dl ..."
 
 msgid "aac audio only"
-msgstr "endast aac-ljud"
+msgstr "ainult aac heli"
 
 msgid "aria2"
 msgstr "aria2"
@@ -105,19 +103,19 @@ msgid "curl"
 msgstr "curl"
 
 msgid "m4a audio only"
-msgstr "endast m4a-ljud"
+msgstr "ainult m4a heli"
 
 msgid "mp3 audio only"
-msgstr "endast mp3-ljud"
+msgstr "ainult mp3 heli"
 
 msgid "mp4/m4a"
 msgstr "mp4/m4a"
 
 msgid "n/a"
-msgstr "Otillgängligt"
+msgstr ""
 
 msgid "wav audio only"
-msgstr "endast wav-ljud"
+msgstr "ainult wav heli"
 
 msgid "webm"
 msgstr "webm"
